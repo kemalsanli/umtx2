@@ -33,11 +33,11 @@ const payload_map = [
     {
         displayTitle: "etaHEN",
         description: "AIO HEN",
-        fileName: "etaHEN-2.3B.bin",
+        fileName: "etaHEN-2.4B.bin",
         author: "LightningMods, Buzzer, sleirsgoevy, ChendoChap, astrelsky, illusion, CTN, SiSTR0, Nomadic",
         projectSource: "https://github.com/etaHEN/etaHEN",
-        binarySource: "https://github.com/etaHEN/etaHEN/blob/b41b22d7686bde5741f5b5e6b72076fc0f4cec56/etaHEN-2.3B.bin",
-        version: "2.3b",
+        binarySource: "https://github.com/etaHEN/etaHEN/blob/0fe0407b3a6a84fb1afc1871c953a74118458b0b/etaHEN-2.4B.bin",
+        version: "2.4b",
         toPort: 9021
     },
     {
@@ -55,10 +55,10 @@ const payload_map = [
         displayTitle: "Byepervisor HEN",
         description: "FPKG enabler",
         fileName: "byepervisor.elf",
-        author: "SpecterDev, ChendoChap, flatz, fail0verflow, Znullptr, kiwidog, sleirsgoevy, EchoStretch, LightningMods, BestPig, zecoxao", 
+        author: "SpecterDev, ChendoChap, flatz, fail0verflow, Znullptr, kiwidog, sleirsgoevy, EchoStretch, LightningMods, BestPig, zecoxao, TheOfficialFloW", 
         projectSource: "https://github.com/EchoStretch/Byepervisor",
-        binarySource: "https://github.com/EchoStretch/Byepervisor/actions/runs/14004003762",
-        version: "84164bb",
+        binarySource: "https://github.com/EchoStretch/Byepervisor/actions/runs/18515784313",
+        version: "d89a105",
         supportedFirmwares: ["1.00", "1.01", "1.02", "1.12", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70"],
         toPort: 9021
     },
@@ -78,8 +78,8 @@ const payload_map = [
         fileName: "websrv-ps5.elf",
         author: "john-tornblom",
         projectSource: "https://github.com/ps5-payload-dev/websrv",
-        binarySource: "https://github.com/ps5-payload-dev/websrv/releases/tag/v0.27",
-        version: "0.27",
+        binarySource: "https://github.com/ps5-payload-dev/websrv/releases/tag/v0.28.1",
+        version: "0.28.1",
         toPort: 9021
     },
     {
@@ -88,8 +88,8 @@ const payload_map = [
         fileName: "ftpsrv-ps5.elf",
         author: "john-tornblom",
         projectSource: "https://github.com/ps5-payload-dev/ftpsrv",
-        binarySource: "https://github.com/ps5-payload-dev/ftpsrv/releases/tag/v0.14.2",
-        version: "0.14.2",
+        binarySource: "https://github.com/ps5-payload-dev/ftpsrv/releases/tag/v0.14.3",
+        version: "0.14.3",
         toPort: 9021
     },
     {
