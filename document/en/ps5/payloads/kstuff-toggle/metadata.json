@@ -19,13 +19,17 @@
       "version": "0.2",
       "fileName": "kstuff-toggle.elf",
       "filePath": "payloads/kstuff-toggle/0.2/kstuff-toggle.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff-toggle/releases/download/latest/kstuff-toggle.elf",
+      "hash": "b85aac983940ff3b895136bdfdc81cd06af7670b3a8a3c386f08e0a406851ff4",
       "fileSize": 112736,
-      "releaseDate": "",
+      "releaseDate": "2024-01-10",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  }
 }
