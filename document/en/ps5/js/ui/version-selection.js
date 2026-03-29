@@ -56,6 +56,24 @@ async function showSettingsVersionPage(payload) {
     });
 
     header.appendChild(backBtn);
+
+    // Payload info (name + description) between back button and toggle
+    var payloadInfoContainer = document.createElement("div");
+    payloadInfoContainer.className = "version-header-info";
+
+    var payloadName = document.createElement("span");
+    payloadName.className = "version-header-title";
+    payloadName.textContent = payload.displayTitle || "";
+    payloadInfoContainer.appendChild(payloadName);
+
+    if (payload.description) {
+        var payloadDesc = document.createElement("span");
+        payloadDesc.className = "version-header-description";
+        payloadDesc.textContent = payload.description;
+        payloadInfoContainer.appendChild(payloadDesc);
+    }
+
+    header.appendChild(payloadInfoContainer);
     header.appendChild(toggleBtn);
     versionView.appendChild(header);
 

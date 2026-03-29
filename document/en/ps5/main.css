@@ -484,11 +484,12 @@ body.jailbreak-active .top-right-buttons {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     border: 1.5px solid rgba(255, 255, 255, 0.5);
     transition: all 0.2s ease;
     display: block;
     margin-right: 3.2rem;   /* 170x → 51px ≈ 3.2rem */
+    position: relative;
 }
 
 .profile-btn:hover {
@@ -502,6 +503,19 @@ body.jailbreak-active .top-right-buttons {
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
+}
+
+/* PS5-style online status indicator */
+.profile-status {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background-color: #FFC107;
+    border: 1.5px solid var(--background-color-primary);
 }
 
 /* PS5-style clock */
@@ -548,10 +562,11 @@ body.jailbreak-active .top-right-buttons {
     color: var(--text-color-primary);
     font-size: 1rem;
     font-weight: 600;
+    line-height: 1.5;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     transition: background-color 0.25s ease;
     white-space: nowrap;
 }
@@ -582,6 +597,7 @@ body.jailbreak-active .top-right-buttons {
 .back-btn {
     padding: 0.5rem 1.5rem !important;
     font-size: 1rem !important;
+    font-weight: 600 !important;
     min-width: auto !important;
     width: auto !important;
     line-height: 1.5 !important;
@@ -627,11 +643,34 @@ body.jailbreak-active .top-right-buttons {
     align-items: center;
     border-bottom: 1px solid var(--surface-color-primary);
     flex-shrink: 0;
+    gap: 1rem;
+}
+
+/* Version header info (payload name + description) */
+.version-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex-grow: 1;
+}
+
+.version-header-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color-primary);
+}
+
+.version-header-description {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color-secondary);
 }
 
 .version-back-btn {
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
     background-color: var(--surface-color-primary);
     color: var(--text-color-primary);
     border: none;
@@ -651,6 +690,8 @@ body.jailbreak-active .top-right-buttons {
 .version-toggle-btn {
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
     background-color: var(--surface-color-primary);
     color: var(--text-color-primary);
     border: none;

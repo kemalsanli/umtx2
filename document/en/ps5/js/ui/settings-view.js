@@ -11,6 +11,10 @@
  * Shows ALL payloads (including hidden ones) in a 2-column grid.
  */
 function openSettings() {
+    if (window.settingsMode) {
+        closeSettings();
+        return;
+    }
     window.settingsMode = true;
     populateSettingsGrid();
     switchPage("settings-view");
