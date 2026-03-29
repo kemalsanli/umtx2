@@ -47,18 +47,27 @@
 
 const supportedFirmwares = ["1.00", "1.01", "1.02", "1.05", "1.10", "1.11", "1.12", "1.13", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70", "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50", "4.51", "5.00", "5.02", "5.10", "5.50"];
 
-const fw_idx = navigator.userAgent.indexOf('PlayStation; PlayStation 5/') + 27;
 // @ts-ignore
-window.fw_str = navigator.userAgent.substring(fw_idx, fw_idx + 4);
-// @ts-ignore
-window.fw_float = parseFloat(fw_str);
-
-// @ts-ignore
-//load offsets & webkit exploit after.
-if (navigator.userAgent.includes('PlayStation 5') && !supportedFirmwares.includes(fw_str)) {
+if (navigator.userAgent.includes('PlayStation 5')) {
+    const fw_idx = navigator.userAgent.indexOf('PlayStation; PlayStation 5/') + 27;
     // @ts-ignore
-    alert(`This firmware(${fw_str}) is not supported.`);
-    throw new Error("");
+    window.fw_str = navigator.userAgent.substring(fw_idx, fw_idx + 4);
+    // @ts-ignore
+    window.fw_float = parseFloat(fw_str);
+
+    // @ts-ignore
+    //load offsets & webkit exploit after.
+    if (!supportedFirmwares.includes(fw_str)) {
+        // @ts-ignore
+        alert(`This firmware(${fw_str}) is not supported.`);
+        throw new Error("");
+    }
+} else {
+    // Not running on PS5 — set safe defaults for development/testing
+    // @ts-ignore
+    window.fw_str = "";
+    // @ts-ignore
+    window.fw_float = 0;
 }
 
 let nogc = [];
@@ -1296,7 +1305,10 @@ async function main(userlandRW, wkOnly = false) {
 
 }
 
-let fwScript = document.createElement('script');
-document.body.appendChild(fwScript);
-// @ts-ignore
-fwScript.setAttribute('src', `offsets/${window.fw_str}.js`);
+// Only load offsets if we're on PS5 and have a valid firmware string
+if (navigator.userAgent.includes('PlayStation 5') && window.fw_str) {
+    let fwScript = document.createElement('script');
+    document.body.appendChild(fwScript);
+    // @ts-ignore
+    fwScript.setAttribute('src', `offsets/${window.fw_str}.js`);
+}

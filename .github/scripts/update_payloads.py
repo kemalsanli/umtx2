@@ -20,7 +20,7 @@ import hashlib
 import re
 import subprocess
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Any, Dict, List, Optional
 
 try:
@@ -444,11 +444,19 @@ def load_metadata(payload_id: str) -> Dict:
     return {}
 
 
+def json_serial(obj):
+    """JSON serializer for objects not serializable by default json code."""
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
+
+
 def save_metadata(payload_id: str, metadata: Dict):
     """Save metadata.json for a payload."""
     metadata_path = PAYLOADS_DIR / payload_id / "metadata.json"
+    metadata_path.parent.mkdir(parents=True, exist_ok=True)
     with open(metadata_path, 'w') as f:
-        json.dump(metadata, f, indent=2)
+        json.dump(metadata, f, indent=2, default=json_serial)
 
 
 def generate_payload_map_js(payloads_config: List[Dict]) -> str:

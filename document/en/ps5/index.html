@@ -217,9 +217,11 @@
             );
             throw reason;
         });
-        // TEST MODE: Guard against undefined fw_str in test mode
+        // Update firmware display (safe for non-PS5 browsers)
         if (window.fw_str) {
             document.getElementById("current-fw").innerHTML = fw_str;
+        } else {
+            document.getElementById("current-fw").innerHTML = "N/A (not PS5)";
         }
         registerAppCacheEventHandlers();
         registerL2ButtonHandler();

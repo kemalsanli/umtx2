@@ -3,12 +3,16 @@
   "displayTitle": "ELF Loader",
   "description": "ELF loader",
   "authors": [
-    "john-tornblom"
+    {"name": "john-tornblom", "github": "https://github.com/john-tornblom", "role": "Developer"}
   ],
   "projectUrl": "https://github.com/ps5-payload-dev/elfldr",
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "sourceType": "github-release",
   "sourceRepo": "ps5-payload-dev/elfldr",
   "supportedFirmwares": [],
-  "toPort": null,
   "versions": [
     {
       "version": "latest",
