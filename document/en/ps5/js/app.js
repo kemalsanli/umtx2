@@ -107,6 +107,12 @@ function registerAppCacheEventHandlers() {
         }
     }
 
+    /** Dismiss the current cache toast with a final message, then auto-remove. */
+    function finishAppCacheToast(message, delay) {
+        if (delay === undefined) delay = 2000;
+        createOrUpdateAppCacheToast(message, delay);
+    }
+
     if (document.documentElement.hasAttribute("manifest")) {
         if (!navigator.onLine) {
             createOrUpdateAppCacheToast('Offline.', 2000);
@@ -114,48 +120,48 @@ function registerAppCacheEventHandlers() {
     }
 
     appCache.addEventListener('cached', function (e) {
-        createOrUpdateAppCacheToast('Finished caching site.', 1500);
+        finishAppCacheToast('Finished caching site.', 2000);
     }, false);
 
     appCache.addEventListener('checking', function (e) {
-        createOrUpdateAppCacheToast("Checking for updates...", 3000);
+        createOrUpdateAppCacheToast("Checking for updates...");
     }, false);
 
     appCache.addEventListener('downloading', function (e) {
-        createOrUpdateAppCacheToast('Downloading new cache...', 5000);
+        createOrUpdateAppCacheToast('Downloading new cache...');
     }, false);
 
     appCache.addEventListener('error', function (e) {
         // only show error toast if we're online
         if (navigator.onLine) {
-            createOrUpdateAppCacheToast('Error while caching site.', 5000);
+            finishAppCacheToast('Error while caching site.', 5000);
         } else {
-            createOrUpdateAppCacheToast('Offline.', 2000);
+            finishAppCacheToast('Offline.', 2000);
         }
     }, false);
 
     appCache.addEventListener('noupdate', function (e) {
-        createOrUpdateAppCacheToast('Cache is up-to-date.', 1500);
+        finishAppCacheToast('Cache is up-to-date.', 1500);
     }, false);
 
     appCache.addEventListener('obsolete', function (e) {
-        createOrUpdateAppCacheToast('Site is obsolete.', 5000);
+        finishAppCacheToast('Site is obsolete.', 5000);
     }, false);
 
     appCache.addEventListener('progress', function (e) {
         var percentage = Math.round((e.loaded / e.total) * 100);
 
-        createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%', 10000);
+        createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
 
         // the last item takes an unreasonably long time to complete (with a big update)
         if (e.loaded + 1 == e.total) {
-            createOrUpdateAppCacheToast("Processing... This may take a minute.", 30000);
+            createOrUpdateAppCacheToast("Processing... This may take a minute.");
         }
     }, false);
 
     appCache.addEventListener('updateready', function (e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            createOrUpdateAppCacheToast('The site was updated. Refresh to switch to updated version', 10000);
+            finishAppCacheToast('The site was updated. Refresh to switch to updated version.', 10000);
         }
     }, false);
 }

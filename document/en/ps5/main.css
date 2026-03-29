@@ -538,7 +538,7 @@ body.jailbreak-active .top-right-buttons {
 .settings-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 1rem;
     flex-shrink: 0;
 }
@@ -643,7 +643,7 @@ body.jailbreak-active .top-right-buttons {
     align-items: center;
     border-bottom: 1px solid var(--surface-color-primary);
     flex-shrink: 0;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 /* Version header info (payload name + description) */
