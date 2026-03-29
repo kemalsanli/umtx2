@@ -798,6 +798,33 @@ const payload_map = [
         visible: true
     },
     {
+        id: "backpork",
+        displayTitle: "BackPork",
+        description: "Background payload for sideloading system libraries into PS5 games",
+        author: "BestPig",
+        authors: [{"name": "BestPig", "github": "https://github.com/BestPig", "role": "Developer"}],
+        projectUrl: "https://github.com/BestPig/BackPork",
+        license: {type: "GPL-3.0", url: "https://github.com/BestPig/BackPork/blob/main/LICENSE"},
+        sourceType: "github-release",
+        sourceRepo: "BestPig/BackPork",
+        versions: [
+            {
+                version: "0.1",
+                fileName: "ps5-backpork.elf",
+                filePath: "payloads/backpork/0.1/ps5-backpork.elf",
+                downloadUrl: "https://github.com/BestPig/BackPork/releases/download/0.1/ps5-backpork.elf",
+                hash: "f76dd1885ef6aebec55e12a71b32a6bbf0e1cafb9146960a51b231fd52b914fe",
+                fileSize: 116184,
+                releaseDate: "2026-01-18",
+                isDefault: true,
+                isPreRelease: false,
+                changelog: ["Initial Release", "Automatically mounts fakelib folder from game's app directory using unionfs", "Monitors game launches and performs cleanup on exit"]
+            },
+        ],
+        toPort: 9021,
+        visible: true
+    },
+    {
         id: "ps5debug-dizz",
         displayTitle: "ps5debug",
         description: "Debugger, open source version by DizzRL",
