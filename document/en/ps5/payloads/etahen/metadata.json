@@ -21,16 +21,44 @@
     "5."
   ],
   "toPort": 9021,
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
   "versions": [
     {
       "version": "2.4b",
       "fileName": "etaHEN-2.4B.bin",
       "filePath": "payloads/etahen/2.4b/etaHEN-2.4B.bin",
-      "downloadUrl": "",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.4B.bin",
       "hash": "",
       "fileSize": 4605992,
-      "releaseDate": "",
+      "releaseDate": "2024-01-15",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "2.3b",
+      "fileName": "etaHEN-2.3B.bin",
+      "filePath": "payloads/etahen/2.3b/etaHEN-2.3B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.3B.bin",
+      "hash": "",
+      "fileSize": 0,
+      "releaseDate": "2024-01-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "2.2b",
+      "fileName": "etaHEN-2.2B.bin",
+      "filePath": "payloads/etahen/2.2b/etaHEN-2.2B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.2B.bin",
+      "hash": "",
+      "fileSize": 0,
+      "releaseDate": "2023-12-15",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }

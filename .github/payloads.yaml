@@ -32,6 +32,16 @@ payloads:
         url: https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.4B.bin
         isDefault: true
         releaseDate: 2024-01-15
+      - version: 2.3b
+        fileName: etaHEN-2.3B.bin
+        url: https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.3B.bin
+        isDefault: false
+        releaseDate: 2024-01-01
+      - version: 2.2b
+        fileName: etaHEN-2.2B.bin
+        url: https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.2B.bin
+        isDefault: false
+        releaseDate: 2023-12-15
 
   - id: kstuff
     displayTitle: ps5-kstuff

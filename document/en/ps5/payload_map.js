@@ -74,6 +74,30 @@ const payload_map = [
                 isDefault: true,
                 isPreRelease: false,
                 changelog: []
+            },
+            {
+                version: "2.3b",
+                fileName: "etaHEN-2.3B.bin",
+                filePath: "payloads/etahen/2.3b/etaHEN-2.3B.bin",
+                downloadUrl: "https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.3B.bin",
+                hash: "",
+                fileSize: 0,
+                releaseDate: "2024-01-01",
+                isDefault: false,
+                isPreRelease: false,
+                changelog: []
+            },
+            {
+                version: "2.2b",
+                fileName: "etaHEN-2.2B.bin",
+                filePath: "payloads/etahen/2.2b/etaHEN-2.2B.bin",
+                downloadUrl: "https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.2B.bin",
+                hash: "",
+                fileSize: 0,
+                releaseDate: "2023-12-15",
+                isDefault: false,
+                isPreRelease: false,
+                changelog: []
             }
         ],
         supportedFirmwares: ["3.", "4.", "5."],

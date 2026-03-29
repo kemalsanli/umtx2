@@ -78,7 +78,12 @@ function getSelectedVersion(payloadId) {
  * @param {string} version
  */
 function setSelectedVersion(payloadId, version) {
-    payloadVersions[payloadId] = version;
+    if (version) {
+        payloadVersions[payloadId] = version;
+    } else {
+        // Clear stale selection by removing the key entirely
+        delete payloadVersions[payloadId];
+    }
     saveSettings();
 }
 

@@ -213,11 +213,15 @@ async function refreshPayloads() {
             throw new Error("Invalid payload_map format");
         }
 
-        // Strip comments before parsing JSON
-        var jsonStr = match[1]
-            .replace(/\/\/.*$/gm, "")
-            .replace(/\/\*[\s\S]*?\*\//g, "");
-        var newPayloadMap = JSON.parse(jsonStr);
+        // Use Function constructor to safely evaluate JS object literals.
+        // JSON.parse won't work here because payload_map.js uses unquoted
+        // keys and trailing commas (valid JS, not valid JSON).
+        var newPayloadMap;
+        try {
+            newPayloadMap = new Function("return " + match[1])();
+        } catch (parseError) {
+            throw new Error("Failed to parse payload_map: " + parseError.message);
+        }
 
         // Compare with current map
         var changes = comparePayloadMaps(window.payload_map, newPayloadMap);
@@ -228,6 +232,27 @@ async function refreshPayloads() {
             // Apply the updated payload_map
             window.payload_map = newPayloadMap;
 
+            // Clean up stale version selections — if the user previously
+            // selected a version that no longer exists in the refreshed map,
+            // clear it so resolveActiveVersion() falls back to the default.
+            for (var pi = 0; pi < newPayloadMap.length; pi++) {
+                var p = newPayloadMap[pi];
+                var selected = getSelectedVersion(p.id);
+                if (selected && p.versions) {
+                    var stillExists = false;
+                    for (var vi = 0; vi < p.versions.length; vi++) {
+                        if (p.versions[vi].version === selected) {
+                            stillExists = true;
+                            break;
+                        }
+                    }
+                    if (!stillExists) {
+                        // Clear stale selection (empty string → getSelectedVersion returns null)
+                        setSelectedVersion(p.id, "");
+                    }
+                }
+            }
+
             // Persist timestamp so we know when we last updated
             localStorage.setItem("payload_map_updated", Date.now().toString());
 
@@ -236,6 +261,13 @@ async function refreshPayloads() {
 
             // Re-render the settings grid with new data
             populateSettingsGrid();
+
+            // If we're in post-JB mode, also re-render the payloads page
+            // so version dropdowns reflect the updated data
+            var payloadsView = document.getElementById("payloads-view");
+            if (typeof populatePayloadsPage === "function" && payloadsView && payloadsView.offsetParent !== null) {
+                populatePayloadsPage();
+            }
         }
 
         // Auto-dismiss toast after 5 seconds

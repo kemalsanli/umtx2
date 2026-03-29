@@ -20,7 +20,7 @@ import hashlib
 import re
 import subprocess
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 try:
@@ -41,7 +41,7 @@ PAYLOADS_DIR = REPO_ROOT / "document" / "en" / "ps5" / "payloads"
 PAYLOAD_MAP_FILE = REPO_ROOT / "document" / "en" / "ps5" / "payload_map.js"
 PAYLOAD_CONFIG_FILE = REPO_ROOT / ".github" / "payloads.yaml"
 
-MAX_VERSIONS_PER_PAYLOAD = 3
+MAX_VERSIONS_PER_PAYLOAD = 999  # Effectively unlimited - fetch all available versions
 CUSTOM_ACTION_APPCACHE_REMOVE = "appcache-remove"
 
 # Version author patterns for license detection
@@ -200,11 +200,17 @@ def detect_firmware_compatibility(repo: str, manual_firmwares: List[str]) -> Lis
 
 
 def get_github_releases(repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD) -> List[Dict]:
-    """Get releases from a GitHub repo using gh CLI."""
+    """Get releases from a GitHub repo using gh CLI.
+    
+    Note: 'gh release list' does NOT support 'body' field.
+    Only available fields: createdAt, isDraft, isImmutable, isLatest,
+    isPrerelease, name, publishedAt, tagName.
+    Use get_release_details() to fetch body/assets per release.
+    """
     try:
         result = subprocess.run(
             ["gh", "release", "list", "--repo", repo, "--json",
-             "tagName,createdAt,isLatest,isPrerelease,body", "--limit", str(max_releases)],
+             "tagName,name,isPrerelease", "--limit", str(max_releases)],
             capture_output=True, text=True, timeout=30
         )
         if result.returncode != 0:
@@ -218,30 +224,27 @@ def get_github_releases(repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD)
         return []
 
 
-def get_release_assets(repo: str, tag: str) -> List[Dict]:
-    """Get assets for a specific release tag."""
+def get_release_details(repo: str, tag: str) -> Optional[Dict]:
+    """Get release details (body, url, assets) for a specific tag using gh release view.
+    
+    This is the second step after get_github_releases(), since 'gh release list'
+    does not support the 'body' field.
+    """
     try:
         result = subprocess.run(
             ["gh", "release", "view", tag, "--repo", repo,
-             "--json", "assets", "--jq", ".assets[]|{name:.name,url:.url}"],
+             "--json", "body,url,assets,createdAt"],
             capture_output=True, text=True, timeout=30
         )
         if result.returncode != 0:
-            return []
+            print(f"  Warning: gh release view failed for {repo}@{tag}: {result.stderr}")
+            return None
 
-        lines = result.stdout.strip().split('\n')
-        assets = []
-        for line in lines:
-            if line.strip():
-                try:
-                    asset = json.loads(line)
-                    assets.append(asset)
-                except json.JSONDecodeError:
-                    continue
-        return assets
-    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
-        print(f"  Warning: Could not fetch assets for {repo}@{tag}: {e}")
-        return []
+        data = json.loads(result.stdout)
+        return data
+    except (subprocess.TimeoutExpired, FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"  Warning: Could not fetch release details for {repo}@{tag}: {e}")
+        return None
 
 
 def match_asset(assets: List[Dict], pattern: str) -> Optional[Dict]:
@@ -264,7 +267,11 @@ def match_asset(assets: List[Dict], pattern: str) -> Optional[Dict]:
 
 
 def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> List[Dict]:
-    """Update payload from GitHub releases."""
+    """Update payload from GitHub releases using a two-step approach.
+    
+    Step 1: gh release list → get tagName, name, isPrerelease
+    Step 2: gh release view TAG → get body, url, assets, createdAt
+    """
     repo = payload_config['sourceRepo']
     pattern = payload_config.get('sourcePattern', '*.elf')
     versions = []
@@ -272,6 +279,7 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
     # Preserve existing versions from metadata
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
 
+    # Step 1: Get release list (tagName, name, isPrerelease only)
     releases = get_github_releases(repo)
     if not releases:
         print(f"  No releases found for {repo}, using existing metadata...")
@@ -280,12 +288,18 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
     for i, release in enumerate(releases[:MAX_VERSIONS_PER_PAYLOAD]):
         tag = release.get('tagName', '')
         version = tag.lstrip('v')
-        created_at = release.get('createdAt', '')
         is_prerelease = release.get('isPrerelease', False)
-        body = release.get('body', '')
 
-        # Get assets for this release
-        assets = get_release_assets(repo, tag)
+        # Step 2: Get release details (body, url, assets, createdAt) via gh release view
+        details = get_release_details(repo, tag)
+        if not details:
+            print(f"  No details found for {repo}@{tag}")
+            continue
+
+        body = details.get('body', '')
+        created_at = details.get('createdAt', '')
+        assets = details.get('assets', [])
+
         if not assets:
             print(f"  No assets found for {repo}@{tag}")
             continue
@@ -443,7 +457,7 @@ def generate_payload_map_js(payloads_config: List[Dict]) -> str:
     lines = []
     lines.append("// @ts-check")
     lines.append("")
-    lines.append(f"// Auto-generated by update_payloads.py on {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
+    lines.append(f"// Auto-generated by update_payloads.py on {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC")
     lines.append("// Do not edit manually - changes will be overwritten by GitHub Actions")
     lines.append("")
     lines.append(f'const CUSTOM_ACTION_APPCACHE_REMOVE = "{CUSTOM_ACTION_APPCACHE_REMOVE}";')
@@ -617,6 +631,13 @@ def main():
             print(f"  No versions found, keeping existing metadata")
             versions = metadata.get('versions', [])
 
+        # Update metadata with all version info
+        metadata['versions'] = versions
+        metadata['supportedFirmwares'] = firmware_compat
+        
+        # Save updated metadata to metadata.json
+        save_metadata(payload_id, metadata)
+        
         payload['versions'] = versions
         payload['supportedFirmwares'] = firmware_compat
         

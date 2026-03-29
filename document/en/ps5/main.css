@@ -121,6 +121,48 @@ a:focus {
     margin-left: 0.5rem;
 }
 
+/* Version selector dropdown for multi-version payloads */
+.version-selector {
+    font-size: 0.7em;
+    font-weight: 400;
+    margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.4);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    outline: none;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.version-selector:hover {
+    background-color: rgba(33, 150, 243, 0.3);
+    border-color: rgba(33, 150, 243, 0.6);
+}
+
+.version-selector:focus {
+    background-color: rgba(33, 150, 243, 0.35);
+    border-color: rgba(33, 150, 243, 0.7);
+}
+
+/* Version selector options */
+.version-selector option {
+    background-color: var(--surface-color-primary);
+    color: var(--text-color-primary);
+    padding: 0.3rem 0.5rem;
+}
+
+/* Version selector on button hover */
+.btn:hover .version-selector {
+    background-color: rgba(33, 150, 243, 0.3);
+    border-color: rgba(33, 150, 243, 0.6);
+}
+
 .payload-btn-description {
     color: var(--text-color-secondary);
     margin: 0;
