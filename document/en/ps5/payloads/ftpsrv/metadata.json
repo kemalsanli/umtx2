@@ -31,7 +31,7 @@
       "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.18.1/ftpsrv-ps5.elf",
       "hash": "f6aed4e536c4e1132c4ab12c87a49b0e7199e8be11fb9be023a36f4d29240a14",
       "fileSize": 174624,
-      "releaseDate": "2026-02-04",
+      "releaseDate": "2026-02-05",
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
@@ -205,7 +205,7 @@
       "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.13/ftpsrv-ps5.elf",
       "hash": "342bd23205cd5e8d60682c91e57670f4b3df3bbc851d766e848682da79962ac0",
       "fileSize": 138064,
-      "releaseDate": "2025-08-08",
+      "releaseDate": "2025-08-14",
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []

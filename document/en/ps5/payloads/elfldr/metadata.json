@@ -11,16 +11,63 @@
   "toPort": null,
   "versions": [
     {
-      "version": "latest",
+      "version": "0.22.1",
       "fileName": "elfldr-ps5.elf",
-      "filePath": "payloads/elfldr/latest/elfldr-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
-      "fileSize": 380616,
-      "releaseDate": "",
+      "filePath": "payloads/elfldr/0.22.1/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.22.1/elfldr-ps5.elf",
+      "hash": "add7cf2cc101448b631a40eaf1744ba576de0f5571ff480da8583ec0d03106d9",
+      "fileSize": 397000,
+      "releaseDate": "2026-02-19",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "uri: use libSceHttp instead of libSeHttp2"
+      ]
+    },
+    {
+      "version": "0.22",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.22/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.22/elfldr-ps5.elf",
+      "hash": "df3e730d2792e91bf1d09baa862374afed8b97cd76744ad4d6382d4a81f3f726",
+      "fileSize": 397000,
+      "releaseDate": "2026-02-18",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add support for loading payloads from URIs (file://, http:// and https://)",
+        "add experimental support for launching SELF files"
+      ]
+    },
+    {
+      "version": "0.21.2",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.21.2/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.21.2/elfldr-ps5.elf",
+      "hash": "d00617a57d144697533def9c432dc09dab3ec247cfbbaac689b5557bd19e0fa2",
+      "fileSize": 397000,
+      "releaseDate": "2025-12-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "minor cosmetics"
+      ]
+    },
+    {
+      "version": "0.21",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.21/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.21/elfldr-ps5.elf",
+      "hash": "cc67181843afc56b33421468d4c3610942f150c6bebf0107c663c36918b63af0",
+      "fileSize": 380616,
+      "releaseDate": "2025-08-14",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/ps5-payload-dev/elfldr/blob/main/LICENSE"
+  }
 }

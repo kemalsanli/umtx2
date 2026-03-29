@@ -35,13 +35,13 @@
   "toPort": 9021,
   "versions": [
     {
-      "version": "d89a105",
+      "version": "1.1",
       "fileName": "byepervisor.elf",
-      "filePath": "payloads/byepervisor/d89a105/byepervisor.elf",
-      "downloadUrl": "https://github.com/EchoStretch/Byepervisor/releases/download/latest/byepervisor.elf",
+      "filePath": "payloads/byepervisor/1.1/byepervisor.elf",
+      "downloadUrl": "https://github.com/EchoStretch/Byepervisor/releases/download/1.1/byepervisor.elf",
       "hash": "f913ba96bf87561bcc22f1391d2ad58515b3ed0a9e5199d63dbbd9125ec3c317",
       "fileSize": 348256,
-      "releaseDate": "2024-01-20",
+      "releaseDate": "2026-01-20",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": []

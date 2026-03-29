@@ -31,7 +31,7 @@
       "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7.2/gdbsrv-ps5.elf",
       "hash": "148e2ce13a8e83c6d678fd38c34d1b9d271ba5ba8ea7dc86473fb9ca5f772b1f",
       "fileSize": 156728,
-      "releaseDate": "2025-11-08",
+      "releaseDate": "2025-11-09",
       "isDefault": false,
       "isPreRelease": true,
       "changelog": [
@@ -59,7 +59,7 @@
       "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7/gdbsrv-ps5.elf",
       "hash": "b04b473fc1a6aa61d208662174c35de0736c7100972d4f6aac45052c2cb9ff50",
       "fileSize": 156776,
-      "releaseDate": "2025-08-08",
+      "releaseDate": "2025-08-14",
       "isDefault": false,
       "isPreRelease": false,
       "changelog": []

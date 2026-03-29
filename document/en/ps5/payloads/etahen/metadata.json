@@ -27,40 +27,368 @@
   },
   "versions": [
     {
-      "version": "2.4b",
-      "fileName": "etaHEN-2.4B.bin",
-      "filePath": "payloads/etahen/2.4b/etaHEN-2.4B.bin",
-      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.4B/etaHEN-2.4B.bin",
-      "hash": "93d524497f1653841a9414e059fd0bdc80fbcc97ccd3724c3b3b73d8e34b9b9f",
-      "fileSize": 4605992,
-      "releaseDate": "2024-01-15",
+      "version": "2.5B",
+      "fileName": "etaHEN-2.5B.bin",
+      "filePath": "payloads/etahen/2.5B/etaHEN-2.5B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.5B/etaHEN-2.5B.bin",
+      "hash": "4845cac45095361b8983b14d6690622183b0dcfbf6d7fda16e161aa91ff0531e",
+      "fileSize": 4678728,
+      "releaseDate": "2025-12-25",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "etaHEN 2.5B Change log",
+        "Added the option to choose cheats repo source when updating via internet (etaHEN or GoldHEN Repos)",
+        "Added Unpause kstuff on game close option",
+        "Added fewer notifications with new notification type with icon",
+        "Added Manual Fan threshold setting to the etaHEN toolbox settings",
+        "Added (Beta) Game/App dumper to the Game options menu featuring PS5 App Dumper 1.08 by @EchoStretch",
+        "WebMAN Games rewrite with fixed M.2 Support including many different WebMAN Games fixes",
+        "Added custom \u2605 Delete option to delete game/app patches and more",
+        "*Experimental* PS4 FPS Section"
+      ]
     },
     {
-      "version": "2.3b",
+      "version": "2.4B",
+      "fileName": "etaHEN-2.4B.bin",
+      "filePath": "payloads/etahen/2.4B/etaHEN-2.4B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.4B/etaHEN-2.4B.bin",
+      "hash": "a6850d461e2a8e6e622d1d128b18da01837883f1d3d451522620f9e3032ecb48",
+      "fileSize": 4606040,
+      "releaseDate": "2025-12-02",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "etaHEN 2.4B Change log",
+        "Updated to support the latest PS5 Payload SDK",
+        "Fixed etaHEN and Cheats support for 8.40-10.01",
+        "Added a Game Overlay menu to show CPU/GPU Temp and utilization, Local IP Address and other future states thanks to @OSM-Made",
+        "Added a Kstuff menu for options like downloading the latest kstuff from github, turning off kstufff autoload and more",
+        "Added a Custom Background Package Installer for installing PKGs from internal storage from any directory (Requires DPIv2 enabled for 5.50+)",
+        "DPIv2 can now download local files via url example http://192.xxx.xxx.xxx:12800/data/etaHEN/etaHEN.log",
+        "Improved Cheats support, cheats with or without 0 sections are now supported",
+        "Added Fix by @theOfficialFloW to Improve 2.xx PS4 PKG speeds",
+        "Replaced the donation links in the etaHEN credits menu with ones to github sponsers"
+      ]
+    },
+    {
+      "version": "2.3B",
       "fileName": "etaHEN-2.3B.bin",
-      "filePath": "payloads/etahen/2.3b/etaHEN-2.3B.bin",
+      "filePath": "payloads/etahen/2.3B/etaHEN-2.3B.bin",
       "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.3B/etaHEN-2.3B.bin",
       "hash": "15159a1e4063068920b7efcee8d4ff814845014d2c574f27528841f608c75404",
       "fileSize": 2394080,
-      "releaseDate": "2024-01-01",
+      "releaseDate": "2025-09-05",
       "isDefault": false,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "etaHEN 2.3B changelog",
+        "Added the option to Display Title IDs on the homescreen on retail consoles in the etaHEN Settings",
+        "Added the etaHEN Cheats options in the game options menu so you can see if theres any cheats available for that game without launching it",
+        "Added the option to disable the custom game options in the etaHEN Settings",
+        "Added the option to auto eject discs after etaHEN Startup for BD-J and LUA exploits",
+        "Added support for Payload ELFs to the etaHEN Plugins menu (with auto start support)",
+        "Expanded the etaHEN About menu, added additional menus including donation methods and included projects list",
+        "Added updated kstuff with FPKG DLC Support",
+        "Added Full 8.00 and 8.20 Support with Kstuff [fully tested]",
+        "Added 8.40, 8.60 and 9.xx Toolbox support [untested] (no kstuff yet)"
+      ]
     },
     {
-      "version": "2.2b",
+      "version": "2.2",
       "fileName": "etaHEN-2.2B.bin",
-      "filePath": "payloads/etahen/2.2b/etaHEN-2.2B.bin",
+      "filePath": "payloads/etahen/2.2/etaHEN-2.2B.bin",
       "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.2/etaHEN-2.2B.bin",
       "hash": "62e6b11da034058cbbc2ca37cf4326830e0f922ec40380e552601a345e8d37f8",
       "fileSize": 2377696,
-      "releaseDate": "2023-12-15",
+      "releaseDate": "2025-06-11",
       "isDefault": false,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "ALL PS4 cheats should now work now that ASLR is disabled",
+        "Renamed Debug Settings to the etaHEN Toolbox in the settings menu and changed the icon",
+        "Added a PS5 Game menu (named after webMAN) to the toolbox for those that dont want to use itemzflow",
+        "Added a controller shortcuts menu with the following shortcuts (with more than one button combo option for each)",
+        "Cheats Menu",
+        "Toolbox",
+        "PS5 Games menu",
+        "Toggle Kstuff",
+        "the Utilities menu has been changed to the Settings menu and is now below the Services menu",
+        "Patched the systems game patch checker to not auto update games with etaHEN active"
+      ]
+    },
+    {
+      "version": "2.1B",
+      "fileName": "etaHEN.bin",
+      "filePath": "payloads/etahen/2.1B/etaHEN.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.1B/etaHEN.bin",
+      "hash": "f14912bf3f12519437bafdc8cee405099d7a8f7c6f9fe701336712d5f8489464",
+      "fileSize": 2344928,
+      "releaseDate": "2025-04-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added the ability to pause/resume kstuff in the toolbox (Utilities section)",
+        "Updated kstuff and etaHEN for 7.xx support",
+        "Improved stability when auto loading the toolbox (new loading method, should be 20x more stable) requires kstuff, old method will be used as a fallback where kstuff or byepervisor isnt available",
+        "Added more in-depth errors to DPIv2 by  @cragson",
+        "Fixed kstuff unnecessarily changing *kit target ids (causing devkits to default to release mode)",
+        "Added the DBG0 IP address to the Home menu panel for devkits",
+        "Fixed klog auto starting even when its disabled via toolbox/config",
+        "Fixed /data in sandboxes for fws that had issues with that option",
+        "removed creating unnecessary files when starting etaHEN (should slightly speed up start times)",
+        "Added an option to reload cheats cache and auto add new cheats to the cache files"
+      ]
+    },
+    {
+      "version": "2.0b",
+      "fileName": "etaHEN-2.0b.bin",
+      "filePath": "payloads/etahen/2.0b/etaHEN-2.0b.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.0b/etaHEN-2.0b.bin",
+      "hash": "7820dddba80e011c9f7055a58efae7a8c1763f86e157e97d21e8e0fc02998a20",
+      "fileSize": 2164696,
+      "releaseDate": "2025-03-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support (and updated kstuff) for 5.xx and 6.xx",
+        "Added menu in the etaHEN toolbox for cheats (`/data/etaHEN/cheats`)",
+        "Added button to download cheats through the cheats menu when no game is open or no cheats were found for that game",
+        "Added Spoofing features like installing higher fw fpkgs without actually spoofing the system version",
+        "Added the ability to disable toolbox auto start through the toolbox itself or the `config.ini` in `/data/etaHEN` (re-enabling without rebooting requires Itemzflow 1.9+), you can also make the file `toolbox_auto_start` on your USB to disable the toolbox without editing the config",
+        "Updated the toolbox injector to not freeze when being loaded without kstuff",
+        "All internal payloads such as ps5debug and kstuff are now loaded by etaHEN itself instead of sending to the exploit",
+        "Added The Direct package installer V2 (WebGUI version) to the services menu",
+        "the PS5Debug option in the etaHEN toolbox can now load it on demand and without rebooting (disabling requires rebooting)",
+        "PS5Debug was updated to 1.0b2"
+      ]
+    },
+    {
+      "version": "2.0b-pre",
+      "fileName": "etaHEN.bin",
+      "filePath": "payloads/etahen/2.0b-pre/etaHEN.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/2.0b-pre/etaHEN.bin",
+      "hash": "2c4d85c0839d371b39f3f1ea219ed506df2c61d65f5abbef2a69e4bd51e9b383",
+      "fileSize": 1935320,
+      "releaseDate": "2025-01-31",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Note:** This pre-release version will NOT be updated, any fixes or updates made after this build will be saved & added to the final release"
+      ]
+    },
+    {
+      "version": "1.9b",
+      "fileName": "etaHEN.bin",
+      "filePath": "payloads/etahen/1.9b/etaHEN.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.9b/etaHEN.bin",
+      "hash": "069dbb878c2c1943ecdda89e5c2be9e129e568b0d051b276d483abb39dafe19a",
+      "fileSize": 5670696,
+      "releaseDate": "2024-12-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "the elfldr plugin is no longer required for loading plugins (or anything)",
+        "Added Byepervisor (By @PS5Dev) to etaHEN for 2.xx (auto triggers rest mode too)",
+        "[2.xx ONLY] Added Kernel patches for mprotect, the dir_depth limit and MMAP RWX",
+        "Removed the No longer needed Syscore patches",
+        "Added a Lite mode (kstuff or HEN ONLY) mode",
+        "Removed the DB triggers from etaHEN and moved them to itemzflow for all fws",
+        "etaHEN daemon loading time decreased from 5-6 secs to 1 secs",
+        "Shellcore FPKG Required FW patches By @EchoStretch for 2.xx",
+        "Added a Remote Play menu to the etaHEN toolbox (will activate the account for you)",
+        "Added the external HDD menu to the etaHEN toolbox utilites section"
+      ]
+    },
+    {
+      "version": "1.08b",
+      "fileName": "etaHEN-1.8B.bin",
+      "filePath": "payloads/etahen/1.08b/etaHEN-1.8B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.08b/etaHEN-1.8B.bin",
+      "hash": "1e1fa38330a8c4f77bc73e27b9ce22d6b823a25e091dbcb96427d042fa150af1",
+      "fileSize": 1336368,
+      "releaseDate": "2024-08-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "re-write (improved reliability)",
+        "replaced debug settings with the etaHEN Toolbox",
+        "Custom Plugin loader",
+        "Improved overall stability",
+        "Added various etaHEN toolbox options",
+        "Added the following new settings, Klog, StartOption, Rest_Mode_Delay_Seconds, Util_rest_kill and Game_rest_kill (see the ReadMe for more info)",
+        "Added the ability to install the Store straight on your PS5",
+        "More for people to find"
+      ]
+    },
+    {
+      "version": "1.7b",
+      "fileName": "etaHEN-1.7B.bin",
+      "filePath": "payloads/etahen/1.7b/etaHEN-1.7B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.7b/etaHEN-1.7B.bin",
+      "hash": "61b0073d6bf4352c99f0401012a43ee5f15e2faab1f6d7e7582650d712fa4a8a",
+      "fileSize": 1352592,
+      "releaseDate": "2024-02-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added a Direct PKG Installer service (port 9090)",
+        "Added a setting to disable DPI in /data/etaHEN/config.ini"
+      ]
+    },
+    {
+      "version": "1.6b",
+      "fileName": "etaHEN-1.6B.bin",
+      "filePath": "payloads/etahen/1.6b/etaHEN-1.6B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.6b/etaHEN-1.6B.bin",
+      "hash": "502a18a7c4d1ad3fcd3f7296b683a1239a69a861d0e2bd63522430bf1c979ad8",
+      "fileSize": 1348400,
+      "releaseDate": "2024-02-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed 4.02 support",
+        "Improved Rest mode support",
+        "Added the controller shortcut for itemzflow",
+        "Removed a dialog that would spam if libhijacker cheats was enabled while running a PS5 FG app",
+        "Fixed a rare issue that could cause some apps not to be jailbroken when requested",
+        "etaHEN will now remove the syscore hook after starting"
+      ]
+    },
+    {
+      "version": "1.5b",
+      "fileName": "etaHEN-1.5B.bin",
+      "filePath": "payloads/etahen/1.5b/etaHEN-1.5B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.5b/etaHEN-1.5B.bin",
+      "hash": "557493721ffd573b195ac834cd190c4f85fadfcee7a772be6d17015c66a9465a",
+      "fileSize": 1345368,
+      "releaseDate": "2024-02-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Libhijacker cheats now works with homebrew",
+        "Added a setting to allow /data in apps sandboxes (enabled by default)",
+        "(4.5x ONLY) Fixed an issue that could causes etaHEN to crash",
+        "Fixed dumping patches from external drives (for itemzflow 1.06)",
+        "Start-up Messages were consolidated",
+        "Added an etaHEN log (/data/etaHEN/etaHEN.log)",
+        "Disabled uploading to /dev via FTP",
+        "Added a hidden setting to enable uploading to /dev",
+        "Added mutexs for all the threads using a hijacker",
+        "Added a null terminator to the IPC command messages"
+      ]
+    },
+    {
+      "version": "1.4b",
+      "fileName": "etaHEN-1.4B.bin",
+      "filePath": "payloads/etahen/1.4b/etaHEN-1.4B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.4b/etaHEN-1.4B.bin",
+      "hash": "113fbac265e368c6dce269545dc9ee5bec599f3845e2d0fa4af23078ff8efe69",
+      "fileSize": 1382944,
+      "releaseDate": "2024-01-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "etaHEN 1.4b change log",
+        "Whitelisted Lapy's Xplorer app",
+        "Fixed dumping PS5 Game trophies",
+        "Fixed the full config not being written when created",
+        "Added a Testkit setting (testkit kstuff)",
+        "Added detection for coming out of rest mode",
+        "Added support for 4.00, 4.02",
+        "made the config notification show after the etaHEN info",
+        "Fixed some notifications to show the etaHEN WM and not the itemzflow one",
+        "Added Discord RPC option by"
+      ]
+    },
+    {
+      "version": "1.3b",
+      "fileName": "etaHEN-1.3B.bin",
+      "filePath": "payloads/etahen/1.3b/etaHEN-1.3B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.3b/etaHEN-1.3B.bin",
+      "hash": "72a600f55f111ad9e3f574b73295a5955c3fbdf831b0242c4336d3cc5755af24",
+      "fileSize": 1146072,
+      "releaseDate": "2024-01-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Kstuff for 3.xx added (3.00 tested)",
+        "Support browser caching and no longer requires a network to be connected",
+        "All IPC (Interprocess Communication) commands have been rewritten to not use the network",
+        "Added an opt-in option in the etaHEN config to auto launch itemzflow (/data/etaHEN/config.ini)",
+        "Supports resuming apps/games from rest mode",
+        "Improved Klog server Improved Klog server (run with nc <PS5 IP> 9081)"
+      ]
+    },
+    {
+      "version": "1.21b",
+      "fileName": "etaHEN-1.2B.bin",
+      "filePath": "payloads/etahen/1.21b/etaHEN-1.2B.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.21b/etaHEN-1.2B.bin",
+      "hash": "b88aeb2ec652a8ca73b705d0024d9b9ef40e33430c4441d988da40193c077153",
+      "fileSize": 1101168,
+      "releaseDate": "2023-12-24",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "key new features",
+        "Custom System version",
+        "config file",
+        "adds IF back to the database if on m.2",
+        "bug fixes",
+        "payload server rewrite",
+        "cheats are no longer a standalone payload"
+      ]
+    },
+    {
+      "version": "1.11b",
+      "fileName": "etaHEN-1.1b.bin",
+      "filePath": "payloads/etahen/1.11b/etaHEN-1.1b.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.11b/etaHEN-1.1b.bin",
+      "hash": "5851a2e4f982bfba2d9c2f5ab5d355b8baf061319607a7df8bb3ad7a180c78ae",
+      "fileSize": 1098368,
+      "releaseDate": "2023-11-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Updated kstuff for 4.51"
+      ]
+    },
+    {
+      "version": "1.1b",
+      "fileName": "etaHEN.bin",
+      "filePath": "payloads/etahen/1.1b/etaHEN.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.1b/etaHEN.bin",
+      "hash": "0d4b0e0f39e2f02e57e157a85d5b975ce29487102286d14b0847e643d9e525b7",
+      "fileSize": 1146016,
+      "releaseDate": "2023-10-30",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Change log:",
+        "all servers (FTP, Klog, etc) now will restart when you change your network",
+        "fixed a bug that would hurt performance when switching networks or waking up the console",
+        "added an etaHEN notification with the new IP address when switching networks",
+        "added support for unlocking all types of FPKGs in the library (lock icon)",
+        "added a feature that will unlock all pre-existing FPKGs in the library"
+      ]
+    },
+    {
+      "version": "1.0b",
+      "fileName": "etaHEN-1.0b.bin",
+      "filePath": "payloads/etahen/1.0b/etaHEN-1.0b.bin",
+      "downloadUrl": "https://github.com/etaHEN/etaHEN/releases/download/1.0b/etaHEN-1.0b.bin",
+      "hash": "9669c993a1036ac28cb7a84f7fc6f12aeafbf9be1104169d72547a851e09b2d4",
+      "fileSize": 1145008,
+      "releaseDate": "2023-10-28",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "**Important**: etaHEN is currently separated into a payload with and without cheats, this is because the cheats are currently interfering with homebrew apps requesting to be jailbroken so until we fix that issue if you want to use HB apps like the store use etaHEN without cheats"
+      ]
     }
   ]
 }
