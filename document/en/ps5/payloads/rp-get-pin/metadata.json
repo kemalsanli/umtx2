@@ -14,11 +14,27 @@
       "version": "0.1.1",
       "fileName": "rp-get-pin.elf",
       "filePath": "payloads/rp-get-pin/0.1.1/rp-get-pin.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/idlesauce/ps5-remoteplay-get-pin/releases/download/v0.1.1/rp-get-pin.elf",
+      "hash": "1d611c1856dd2f4b4b6cb42ead1128a7f08a26585788f92de79fa4f67d721472",
       "fileSize": 117848,
-      "releaseDate": "",
+      "releaseDate": "2025-03-09",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Build with newer sdk",
+        "Payload now supports 6.xx-7.xx",
+        "Requires host with updated offsets for 5.xx"
+      ]
+    },
+    {
+      "version": "0.1",
+      "fileName": "rp-get-pin.elf",
+      "filePath": "payloads/rp-get-pin/0.1/rp-get-pin.elf",
+      "downloadUrl": "https://github.com/idlesauce/ps5-remoteplay-get-pin/releases/download/v0.1/rp-get-pin.elf",
+      "hash": "c76442b81bcef1af3a3a9ca7e463455a8db3d80495cd9f2e0330ea2edf7de05a",
+      "fileSize": 116392,
+      "releaseDate": "2024-12-11",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }

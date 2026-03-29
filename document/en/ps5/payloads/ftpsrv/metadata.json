@@ -11,20 +11,208 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.18.2",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.18.2/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.18.2/ftpsrv-ps5.elf",
+      "hash": "03ae8aa1790ac36c10d8035cd99eaaa9b26b6ab04c8f36c12e2e767a6d589b1e",
+      "fileSize": 174712,
+      "releaseDate": "2026-02-18",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "add command line option for choosing the port to bind to"
+      ]
+    },
+    {
+      "version": "0.18.1",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.18.1/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.18.1/ftpsrv-ps5.elf",
+      "hash": "f6aed4e536c4e1132c4ab12c87a49b0e7199e8be11fb9be023a36f4d29240a14",
+      "fileSize": 174624,
+      "releaseDate": "2026-02-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "MLSD: initial commit"
+      ]
+    },
+    {
+      "version": "0.18",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.18/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.18/ftpsrv-ps5.elf",
+      "hash": "319a61e677b0b3462c7aebc4767690006ed59003e8bc68e8b35cda97d651e466",
+      "fileSize": 158136,
+      "releaseDate": "2026-02-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "ps4: remount /preinst and /preinst2 with the MTRW command",
+        "ps5: remount /preinst with the MTRW command",
+        "cmd: XCUP is an alias for CDUP, not CWD",
+        "io: retry transfers upon interupts",
+        "srv: ignore character cases when parsing ftp commands",
+        "srv: include version info in greeting message"
+      ]
+    },
+    {
+      "version": "0.17.2",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.17.2/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.17.2/ftpsrv-ps5.elf",
+      "hash": "9d08fee421a7439e591fbcae36ce53e3f684e82f4633edd777488cc59b3e5d53",
+      "fileSize": 157952,
+      "releaseDate": "2026-01-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "LIST: set change time to UTC",
+        "PASV: only accept a single data connection",
+        "PORT: plug file descriptor leakage"
+      ]
+    },
+    {
+      "version": "0.17.1",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.17.1/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.17.1/ftpsrv-ps5.elf",
+      "hash": "85db8527ca1232a12c68dc2072b0f7aff4b4371aa8fe71e36dd375795fbbc06e",
+      "fileSize": 157752,
+      "releaseDate": "2026-01-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "RETR: use read/write instead of sendfile, it seems to perform better",
+        "LIST: plug fd leak"
+      ]
+    },
+    {
+      "version": "0.17",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.17/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.17/ftpsrv-ps5.elf",
+      "hash": "754bcef90345a400859da4b6a39daa9142f8f693996523b7d5d75aedeead355b",
+      "fileSize": 157720,
+      "releaseDate": "2026-01-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "RETR: use sendfile() to transmit files for improved performance and reduced memory footprint",
+        "srv: disable the nagle algorithm (TCP_NODELAY) on active connections"
+      ]
+    },
+    {
+      "version": "0.16",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.16/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.16/ftpsrv-ps5.elf",
+      "hash": "81d50402bae30624dcf17a5162caf5af7fabce92690a4b648de6a1d30a3c22aa",
+      "fileSize": 157624,
+      "releaseDate": "2026-01-09",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "increase SO_SNDBUF and  SO_RCVBUF for improved throughput",
+        "allow ASCII mode to be enabled, but report error when enabled during STOR",
+        "STOR: preallocate readbuf when a new connection is made",
+        "srv: maximize backlog size of incomming connections",
+        "srv: detach from threads so resources of terminated threads are returned to the system",
+        "io: reduce memory footprint",
+        "add test cases for benchmarking transfer speeds"
+      ]
+    },
+    {
+      "version": "0.15",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.15/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.15/ftpsrv-ps5.elf",
+      "hash": "fff54cd77827ad9c834339db3c587009e29694830f9268d459d20f65f04717dd",
+      "fileSize": 157584,
+      "releaseDate": "2026-01-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "we only support binary transfer mode for now, report proper error to client",
+        "fix dir listing containing block devices"
+      ]
+    },
+    {
       "version": "0.14.3",
       "fileName": "ftpsrv-ps5.elf",
       "filePath": "payloads/ftpsrv/0.14.3/ftpsrv-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.14.3/ftpsrv-ps5.elf",
+      "hash": "5c9d11399934252992cb92c6f91d52a741a61fec674bca2d10d0b6d307f371bb",
       "fileSize": 157312,
-      "releaseDate": "",
-      "isDefault": true,
+      "releaseDate": "2025-11-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "self2elf: speed improvements"
+      ]
+    },
+    {
+      "version": "0.14.2",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.14.2/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.14.2/ftpsrv-ps5.elf",
+      "hash": "4178aabd252a93586706e7ab0a6b7821c8e2ead78d6d5bfc713d81bd6b01f7a4",
+      "fileSize": 157312,
+      "releaseDate": "2025-11-20",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "STOR: increase read buffer size for improved throughput"
+      ]
+    },
+    {
+      "version": "0.14.1",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.14.1/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.14.1/ftpsrv-ps5.elf",
+      "hash": "5682d0fb2cbf4aa3ac65d751f3dd99a3c3bdc0a9768c5a3c42be62dd3d2617e8",
+      "fileSize": 157312,
+      "releaseDate": "2025-11-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "self2elf: address potential race condition in self decryption",
+        "self2elf: add several cosmetics and improvements to error handling, including sha256 digest verification",
+        "self2elf: ensure wholes in the ELF file are all zeroed out",
+        "LIST: when in self2elf mode, use the ELF size instead of the SELF size"
+      ]
+    },
+    {
+      "version": "0.14",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.14/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.14/ftpsrv-ps5.elf",
+      "hash": "209478f9f0883cd12d135bbf7a073e30478648703fb8ad00477f6db9c6684521",
+      "fileSize": 155424,
+      "releaseDate": "2025-11-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "add SELF to ELF decryption for ps4 and ps5",
+        "RETR: fix resume from offset"
+      ]
+    },
+    {
+      "version": "0.13",
+      "fileName": "ftpsrv-ps5.elf",
+      "filePath": "payloads/ftpsrv/0.13/ftpsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.13/ftpsrv-ps5.elf",
+      "hash": "342bd23205cd5e8d60682c91e57670f4b3df3bbc851d766e848682da79962ac0",
+      "fileSize": 138064,
+      "releaseDate": "2025-08-08",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
   ],
   "license": {
     "type": "Unknown",
-    "url": ""
+    "url": "https://github.com/ps5-payload-dev/ftpsrv/blob/main/LICENSE"
   }
 }

@@ -19,17 +19,22 @@
       "version": "1.0",
       "fileName": "ps5-versions.elf",
       "filePath": "payloads/ps5-versions/1.0/ps5-versions.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/SiSTR0/ps5-versions/releases/download/v1.0/ps5-versions.elf",
+      "hash": "4df615bf70ad51d977f4f2898ae23b7c7349d32afe0e37783d8b62aedd7700be",
       "fileSize": 9880,
-      "releaseDate": "",
+      "releaseDate": "2023-02-15",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": []
+      "changelog": [
+        "Show some version infos of your console.",
+        "Works with Webkit and BD exploit.",
+        "Needs gcc 9 installed.",
+        "[SiSTRo](https://github.com/SiSTR0)"
+      ]
     }
   ],
   "license": {
     "type": "Unknown",
-    "url": ""
+    "url": "https://github.com/SiSTR0/ps5-versions/blob/main/LICENSE"
   }
 }

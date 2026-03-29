@@ -17,13 +17,27 @@
   "versions": [
     {
       "version": "0.0.1-r2",
-      "fileName": "ps5debug_dizz.elf",
-      "filePath": "payloads/ps5debug-dizz/0.0.1-r2/ps5debug_dizz.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "fileName": "ps5debug.elf",
+      "filePath": "payloads/ps5debug-dizz/0.0.1-r2/ps5debug.elf",
+      "downloadUrl": "https://github.com/idlesauce/ps5debug/releases/download/v0.0.1-r2/ps5debug.elf",
+      "hash": "550885996e8e44b050b8bbfabd3e4740076065da1d3468d4798ddbbc22370a2f",
       "fileSize": 165928,
-      "releaseDate": "",
+      "releaseDate": "2025-02-04",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Re-build with latest sdk"
+      ]
+    },
+    {
+      "version": "0.0.1",
+      "fileName": "ps5debug.elf",
+      "filePath": "payloads/ps5debug-dizz/0.0.1/ps5debug.elf",
+      "downloadUrl": "https://github.com/idlesauce/ps5debug/releases/download/v0.0.1/ps5debug.elf",
+      "hash": "e34fd39c286d7b8e31b47d72005efe68e62401f35eb20ba7c442e9ad638bca22",
+      "fileSize": 226960,
+      "releaseDate": "2024-11-21",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }

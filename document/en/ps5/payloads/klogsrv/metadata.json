@@ -14,17 +14,32 @@
       "version": "0.7.1",
       "fileName": "klogsrv-ps5.elf",
       "filePath": "payloads/klogsrv/0.7.1/klogsrv-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.7.1/klogsrv-ps5.elf",
+      "hash": "3145d87ca89b2b7b09c02e71ed3128a6d14ac633c1ca82229f6cf41a6b85678d",
       "fileSize": 134808,
-      "releaseDate": "",
+      "releaseDate": "2025-10-21",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "ps4: optimize with -O2",
+        "make some cosmetics changes"
+      ]
+    },
+    {
+      "version": "0.7",
+      "fileName": "klogsrv-ps5.elf",
+      "filePath": "payloads/klogsrv/0.7/klogsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.7/klogsrv-ps5.elf",
+      "hash": "ec25540cd0fe2ef76bcfb7b9b236b9fa5ba20ed2b7c4b0414c40b8533d00ad15",
+      "fileSize": 134896,
+      "releaseDate": "2025-08-14",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
   ],
   "license": {
     "type": "Unknown",
-    "url": ""
+    "url": "https://github.com/ps5-payload-dev/klogsrv/blob/main/LICENSE"
   }
 }
