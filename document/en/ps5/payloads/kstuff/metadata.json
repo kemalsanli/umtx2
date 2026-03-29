@@ -25,17 +25,13 @@
       "version": "1.5",
       "fileName": "kstuff.elf",
       "filePath": "payloads/kstuff/1.5/kstuff.elf",
-      "downloadUrl": "https://github.com/EchoStretch/ps4jb-payloads/releases/download/kstuff-ps5/kstuff-ps5.elf",
-      "hash": "02da00b055e39d7bd08e9b59e07420f6368a2c165d6d345c2b734a3186ec4389",
+      "downloadUrl": "",
+      "hash": "",
       "fileSize": 1491752,
-      "releaseDate": "2023-10-01",
+      "releaseDate": "",
       "isDefault": true,
       "isPreRelease": false,
       "changelog": []
     }
-  ],
-  "license": {
-    "type": "Unknown",
-    "url": ""
-  }
+  ]
 }
