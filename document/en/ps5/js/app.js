@@ -151,11 +151,11 @@ function registerAppCacheEventHandlers() {
     appCache.addEventListener('progress', function (e) {
         var percentage = Math.round((e.loaded / e.total) * 100);
 
-        createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
-
-        // the last item takes an unreasonably long time to complete (with a big update)
-        if (e.loaded + 1 == e.total) {
-            createOrUpdateAppCacheToast("Processing... This may take a minute.");
+        if (e.loaded == e.total) {
+            // Download complete, dismiss toast — remaining processing is background work
+            finishAppCacheToast('Cache downloaded successfully.', 2000);
+        } else {
+            createOrUpdateAppCacheToast('Downloading new cache... ' + percentage + '%');
         }
     }, false);
 
