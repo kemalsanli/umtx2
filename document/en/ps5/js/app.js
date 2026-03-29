@@ -191,8 +191,8 @@ function registerL2ButtonHandler() {
             }
         }
 
-        // R2 button (keyCode 9) - Licences modal toggle
-        if (event.keyCode === 9) {
+        // R2 button (keyCode 119) - Licences modal toggle
+        if (event.keyCode === 119) {
             event.preventDefault();
 
             // Visual feedback on the licences button

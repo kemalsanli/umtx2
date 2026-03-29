@@ -1,9 +1,42 @@
-# Payload configuration for auto-update system v2
-# This file defines all payloads and their sources
-# Fields: id, displayTitle, description, authors, projectUrl, sourceType,
-#         sourceRepo, sourcePattern, toPort, supportedFirmwares, license, manualVersions
+# =============================================================================
+# Payload configuration for PS5 UMTX2 auto-update system v2
+# =============================================================================
+#
+# This file defines all payloads and their sources.
+# For detailed documentation, see .github/scripts/update_payloads.py (header comments).
+#
+# Field Reference:
+#   id:                Unique identifier (lowercase, hyphens). Used as directory name.
+#   displayTitle:      Human-readable name shown in the UI
+#   description:       Short description shown in the UI
+#   authors:           List of GitHub usernames of contributors
+#   projectUrl:        URL to the project's GitHub page
+#   sourceType:        'github-release' | 'direct' | 'custom'
+#   sourceRepo:        GitHub repo in 'owner/name' format (empty for custom)
+#   sourcePattern:     Glob pattern to match release asset name (e.g., 'payload*.elf')
+#   toPort:            Port number for network payloads (omit if not applicable)
+#   supportedFirmwares: List of supported firmware version prefixes (e.g., ["3.", "4.", "5."])
+#   license:           {type: SPDX-ID, url: license-url} - auto-detected if empty
+#   manualVersions:    Required for 'direct' sourceType - list of version entries
+#
+# Adding a new payload via PR:
+#   1. Add your entry below following the appropriate pattern (A, B, or C)
+#   2. The GitHub Actions workflow will automatically fetch and integrate it
+#   3. For 'github-release': ensure your repo has releases with .elf or .bin assets
+#   4. For 'direct': provide explicit URLs for each version
+#
+# =============================================================================
 
 payloads:
+
+  # ===========================================================================
+  # Pattern A: github-release (Fully Automated)
+  # Use this when the repo has proper GitHub Releases with .elf or .bin assets.
+  # The script will automatically fetch all matching releases.
+  # ===========================================================================
+
+  # --- etaHEN: AIO HEN (converted from direct to github-release) ---
+  # Repo has 18+ releases with consistent etaHEN-{VERSION}.bin naming
   - id: etahen
     displayTitle: etaHEN
     description: AIO HEN
@@ -18,7 +51,7 @@ payloads:
       - SiSTR0
       - Nomadic
     projectUrl: https://github.com/etaHEN/etaHEN
-    sourceType: direct
+    sourceType: github-release
     sourceRepo: etaHEN/etaHEN
     sourcePattern: etaHEN-*.bin
     toPort: 9021
@@ -26,23 +59,195 @@ payloads:
     license:
       type: ""
       url: ""
-    manualVersions:
-      - version: 2.4b
-        fileName: etaHEN-2.4B.bin
-        url: https://github.com/etaHEN/etaHEN/releases/download/2.4B/etaHEN-2.4B.bin
-        isDefault: true
-        releaseDate: 2024-01-15
-      - version: 2.3b
-        fileName: etaHEN-2.3B.bin
-        url: https://github.com/etaHEN/etaHEN/releases/download/2.3B/etaHEN-2.3B.bin
-        isDefault: false
-        releaseDate: 2024-01-01
-      - version: 2.2b
-        fileName: etaHEN-2.2B.bin
-        url: https://github.com/etaHEN/etaHEN/releases/download/2.2/etaHEN-2.2B.bin
-        isDefault: false
-        releaseDate: 2023-12-15
 
+  # --- websrv: Custom homebrew loader ---
+  - id: websrv
+    displayTitle: websrv
+    description: Custom homebrew loader. Runs on port 8080.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/websrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/websrv
+    sourcePattern: websrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- ftpsrv: FTP server ---
+  - id: ftpsrv
+    displayTitle: ftpsrv
+    description: FTP server. Runs on port 2121.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/ftpsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/ftpsrv
+    sourcePattern: ftpsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- gdbsrv: GDB debugger server ---
+  - id: gdbsrv
+    displayTitle: gdbsrv
+    description: GDB server. Runs on port 2159.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/gdbsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/gdbsrv
+    sourcePattern: gdbsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- klogsrv: Kernel log server ---
+  - id: klogsrv
+    displayTitle: klogsrv
+    description: Klog server. Runs on port 3232.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/klogsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/klogsrv
+    sourcePattern: klogsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- shsrv: Telnet shell server ---
+  - id: shsrv
+    displayTitle: shsrv
+    description: Telnet shell server. Runs on port 2323.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/shsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/shsrv
+    sourcePattern: shsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- elfldr: ELF Loader (converted from direct to github-release) ---
+  # Repo has 17 releases. Only v0.21+ have standalone .elf assets.
+  # Earlier versions (v0.12-v0.20.2) used ZIP format and are correctly skipped.
+  - id: elfldr
+    displayTitle: ELF Loader
+    description: ELF loader
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/elfldr
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/elfldr
+    sourcePattern: elfldr-ps5*.elf
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- byepervisor: FPKG enabler (converted from direct to github-release) ---
+  # Repo has release v1.1 with byepervisor.elf asset
+  - id: byepervisor
+    displayTitle: Byepervisor HEN
+    description: FPKG enabler
+    authors:
+      - SpecterDev
+      - ChendoChap
+      - flatz
+      - fail0verflow
+      - Znullptr
+      - kiwidog
+      - sleirsgoevy
+      - EchoStretch
+      - LightningMods
+      - BestPig
+      - zecoxao
+      - TheOfficialFloW
+    projectUrl: https://github.com/EchoStretch/Byepervisor
+    sourceType: github-release
+    sourceRepo: EchoStretch/Byepervisor
+    sourcePattern: byepervisor*.elf
+    toPort: 9021
+    supportedFirmwares: ["1.00", "1.01", "1.02", "1.12", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70"]
+    license:
+      type: ""
+      url: ""
+
+  # --- ps5debug-dizz: Open source debugger by DizzRL ---
+  - id: ps5debug-dizz
+    displayTitle: ps5debug
+    description: Debugger, open source version by DizzRL
+    authors:
+      - Dizz
+      - astrelsky
+      - John Tornblom
+      - SiSTR0
+      - golden
+      - idlesauce
+    projectUrl: https://github.com/idlesauce/ps5debug
+    sourceType: github-release
+    sourceRepo: idlesauce/ps5debug
+    sourcePattern: ps5debug*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # --- ps5-versions: Kernel/OS version display ---
+  - id: ps5-versions
+    displayTitle: ps5-versions
+    description: Shows kernel build, os and sdk versions
+    authors:
+      - SiSTRo
+    projectUrl: https://github.com/SiSTR0/ps5-versions
+    sourceType: github-release
+    sourceRepo: SiSTR0/ps5-versions
+    sourcePattern: ps5-versions*.elf
+    supportedFirmwares: ["1.", "2.", "3.", "4."]
+    license:
+      type: ""
+      url: ""
+
+  # --- rp-get-pin: Remote Play PIN getter ---
+  - id: rp-get-pin
+    displayTitle: ps5-remoteplay-get-pin
+    description: Get Remote Play PIN for offline activated users. Send again to cancel.
+    authors:
+      - idlesauce
+    projectUrl: https://github.com/idlesauce/ps5-remoteplay-get-pin
+    sourceType: github-release
+    sourceRepo: idlesauce/ps5-remoteplay-get-pin
+    sourcePattern: rp-get-pin*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  # ===========================================================================
+  # Pattern B: direct (Manual URL Management)
+  # Use this when:
+  #   - Repository has no GitHub Releases (e.g., multi-payload collection repos)
+  #   - Assets are only in ZIP format (must be extracted manually)
+  #   - Using custom/non-GitHub hosting
+  # ===========================================================================
+
+  # --- kstuff: FPKG enabler ---
+  # EchoStretch/ps4jb-payloads is a multi-payload collection repo with NO releases.
+  # The binary must be linked manually.
   - id: kstuff
     displayTitle: ps5-kstuff
     description: FPKG enabler
@@ -71,164 +276,10 @@ payloads:
         isDefault: true
         releaseDate: 2023-10-01
 
-  - id: byepervisor
-    displayTitle: Byepervisor HEN
-    description: FPKG enabler
-    authors:
-      - SpecterDev
-      - ChendoChap
-      - flatz
-      - fail0verflow
-      - Znullptr
-      - kiwidog
-      - sleirsgoevy
-      - EchoStretch
-      - LightningMods
-      - BestPig
-      - zecoxao
-      - TheOfficialFloW
-    projectUrl: https://github.com/EchoStretch/Byepervisor
-    sourceType: direct
-    sourceRepo: EchoStretch/Byepervisor
-    sourcePattern: byepervisor*.elf
-    toPort: 9021
-    supportedFirmwares: ["1.00", "1.01", "1.02", "1.12", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70"]
-    license:
-      type: ""
-      url: ""
-    manualVersions:
-      - version: d89a105
-        fileName: byepervisor.elf
-        url: https://github.com/EchoStretch/Byepervisor/releases/download/latest/byepervisor.elf
-        isDefault: true
-        releaseDate: 2024-01-20
-
-  - id: libhijacker
-    displayTitle: libhijacker game-patch
-    description: Patches supported games to run at higher framerates, and adds debug menus to certain titles.
-    authors:
-      - illusion0001
-      - astrelsky
-    projectUrl: https://github.com/illusion0001/libhijacker
-    sourceType: github-release
-    sourceRepo: illusion0001/libhijacker-game-patch
-    sourcePattern: libhijacker-game-patch*.elf
-    supportedFirmwares: ["3.", "4."]
-    license:
-      type: ""
-      url: ""
-
-  - id: websrv
-    displayTitle: websrv
-    description: Custom homebrew loader. Runs on port 8080.
-    authors:
-      - john-tornblom
-    projectUrl: https://github.com/ps5-payload-dev/websrv
-    sourceType: github-release
-    sourceRepo: ps5-payload-dev/websrv
-    sourcePattern: websrv-ps5*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
-  - id: ftpsrv
-    displayTitle: ftpsrv
-    description: FTP server. Runs on port 2121.
-    authors:
-      - john-tornblom
-    projectUrl: https://github.com/ps5-payload-dev/ftpsrv
-    sourceType: github-release
-    sourceRepo: ps5-payload-dev/ftpsrv
-    sourcePattern: ftpsrv-ps5*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
-  - id: klogsrv
-    displayTitle: klogsrv
-    description: Klog server. Runs on port 3232.
-    authors:
-      - john-tornblom
-    projectUrl: https://github.com/ps5-payload-dev/klogsrv
-    sourceType: github-release
-    sourceRepo: ps5-payload-dev/klogsrv
-    sourcePattern: klogsrv-ps5*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
-  - id: shsrv
-    displayTitle: shsrv
-    description: Telnet shell server. Runs on port 2323.
-    authors:
-      - john-tornblom
-    projectUrl: https://github.com/ps5-payload-dev/shsrv
-    sourceType: github-release
-    sourceRepo: ps5-payload-dev/shsrv
-    sourcePattern: shsrv-ps5*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
-  - id: gdbsrv
-    displayTitle: gdbsrv
-    description: GDB server. Runs on port 2159.
-    authors:
-      - john-tornblom
-    projectUrl: https://github.com/ps5-payload-dev/gdbsrv
-    sourceType: github-release
-    sourceRepo: ps5-payload-dev/gdbsrv
-    sourcePattern: gdbsrv-ps5*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
-  - id: ps5debug
-    displayTitle: ps5debug
-    description: Debugger
-    authors:
-      - SiSTR0
-      - ctn123
-    projectUrl: https://github.com/GoldHEN/ps5debug
-    sourceType: github-release
-    sourceRepo: GoldHEN/ps5debug
-    sourcePattern: ps5debug*.elf
-    toPort: 9021
-    supportedFirmwares: ["3.", "4.", "5."]
-    license:
-      type: ""
-      url: ""
-
-  - id: ps5debug-dizz
-    displayTitle: ps5debug
-    description: Debugger, open source version by DizzRL
-    authors:
-      - Dizz
-      - astrelsky
-      - John Tornblom
-      - SiSTR0
-      - golden
-      - idlesauce
-    projectUrl: https://github.com/idlesauce/ps5debug
-    sourceType: github-release
-    sourceRepo: idlesauce/ps5debug
-    sourcePattern: ps5debug*.elf
-    toPort: 9021
-    supportedFirmwares: []
-    license:
-      type: ""
-      url: ""
-
+  # --- kstuff-toggle: Kstuff Toggle ---
+  # EchoStretch/kstuff-toggle has releases but assets are ZIP-only.
+  # Cannot use github-release (ZIP extraction is disabled for security).
+  # Must be updated manually when new versions are released.
   - id: kstuff-toggle
     displayTitle: kstuff-toggle
     description: Kstuff Toggle Beta
@@ -251,35 +302,67 @@ payloads:
         isDefault: true
         releaseDate: 2024-01-10
 
-  - id: ps5-versions
-    displayTitle: ps5-versions
-    description: Shows kernel build, os and sdk versions
+  # --- libhijacker: Game patch framework ---
+  # illusion0001/libhijacker-game-patch has 28 releases but ALL assets are ZIP format.
+  # Cannot use github-release (ZIP extraction is disabled for security).
+  # Must be updated manually when new versions are released.
+  # Note: sourceRepo has moved to illusionyy/libhijacker-game-patch (301 redirect).
+  - id: libhijacker
+    displayTitle: libhijacker game-patch
+    description: Patches supported games to run at higher framerates, and adds debug menus to certain titles.
     authors:
-      - SiSTRo
-    projectUrl: https://github.com/SiSTR0/ps5-versions
-    sourceType: github-release
-    sourceRepo: SiSTR0/ps5-versions
-    sourcePattern: ps5-versions*.elf
-    supportedFirmwares: ["1.", "2.", "3.", "4."]
+      - illusion0001
+      - astrelsky
+    projectUrl: https://github.com/illusion0001/libhijacker
+    sourceType: direct
+    sourceRepo: illusion0001/libhijacker-game-patch
+    sourcePattern: libhijacker-game-patch*.elf
+    supportedFirmwares: ["3.", "4."]
     license:
       type: ""
       url: ""
+    manualVersions:
+      - version: "1.160"
+        fileName: libhijacker-game-patch.v1.160.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2024-06-15
 
-  - id: rp-get-pin
-    displayTitle: ps5-remoteplay-get-pin
-    description: Get Remote Play PIN for offline activated users. Send again to cancel.
+  # --- ps5debug: GoldHEN debugger ---
+  # WARNING: GoldHEN/ps5debug repo has been DELETED (404).
+  # This payload is now ORPHANED - no automatic updates possible.
+  # Keeping as direct with the last known working binary.
+  # If you know of a mirror or fork, update the URL below.
+  - id: ps5debug
+    displayTitle: ps5debug
+    description: Debugger
     authors:
-      - idlesauce
-    projectUrl: https://github.com/idlesauce/ps5-remoteplay-get-pin
-    sourceType: github-release
-    sourceRepo: idlesauce/ps5-remoteplay-get-pin
-    sourcePattern: rp-get-pin*.elf
+      - SiSTR0
+      - ctn123
+    projectUrl: https://github.com/GoldHEN/ps5debug
+    sourceType: direct
+    sourceRepo: GoldHEN/ps5debug
+    sourcePattern: ps5debug*.elf
     toPort: 9021
-    supportedFirmwares: []
+    supportedFirmwares: ["3.", "4.", "5."]
     license:
       type: ""
       url: ""
+    manualVersions:
+      - version: "1.0b5"
+        fileName: ps5debug_v1.0b5.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2023-06-01
 
+  # ===========================================================================
+  # Pattern C: custom (JavaScript Actions - No Binary Download)
+  # Use this for browser-based actions that don't require a binary payload.
+  # ===========================================================================
+
+  # --- appcache-remove: Browser cache remover ---
+  # This is a JavaScript-only action. No binary payload is downloaded.
+  # The customAction field references a JS function name.
   - id: appcache-remove
     displayTitle: Browser appcache remover
     description: Deletes for only the current user in webkit-only mode

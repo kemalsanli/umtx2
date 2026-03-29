@@ -184,7 +184,7 @@ function populateDevOptions() {
  * Developer challenge modal state
  */
 var devChallengeIndex = 0;
-var KONAMI_SEQUENCE = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+var KONAMI_SEQUENCE = [38, 38, 40, 40, 37, 39, 37, 39]; // ↑↑↓↓←→←→
 
 /**
  * Open the developer challenge modal (Tinfoil-style).
@@ -259,7 +259,7 @@ function handleDevChallengeKey(e) {
  * Reset all progress boxes to default state.
  */
 function resetProgressBoxes() {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 8; i++) {
         var box = document.getElementById('prog-' + i);
         if (box) {
             box.classList.remove('correct');

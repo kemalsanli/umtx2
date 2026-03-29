@@ -125,24 +125,6 @@ function resolveActiveVersion(payload) {
     };
 }
 
-/**
- * Get all cached/selected payload file paths for AppCache optimization.
- * Returns an array of filePaths that should be included in the AppCache manifest.
- * @returns {string[]}
- */
-function getCachedPayloads() {
-    const cachedPaths = [];
-
-    for (const payload of window.payload_map) {
-        const { filePath } = resolveActiveVersion(payload);
-        if (filePath) {
-            cachedPaths.push(filePath);
-        }
-    }
-
-    return cachedPaths;
-}
-
 // Export to global scope
 window.loadSettings = loadSettings;
 window.saveSettings = saveSettings;
@@ -151,7 +133,6 @@ window.setPayloadVisible = setPayloadVisible;
 window.getSelectedVersion = getSelectedVersion;
 window.setSelectedVersion = setSelectedVersion;
 window.resolveActiveVersion = resolveActiveVersion;
-window.getCachedPayloads = getCachedPayloads;
 
 // Load settings on script init
 loadSettings();

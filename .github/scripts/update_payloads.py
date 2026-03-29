@@ -1,16 +1,182 @@
 #!/usr/bin/env python3
 """
 Payload auto-update script for PS5 UMTX2 Jailbreak v2.
-Reads .github/payloads.yaml and metadata.json files, downloads latest payload binaries,
-and generates document/en/ps5/payload_map.js with the new v2 format.
+
+This script automates the process of fetching, downloading, and managing PS5 payload binaries
+from GitHub releases or direct URLs. It reads configuration from .github/payloads.yaml,
+downloads latest payload binaries, generates metadata, and produces document/en/ps5/payload_map.js.
+
+============================================================================
+                        ARCHITECTURE & WORKFLOW
+============================================================================
+
+1. Configuration (payloads.yaml)
+   ├─ sourceType: 'github-release' | 'direct' | 'custom'
+   ├─ github-release: Automatic fetching via GitHub API
+   ├─ direct: Manual URL specification (for repos without releases)
+   └─ custom: JS actions (no binary download)
+
+2. Processing Pipeline
+   ├─ Load config from payloads.yaml
+   ├─ For each payload:
+   │  ├─ Detect license from GitHub API
+   │  ├─ Detect firmware compatibility from topics/README
+   │  ├─ Fetch releases or use manual versions
+   │  ├─ Download missing binaries (SECURITY: ZIP files are SKIPPED)
+   │  ├─ Calculate SHA256 hash and file size
+   │  ├─ Parse changelogs from release notes
+   │  └─ Generate metadata.json per payload
+   └─ Generate consolidated payload_map.js
+
+3. Output Files
+   ├─ document/en/ps5/payloads/{payload_id}/metadata.json
+   ├─ document/en/ps5/payloads/{payload_id}/{version}/{binary_file}
+   └─ document/en/ps5/payload_map.js
+
+============================================================================
+                    FOR DEVELOPERS: ADDING NEW PAYLOADS
+============================================================================
+
+**Option A: GitHub Releases (Recommended - Fully Automated)**
+
+Add to .github/payloads.yaml:
+
+```yaml
+  - id: my-payload              # Unique identifier (lowercase, hyphens)
+    displayTitle: My Payload     # Display name in UI
+    description: Does something  # Short description
+    authors:                     # List of contributors
+      - your-github-username
+    projectUrl: https://github.com/username/repo
+    sourceType: github-release   # Enables automatic fetching
+    sourceRepo: username/repo    # GitHub repo (owner/name)
+    sourcePattern: my-payload*.elf  # Glob pattern to match asset name
+    toPort: 9021                 # Optional: Port number for network payloads
+    supportedFirmwares: ["3.", "4.", "5."]  # Optional: e.g., ["3.", "4."]
+    license:                     # Optional: Auto-detected if empty
+      type: ""
+      url: ""
+```
+
+Requirements for github-release:
+- Repository must have GitHub Releases with tags (e.g., v1.0, v1.0.1)
+- Each release must contain a binary asset matching sourcePattern
+- Assets must be .elf or .bin files (NOT .zip - security policy)
+- Release tag format: `v{major}.{minor}.{patch}` (semver recommended)
+
+Asset Naming Examples:
+- Good: `my-payload-ps5.elf`, `my-payload-v1.0.elf`
+- Bad: `Payload.zip`, `payload.tar.gz` (archives are SKIPPED)
+
+**Option B: Direct URLs (Manual - For Special Cases)**
+
+Use this when:
+- Repository has no GitHub releases
+- Assets are in ZIP format (must extract manually and host elsewhere)
+- Using custom release hosting
+
+```yaml
+  - id: my-payload
+    displayTitle: My Payload
+    description: Does something
+    authors:
+      - your-github-username
+    projectUrl: https://github.com/username/repo
+    sourceType: direct           # Manual URL management
+    sourceRepo: username/repo
+    sourcePattern: my-payload*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/username/repo/blob/main/LICENSE"
+    manualVersions:              # Explicitly list each version
+      - version: "1.0"           # Version string (can be any format)
+        fileName: my-payload.elf # Exact filename
+        url: https://github.com/username/repo/releases/download/v1.0/my-payload.elf
+        isDefault: true          # Mark latest version as default
+        releaseDate: 2024-01-15  # YYYY-MM-DD format
+```
+
+**Option C: Custom Actions (JavaScript Only - No Binary)**
+
+For browser-based actions:
+
+```yaml
+  - id: my-action
+    displayTitle: My Action
+    description: Does something in browser
+    authors:
+      - your-github-username
+    projectUrl: https://github.com/username/repo
+    sourceType: custom
+    customAction: my-action      # Reference to JS function
+    sourceRepo: ""
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.0"
+        fileName: ""             # Empty for custom actions
+        url: ""
+        isDefault: true
+        releaseDate: 2024-01-01
+```
+
+============================================================================
+                           SECURITY POLICIES
+============================================================================
+
+1. ZIP/Archive Handling: DISABLED
+   - ZIP, TAR, GZ files are automatically SKIPPED
+   - Reason: Cannot verify contents without extraction
+   - Solution: Extract manually, host .elf files, use 'direct' sourceType
+
+2. Hash Verification:
+   - All downloaded binaries are SHA256-hashed
+   - Hashes are stored in metadata.json and payload_map.js
+   - Existing files are re-hashed to detect tampering
+
+3. URL Validation:
+   - Only HTTPS URLs are accepted
+   - GitHub URLs are validated for format
+
+============================================================================
+                         COMMON ISSUES & SOLUTIONS
+============================================================================
+
+Issue: "No matching asset for pattern"
+- Check sourcePattern matches actual release asset name
+- Verify release contains .elf or .bin file (not .zip)
+- Example: If asset is "tool-v1.0.elf", pattern should be "tool*.elf"
+
+Issue: "Repository not found" or 404
+- Verify sourceRepo format: "owner/repo" (no https://)
+- Check if repository still exists on GitHub
+- For moved repos, update sourceRepo with new owner
+
+Issue: "Empty hash/downloadUrl in metadata"
+- For 'direct' sourceType: Verify URLs in manualVersions
+- For 'github-release': Check if asset name matches sourcePattern
+- Check if file exists at specified path
+
+Issue: Release date mismatch
+- Script now uses 'publishedAt' (public release date)
+- Old versions may have used 'createdAt' (tag creation date)
+- To update: Delete metadata.json and re-run script
+
+============================================================================
 
 Features:
 - GitHub Releases API integration with changelog parsing
-- License auto-detection
+- License auto-detection from GitHub API
 - Pre-release flag detection
 - Firmware compatibility auto-detection (topics + README)
-- metadata.json generation/maintenance
-- payload_map.js v2 format with filePath support
+- metadata.json generation/maintenance per payload
+- payload_map.js v2 format generation with filePath support
+- SHA256 hash verification for all binaries
+- Automatic skipping of ZIP/archive files (security)
 """
 
 import os
@@ -225,42 +391,94 @@ def get_github_releases(repo: str, max_releases: int = MAX_VERSIONS_PER_PAYLOAD)
 
 
 def get_release_details(repo: str, tag: str) -> Optional[Dict]:
-    """Get release details (body, url, assets) for a specific tag using gh release view.
+    """Get release details (body, url, assets, publishedAt) for a specific tag.
     
     This is the second step after get_github_releases(), since 'gh release list'
     does not support the 'body' field.
+    
+    IMPORTANT: Uses 'publishedAt' (not 'createdAt') for accurate release dates.
+    - publishedAt: When release was made public (correct for user-facing dates)
+    - createdAt: When tag was created (can be days before release)
+    
+    Returns:
+        dict with keys: body, url, assets, publishedAt
+        None if fetch fails or repo not found (404)
     """
     try:
+        # FIXED: Now requests 'publishedAt' instead of 'createdAt'
         result = subprocess.run(
             ["gh", "release", "view", tag, "--repo", repo,
-             "--json", "body,url,assets,createdAt"],
+             "--json", "body,url,assets,publishedAt"],
             capture_output=True, text=True, timeout=30
         )
         if result.returncode != 0:
-            print(f"  Warning: gh release view failed for {repo}@{tag}: {result.stderr}")
+            stderr = result.stderr.strip()
+            # Detect deleted/moved repositories
+            if '404' in stderr or 'not found' in stderr.lower():
+                print(f"  ERROR: Repository not found: {repo} (may be deleted or moved)")
+            else:
+                print(f"  Warning: gh release view failed for {repo}@{tag}: {stderr}")
             return None
 
         data = json.loads(result.stdout)
         return data
-    except (subprocess.TimeoutExpired, FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"  Warning: Could not fetch release details for {repo}@{tag}: {e}")
+    except subprocess.TimeoutExpired:
+        print(f"  ERROR: Timeout fetching release details for {repo}@{tag}")
+        return None
+    except FileNotFoundError:
+        print(f"  ERROR: 'gh' CLI not found. Install GitHub CLI: https://cli.github.com/")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"  ERROR: Invalid JSON response for {repo}@{tag}: {e}")
         return None
 
 
 def match_asset(assets: List[Dict], pattern: str) -> Optional[Dict]:
-    """Find an asset matching the given glob-like pattern."""
+    """Find an asset matching the given glob-like pattern.
+    
+    SECURITY POLICY: ZIP/archive files are automatically SKIPPED.
+    Only .elf and .bin files are accepted for safety reasons.
+    
+    Args:
+        assets: List of GitHub release assets (dict with 'name' key)
+        pattern: Glob-like pattern (e.g., "my-payload*.elf")
+        
+    Returns:
+        Matching asset dict or None if no valid asset found
+        
+    Examples:
+        >>> assets = [{'name': 'payload-v1.0.elf'}, {'name': 'payload.zip'}]
+        >>> match_asset(assets, 'payload*.elf')
+        {'name': 'payload-v1.0.elf'}  # .zip is skipped
+    """
+    # SECURITY: Explicitly block archive formats
+    BLOCKED_EXTENSIONS = ('.zip', '.tar', '.gz', '.7z', '.rar', '.tar.gz', '.tgz')
+    ALLOWED_EXTENSIONS = ('.elf', '.bin')
+    
     # Convert simple glob pattern to regex
     regex_pattern = pattern.replace('.', r'\.').replace('*', '.*')
     regex = re.compile(regex_pattern, re.IGNORECASE)
 
+    # Priority 1: Pattern match with security filter
     for asset in assets:
-        if regex.match(asset.get('name', '')):
-            return asset
+        name = asset.get('name', '')
+        
+        # SECURITY: Skip archive files
+        if any(name.lower().endswith(ext) for ext in BLOCKED_EXTENSIONS):
+            print(f"    SKIPPED (archive): {name} - Extract manually and use 'direct' sourceType")
+            continue
+            
+        if regex.match(name):
+            # Additional safety: Only accept known safe extensions
+            if any(name.lower().endswith(ext) for ext in ALLOWED_EXTENSIONS):
+                return asset
+            else:
+                print(f"    SKIPPED (unsupported format): {name}")
 
     # Fallback: try to find any .elf or .bin file
     for asset in assets:
         name = asset.get('name', '')
-        if name.endswith('.elf') or name.endswith('.bin'):
+        if name.lower().endswith(ALLOWED_EXTENSIONS):
             return asset
 
     return None
@@ -290,14 +508,15 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         version = tag.lstrip('v')
         is_prerelease = release.get('isPrerelease', False)
 
-        # Step 2: Get release details (body, url, assets, createdAt) via gh release view
+        # Step 2: Get release details (body, url, assets, publishedAt) via gh release view
         details = get_release_details(repo, tag)
         if not details:
             print(f"  No details found for {repo}@{tag}")
             continue
 
         body = details.get('body', '')
-        created_at = details.get('createdAt', '')
+        # FIXED: Now uses 'publishedAt' instead of 'createdAt'
+        published_at = details.get('publishedAt', '')
         assets = details.get('assets', [])
 
         if not assets:
@@ -351,12 +570,26 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
             'downloadUrl': download_url,
             'hash': file_hash,
             'fileSize': file_size,
-            'releaseDate': created_at[:10] if created_at else '',
-            'isDefault': i == 0,
+            'releaseDate': published_at[:10] if published_at else '',
+            'isDefault': False,  # Will be set by releaseDate-based sort below
             'isPreRelease': is_prerelease,
             'changelog': changelog
         })
 
+    # Sort versions by releaseDate (most recent first) and set isDefault accordingly
+    # This ensures the most recent version is always marked as default, regardless of
+    # the order returned by GitHub API or any other source.
+    versions_with_date = [v for v in versions if v.get('releaseDate')]
+    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
+    
+    # Mark all as non-default first
+    for v in versions:
+        v['isDefault'] = False
+    
+    # Mark the most recent version as default
+    if versions_with_date:
+        versions_with_date[0]['isDefault'] = True
+    
     return versions
 
 
@@ -380,7 +613,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                 'hash': '',
                 'fileSize': 0,
                 'releaseDate': ver_config.get('releaseDate', ''),
-                'isDefault': ver_config.get('isDefault', False),
+                'isDefault': False,  # Will be set by releaseDate-based sort below
                 'isPreRelease': False,
                 'changelog': []
             })
@@ -404,7 +637,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                 'hash': existing_hash,
                 'fileSize': existing_size,
                 'releaseDate': ver_config.get('releaseDate', ''),
-                'isDefault': ver_config.get('isDefault', False),
+                'isDefault': False,  # Will be set by releaseDate-based sort below
                 'isPreRelease': False,
                 'changelog': []
             })
@@ -419,7 +652,7 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
                     'hash': file_hash,
                     'fileSize': file_size,
                     'releaseDate': ver_config.get('releaseDate', ''),
-                    'isDefault': ver_config.get('isDefault', False),
+                    'isDefault': False,  # Will be set by releaseDate-based sort below
                     'isPreRelease': False,
                     'changelog': []
                 })
@@ -429,6 +662,20 @@ def update_payload_from_direct(payload_config: Dict, metadata: Dict) -> List[Dic
         else:
             print(f"  No URL and file not found: {file_name}")
 
+    # Sort versions by releaseDate (most recent first) and set isDefault accordingly
+    # This ensures the most recent version is always marked as default, regardless of
+    # the order in the config file.
+    versions_with_date = [v for v in versions if v.get('releaseDate')]
+    versions_with_date.sort(key=lambda x: x['releaseDate'], reverse=True)
+    
+    # Mark all as non-default first
+    for v in versions:
+        v['isDefault'] = False
+    
+    # Mark the most recent version as default
+    if versions_with_date:
+        versions_with_date[0]['isDefault'] = True
+    
     return versions
 
 

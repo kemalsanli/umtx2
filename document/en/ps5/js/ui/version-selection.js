@@ -124,6 +124,15 @@ async function showSettingsVersionPage(payload) {
                 cardBadges.appendChild(preReleaseBadge);
             }
 
+            // Cached (offline) badge for default versions
+            if (ver.isDefault === true) {
+                var cachedBadge = document.createElement('span');
+                cachedBadge.className = 'version-card-cached-badge';
+                cachedBadge.textContent = 'Cached';
+                cachedBadge.title = 'Available offline';
+                cardBadges.appendChild(cachedBadge);
+            }
+
             // Check if this version is currently selected
             var isSelected = currentSelectedVersion === ver.version ||
                 (!currentSelectedVersion && ver.isDefault);

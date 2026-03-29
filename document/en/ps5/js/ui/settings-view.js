@@ -20,8 +20,61 @@ function openSettings() {
  * Close the settings screen and return to the landing page.
  */
 function closeSettings() {
+    preFetchSelectedPayloads();
     window.settingsMode = false;
     switchPage("pre-jb-view");
+}
+
+/**
+ * Pre-fetch non-default payload versions into browser HTTP cache.
+ * Iterates over all visible payloads and fetches selected non-default versions.
+ * This is fire-and-forget - errors are silently ignored.
+ */
+function preFetchSelectedPayloads() {
+    var count = 0;
+    
+    for (var i = 0; i < payload_map.length; i++) {
+        var payload = payload_map[i];
+        
+        // Skip hidden payloads
+        if (!isPayloadVisible(payload.id)) {
+            continue;
+        }
+        
+        // Get the active version for this payload
+        var versionInfo = resolveActiveVersion(payload);
+        if (!versionInfo || !versionInfo.filePath) {
+            continue;
+        }
+        
+        // Skip default versions (already in AppCache)
+        // Find the actual version object to check isDefault flag
+        var isDefault = false;
+        if (payload.versions && payload.versions.length > 0) {
+            for (var j = 0; j < payload.versions.length; j++) {
+                if (payload.versions[j].version === versionInfo.version) {
+                    isDefault = payload.versions[j].isDefault;
+                    break;
+                }
+            }
+        }
+        
+        if (isDefault) {
+            continue;
+        }
+        
+        // Fire-and-forget fetch to pre-load into HTTP cache
+        count++;
+        fetch(versionInfo.filePath, { cache: "default" })
+            ["catch"](function(err) {
+                // Silently ignore errors
+            });
+    }
+    
+    // Show brief notification if we're caching anything
+    if (count > 0) {
+        showToast("Caching selected payloads...", 2000);
+    }
 }
 
 /**
@@ -157,34 +210,71 @@ function populateSettingsGrid() {
 }
 
 /**
- * Compare two payload maps and return a list of changes.
- * @param {Array} oldMap - The current payload_map array.
- * @param {Array} newMap - The newly fetched payload_map array.
- * @returns {Array<{displayTitle: string, type: string}>} List of changes.
+ * Generate a simple fingerprint from payload_map for comparison.
+ * Extracts id + versions data from the current in-memory payload_map.
+ * @returns {string} JSON fingerprint of [{ id, versions: [{version, hash}] }]
  */
-function comparePayloadMaps(oldMap, newMap) {
-    var changes = [];
-    for (var i = 0; i < newMap.length; i++) {
-        var newPayload = newMap[i];
-        var oldPayload = null;
-        for (var j = 0; j < oldMap.length; j++) {
-            if (oldMap[j].id === newPayload.id) {
-                oldPayload = oldMap[j];
-                break;
+function generatePayloadFingerprint() {
+    var fingerprint = [];
+    for (var i = 0; i < payload_map.length; i++) {
+        var p = payload_map[i];
+        var versionInfo = [];
+        if (p.versions) {
+            for (var j = 0; j < p.versions.length; j++) {
+                var v = p.versions[j];
+                versionInfo.push({ version: v.version, hash: v.hash });
             }
         }
-        if (!oldPayload) {
-            changes.push({ displayTitle: newPayload.displayTitle, type: "added" });
-        } else if (JSON.stringify(oldPayload.versions) !== JSON.stringify(newPayload.versions)) {
-            changes.push({ displayTitle: newPayload.displayTitle, type: "updated" });
-        }
+        fingerprint.push({ id: p.id, versions: versionInfo });
     }
-    return changes;
+    return JSON.stringify(fingerprint);
 }
 
 /**
- * Fetch the latest payload_map.js from the server and update the global payload_map.
- * Uses a relative URL with cache-busting so it works both locally and on GitHub Pages.
+ * Extract a simple fingerprint from the fetched payload_map.js text.
+ * Uses position-based token extraction: finds all id: tokens, splits the text
+ * into per-payload blocks, then extracts version+hash pairs from each block.
+ * This avoids fragile regex matching against nested braces/brackets.
+ * @param {string} text - The fetched payload_map.js file content
+ * @returns {string} JSON fingerprint of [{ id, versions: [{version, hash}] }]
+ */
+function extractFingerprintFromText(text) {
+    var fingerprint = [];
+
+    // Step 1: Find all id: "xxx" occurrences with their positions.
+    // In payload_map.js, "id:" is unique to each payload entry (authors use "name:").
+    var idPattern = /id:\s*["']([^"']+)["']/g;
+    var idPositions = [];
+    var idMatch;
+    while ((idMatch = idPattern.exec(text)) !== null) {
+        idPositions.push({ id: idMatch[1], pos: idMatch.index });
+    }
+
+    // Step 2: For each payload, extract the text block between this id and the next,
+    // then pull version + hash pairs from that block.
+    for (var i = 0; i < idPositions.length; i++) {
+        var startPos = idPositions[i].pos;
+        var endPos = (i + 1 < idPositions.length) ? idPositions[i + 1].pos : text.length;
+        var block = text.substring(startPos, endPos);
+
+        var versionInfo = [];
+        // version: always appears before hash: in each version object, and
+        // [\s\S]*? (non-greedy) ensures we pair each version with its own hash.
+        var versionPattern = /version:\s*["']([^"']+)["'][\s\S]*?hash:\s*["']([^"']*)["']/g;
+        var vMatch;
+        while ((vMatch = versionPattern.exec(block)) !== null) {
+            versionInfo.push({ version: vMatch[1], hash: vMatch[2] });
+        }
+
+        fingerprint.push({ id: idPositions[i].id, versions: versionInfo });
+    }
+
+    return JSON.stringify(fingerprint);
+}
+
+/**
+ * Fetch the latest payload_map.js from the server and check if it matches local.
+ * Uses a simple fingerprint comparison: if id + versions match, no update needed.
  */
 async function refreshPayloads() {
     var refreshBtn = document.getElementById("refresh-payloads-btn");
@@ -207,67 +297,14 @@ async function refreshPayloads() {
 
         var text = await response.text();
 
-        // Extract the payload_map array from the JS file
-        var match = text.match(/const\s+payload_map\s*=\s*(\[[\s\S]*\]);/);
-        if (!match) {
-            throw new Error("Invalid payload_map format");
-        }
+        // Generate fingerprints
+        var localFingerprint = generatePayloadFingerprint();
+        var remoteFingerprint = extractFingerprintFromText(text);
 
-        // Use Function constructor to safely evaluate JS object literals.
-        // JSON.parse won't work here because payload_map.js uses unquoted
-        // keys and trailing commas (valid JS, not valid JSON).
-        var newPayloadMap;
-        try {
-            newPayloadMap = new Function("return " + match[1])();
-        } catch (parseError) {
-            throw new Error("Failed to parse payload_map: " + parseError.message);
-        }
-
-        // Compare with current map
-        var changes = comparePayloadMaps(window.payload_map, newPayloadMap);
-
-        if (changes.length === 0) {
+        if (localFingerprint === remoteFingerprint) {
             updateToastMessage(toast, "No updates available.");
         } else {
-            // Apply the updated payload_map
-            window.payload_map = newPayloadMap;
-
-            // Clean up stale version selections — if the user previously
-            // selected a version that no longer exists in the refreshed map,
-            // clear it so resolveActiveVersion() falls back to the default.
-            for (var pi = 0; pi < newPayloadMap.length; pi++) {
-                var p = newPayloadMap[pi];
-                var selected = getSelectedVersion(p.id);
-                if (selected && p.versions) {
-                    var stillExists = false;
-                    for (var vi = 0; vi < p.versions.length; vi++) {
-                        if (p.versions[vi].version === selected) {
-                            stillExists = true;
-                            break;
-                        }
-                    }
-                    if (!stillExists) {
-                        // Clear stale selection (empty string → getSelectedVersion returns null)
-                        setSelectedVersion(p.id, "");
-                    }
-                }
-            }
-
-            // Persist timestamp so we know when we last updated
-            localStorage.setItem("payload_map_updated", Date.now().toString());
-
-            var updatedNames = changes.map(function (c) { return c.displayTitle; }).join(", ");
-            updateToastMessage(toast, "Updated: " + updatedNames);
-
-            // Re-render the settings grid with new data
-            populateSettingsGrid();
-
-            // If we're in post-JB mode, also re-render the payloads page
-            // so version dropdowns reflect the updated data
-            var payloadsView = document.getElementById("payloads-view");
-            if (typeof populatePayloadsPage === "function" && payloadsView && payloadsView.offsetParent !== null) {
-                populatePayloadsPage();
-            }
+            updateToastMessage(toast, "Payloads updated. Reload the page to apply changes.");
         }
 
         // Auto-dismiss toast after 5 seconds
@@ -276,7 +313,7 @@ async function refreshPayloads() {
         }, 5000);
 
     } catch (error) {
-        updateToastMessage(toast, "Update check failed. Try again later.");
+        updateToastMessage(toast, "Update check failed: " + error.message);
         setTimeout(function () {
             removeToast(toast);
         }, 5000);
@@ -293,4 +330,4 @@ window.openSettings = openSettings;
 window.closeSettings = closeSettings;
 window.populateSettingsGrid = populateSettingsGrid;
 window.refreshPayloads = refreshPayloads;
-window.comparePayloadMaps = comparePayloadMaps;
+window.preFetchSelectedPayloads = preFetchSelectedPayloads;

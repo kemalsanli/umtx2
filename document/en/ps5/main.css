@@ -724,6 +724,16 @@ body.jailbreak-active .top-right-buttons {
     border: 1px solid rgba(76, 175, 80, 0.4);
 }
 
+.version-card-cached-badge {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+}
+
 .version-card-date {
     font-size: 0.85rem;
     color: var(--text-color-tertiary);

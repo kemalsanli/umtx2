@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Refresh Function</title>
+</head>
+<body>
+    <h1>Testing refreshPayloads fingerprint</h1>
+    <button id="test-btn" onclick="testFingerprint()">Test Fingerprint Extraction</button>
+    <pre id="output" style="background: #f0f0f0; padding: 10px; margin-top: 20px;"></pre>
+
+    <script src="payload_map.js"></script>
+    <script>
+        // Import the fingerprint functions from settings-view.js
+        function generatePayloadFingerprint() {
+            var fingerprint = [];
+            for (var i = 0; i < payload_map.length; i++) {
+                var p = payload_map[i];
+                var versionInfo = [];
+                if (p.versions) {
+                    for (var j = 0; j < p.versions.length; j++) {
+                        var v = p.versions[j];
+                        versionInfo.push({ version: v.version, hash: v.hash });
+                    }
+                }
+                fingerprint.push({ id: p.id, versions: versionInfo });
+            }
+            return JSON.stringify(fingerprint);
+        }
+
+        function extractFingerprintFromText(text) {
+            var fingerprint = [];
+            var idPattern = /id:\s*["']([^"']+)["']/g;
+            var idPositions = [];
+            var idMatch;
+            while ((idMatch = idPattern.exec(text)) !== null) {
+                idPositions.push({ id: idMatch[1], pos: idMatch.index });
+            }
+
+            for (var i = 0; i < idPositions.length; i++) {
+                var startPos = idPositions[i].pos;
+                var endPos = (i + 1 < idPositions.length) ? idPositions[i + 1].pos : text.length;
+                var block = text.substring(startPos, endPos);
+
+                var versionInfo = [];
+                var versionPattern = /version:\s*["']([^"']+)["'][\s\S]*?hash:\s*["']([^"']*)["']/g;
+                var vMatch;
+                while ((vMatch = versionPattern.exec(block)) !== null) {
+                    versionInfo.push({ version: vMatch[1], hash: vMatch[2] });
+                }
+
+                fingerprint.push({ id: idPositions[i].id, versions: versionInfo });
+            }
+
+            return JSON.stringify(fingerprint);
+        }
+
+        async function testFingerprint() {
+            const output = document.getElementById('output');
+            output.textContent = 'Testing...\n\n';
+            
+            try {
+                // Generate local fingerprint
+                const localFP = generatePayloadFingerprint();
+                output.textContent += 'Local fingerprint generated successfully\n';
+                output.textContent += 'Sample (first 200 chars): ' + localFP.substring(0, 200) + '...\n\n';
+                
+                // Fetch and extract remote fingerprint
+                const response = await fetch('payload_map.js?t=' + Date.now(), { cache: 'no-store' });
+                const text = await response.text();
+                const remoteFP = extractFingerprintFromText(text);
+                
+                output.textContent += 'Remote fingerprint extracted successfully\n';
+                output.textContent += 'Sample (first 200 chars): ' + remoteFP.substring(0, 200) + '...\n\n';
+                
+                // Compare
+                if (localFP === remoteFP) {
+                    output.textContent += '✅ MATCH: No updates available.\n';
+                } else {
+                    output.textContent += '❌ MISMATCH: Payloads updated.\n\n';
+                    output.textContent += 'Local length: ' + localFP.length + '\n';
+                    output.textContent += 'Remote length: ' + remoteFP.length + '\n';
+                }
+            } catch (error) {
+                output.textContent += '❌ ERROR: ' + error.message + '\n' + error.stack;
+            }
+        }
+    </script>
+</body>
+</html>
