@@ -936,7 +936,9 @@ def main():
             f.write(f"has_changes={'true' if has_changes else 'false'}\n")
 
     print("\nDone!")
-    return 0 if has_changes else 1
+    # Always return 0 for success - exit code 1 is reserved for actual errors
+    # Changes are tracked via GITHUB_OUTPUT environment variable
+    return 0
 
 
 if __name__ == "__main__":

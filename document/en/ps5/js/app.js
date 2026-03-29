@@ -81,6 +81,7 @@ function registerAppCacheEventHandlers() {
     var appCache = window.applicationCache;
 
     var toast;
+    var toastTimeout; // Track the timeout ID
 
     function createOrUpdateAppCacheToast(message, timeout) {
         if (timeout === undefined) timeout = -1;
@@ -91,10 +92,17 @@ function registerAppCacheEventHandlers() {
             updateToastMessage(toast, message);
         }
 
+        // Clear any existing timeout before setting a new one
+        if (toastTimeout) {
+            clearTimeout(toastTimeout);
+            toastTimeout = null;
+        }
+
         if (timeout > 0) {
-            setTimeout(function () {
+            toastTimeout = setTimeout(function () {
                 removeToast(toast);
                 toast = null;
+                toastTimeout = null;
             }, timeout);
         }
     }
