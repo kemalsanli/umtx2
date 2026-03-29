@@ -1,0 +1,31 @@
+{
+  "id": "ps5-versions",
+  "displayTitle": "ps5-versions",
+  "description": "Shows kernel build, os and sdk versions",
+  "authors": [
+    "SiSTRo"
+  ],
+  "projectUrl": "https://github.com/SiSTR0/ps5-versions",
+  "sourceRepo": "SiSTR0/ps5-versions",
+  "supportedFirmwares": [
+    "1.",
+    "2.",
+    "3.",
+    "4."
+  ],
+  "toPort": null,
+  "versions": [
+    {
+      "version": "1.0",
+      "fileName": "ps5-versions.elf",
+      "filePath": "payloads/ps5-versions/1.0/ps5-versions.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 9880,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

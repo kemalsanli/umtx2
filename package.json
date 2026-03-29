@@ -1,0 +1,22 @@
+{
+  "name": "umtx2-ps5",
+  "version": "1.0.0",
+  "description": "PS5 UMTX2 Jailbreak with automated testing",
+  "private": true,
+  "scripts": {
+    "test": "python3 .github/scripts/run_tests.py",
+    "test:js": "find document/en/ps5 -name '*.js' -type f -exec node --check {} \\;",
+    "test:js-syntax": "find document/en/ps5 -name '*.js' -type f | while read file; do echo \"Checking: $file\" && node --check \"$file\"; done",
+    "test:metadata": "python3 -c \"import json, sys, os; from pathlib import Path; [json.load(open(f)) for f in Path('document/en/ps5/payloads').rglob('metadata.json')] or print('All metadata.json files are valid')\"",
+    "test:payloads": "python3 -c \"from .github.scripts.run_tests import test_payload_structure, test_metadata_format; test_payload_structure(); test_metadata_format(); print('Payload tests passed!')\""
+  },
+  "devDependencies": {},
+  "keywords": [
+    "ps5",
+    "jailbreak",
+    "umtx2",
+    "payload"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -44,12 +44,9 @@
  * @property {any} gadgets 
  */
 
-if (!navigator.userAgent.includes('PlayStation 5')) {
-    alert(`This is a PlayStation 5 Exploit. => ${navigator.userAgent}`);
-    throw new Error("");
-}
 
 const supportedFirmwares = ["1.00", "1.01", "1.02", "1.05", "1.10", "1.11", "1.12", "1.13", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70", "3.00", "3.10", "3.20", "3.21", "4.00", "4.02", "4.03", "4.50", "4.51", "5.00", "5.02", "5.10", "5.50"];
+
 const fw_idx = navigator.userAgent.indexOf('PlayStation; PlayStation 5/') + 27;
 // @ts-ignore
 window.fw_str = navigator.userAgent.substring(fw_idx, fw_idx + 4);
@@ -58,7 +55,7 @@ window.fw_float = parseFloat(fw_str);
 
 // @ts-ignore
 //load offsets & webkit exploit after.
-if (!supportedFirmwares.includes(fw_str)) {
+if (navigator.userAgent.includes('PlayStation 5') && !supportedFirmwares.includes(fw_str)) {
     // @ts-ignore
     alert(`This firmware(${fw_str}) is not supported.`);
     throw new Error("");
@@ -66,7 +63,11 @@ if (!supportedFirmwares.includes(fw_str)) {
 
 let nogc = [];
 
-let worker = new Worker("rop_slave.js");
+// Only create worker on actual PS5
+let worker;
+if (navigator.userAgent.includes('PlayStation 5')) {
+    worker = new Worker("rop_slave.js");
+}
 
 /**
  * @param {UserlandRW|WebkitPrimitives} p 
@@ -397,10 +398,7 @@ async function prepare(p) {
  * @param {boolean} wkOnly
  */
 async function main(userlandRW, wkOnly = false) {
-    const debug = false;
-
     const { p, chain } = await prepare(userlandRW);
-    if (debug) await log("Chain initialized", LogLevel.DEBUG);
 
     async function get_local_ips() {
         // i used this as reference for the undocumented NETGETIFLIST call
@@ -515,9 +513,12 @@ async function main(userlandRW, wkOnly = false) {
 
     populatePayloadsPage(wkOnly);
 
-    var load_payload_into_elf_store_from_local_file = async function (filename) {
-        await log("Loading ELF file: " + filename + " ...", LogLevel.LOG);
-        const response = await fetch('payloads/' + filename);
+    var load_payload_into_elf_store_from_local_file = async function (filepathOrFilename) {
+        // v2: Accept full filePath (e.g. "payloads/etahen/2.4b/etaHEN-2.4B.bin")
+        // or legacy filename for backward compatibility
+        await log("Loading ELF file: " + filepathOrFilename + " ...", LogLevel.LOG);
+        const fetchPath = filepathOrFilename.startsWith('payloads/') ? filepathOrFilename : ('payloads/' + filepathOrFilename);
+        const response = await fetch(fetchPath);
         if (!response.ok) {
             throw new Error(`Failed to fetch the binary file. Status: ${response.status}`);
         }
@@ -861,7 +862,7 @@ async function main(userlandRW, wkOnly = false) {
             }
         }
 
-        if (await load_local_elf("elfldr-ps5.elf") == 0) {
+        if (await load_local_elf("payloads/elfldr/latest/elfldr-ps5.elf") == 0) {
             await log(`elfldr listening on ${ip.ip}:9021`, LogLevel.INFO);
             is_elfldr_running = true;
         } else {
@@ -1198,7 +1199,8 @@ async function main(userlandRW, wkOnly = false) {
                     }
                 } else {
                     updateToastMessage(toast, `${payload_info.displayTitle}: Fetching...`);
-                    let total_sz = await load_payload_into_elf_store_from_local_file(payload_info.fileName);
+                    // v2: Use filePath (with fallback to fileName for backward compatibility)
+                    let total_sz = await load_payload_into_elf_store_from_local_file(payload_info.filePath || payload_info.fileName);
 
                     if (!payload_info.toPort) {
                         if (wkOnly) {

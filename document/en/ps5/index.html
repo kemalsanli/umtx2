@@ -1,4 +1,4 @@
-<html>
+<html manifest="cache.appcache">
 <!-- <html manifest="cache.appcache"> -->
 
 <head>
@@ -9,14 +9,27 @@
 
 <!-- body is set up as three rows: auto 1fr auto -->
 <body>
-    <!-- Row 1 -->
-    <div class="p-2">
-        <h1 class="text-center">PS5 UMTX2 Jailbreak (1.xx-5.xx)</h1>
-        <p class="text-center" id="top-bar-text">Current firmware: <span class="fw-bold" id="current-fw"></span></p>
-
-        <!-- This is absolute positioned to the body-->
-        <div id="toast-container"></div>
+    <!-- Row 1: PS5-style top bar -->
+    <div class="top-bar-row">
+        <div class="top-bar-content">
+            <h1 class="top-bar-title">PS5 UMTX2 Jailbreak (1.xx-5.xx)</h1>
+            <p class="top-bar-subtitle" id="top-bar-text">Current firmware: <span class="fw-bold" id="current-fw"></span></p>
+        </div>
+        <!-- Top-right buttons: Settings + Profile -->
+        <div class="top-right-buttons">
+            <button class="settings-icon-btn" onclick="openSettings()" aria-label="Settings">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" fill="currentColor"/>
+                </svg>
+            </button>
+            <a href="https://github.com/kemalsanli" target="_blank" class="profile-btn" aria-label="GitHub Profile">
+                <img src="https://github.com/kemalsanli.png" alt="kemalsanli" class="profile-img">
+            </a>
+            <span class="ps5-clock" id="ps5-clock">00:00</span>
+        </div>
     </div>
+    <!-- This is absolute positioned to the body-->
+    <div id="toast-container"></div>
 
     <!-- Row 2 -->
     <div id="main-content">
@@ -24,6 +37,33 @@
             <a tabindex="0" class="btn fw-bold" id="run-jb" onclick="run()">Jailbreak</a>
             <a tabindex="0" class="btn" style="padding: 0.5rem 2rem; font-size: 1rem;" id="run-wk-only"
                 onclick="run(true)">Webkit-only (sender)</a>
+            <div class="credits-link">
+                Based on <a href="https://github.com/idlesauce/umtx2" target="_blank" class="credits-author">UMTX2</a> by <a href="https://github.com/idlesauce" target="_blank" class="credits-author">idlesauce</a>
+            </div>
+        </div>
+
+        <!-- Settings View (pre-jb settings) -->
+        <div id="settings-view">
+            <!-- Refresh button (top-right corner) -->
+            <button id="refresh-payloads-btn" class="refresh-corner-btn" tabindex="0" onclick="refreshPayloads()">
+                <svg class="refresh-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 4v6h-6"></path>
+                    <path d="M1 20v-6h6"></path>
+                    <path d="M3.51 9a9 9 0 0114.85-3.36L23 10"></path>
+                    <path d="M20.49 15a9 9 0 01-14.85 3.36L1 14"></path>
+                </svg>
+                Refresh
+            </button>
+            <div class="settings-header">
+                <a tabindex="0" class="btn back-btn" onclick="closeSettings()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                    </svg>
+                    Back
+                </a>
+                <h2>Payload Settings</h2>
+            </div>
+            <div id="settings-payloads-grid"></div>
         </div>
 
         <div id="console-view">
@@ -32,11 +72,14 @@
 
         <div id="payloads-view">
         </div>
+
+        <div id="version-selection-view">
+        </div>
     </div>
 
     <!-- Row 3 -->
     <div class="position-relative text-center p-2 mb-2">
-        <p class="text-secondary" id="version">v1.0</p>
+        <p class="text-secondary" id="version">v2.0 by <a href="https://github.com/kemalsanli" target="_blank" class="author-link">kemalsanli</a></p>
         <p class="text-secondary">creds & greetz</p>
         <h3 class="text-secondary mt-2">
             <a href="https://github.com/shahrilnet">@shahrilnet</a>,
@@ -60,16 +103,107 @@
             <div class="l2-redirect-box">L2</div>
             <span class="ml-2">Redirect</span>
         </div>
+
+        <div class="position-absolute d-flex align-items-center bottom-0 right-0 m-4">
+            <span class="mr-2">Licences</span>
+            <div class="r2-licenses-box">R2</div>
+        </div>
+    </div>
+
+    <!-- Licenses Modal Overlay -->
+    <div id="licenses-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Licences</h2>
+                <button class="modal-close-btn" tabindex="0" onclick="closeLicenses()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-tabs">
+                <button class="modal-tab active" tabindex="0" onclick="switchLicenseTab('payloads')">Payloads</button>
+                <button class="modal-tab" tabindex="0" onclick="switchLicenseTab('tools')">Tools &amp; Resources</button>
+            </div>
+            <div class="modal-body">
+                <div id="licenses-payloads-tab" class="license-tab-content active"></div>
+                <div id="licenses-tools-tab" class="license-tab-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Options Modal Overlay -->
+    <div id="dev-options-modal" class="modal-overlay">
+        <div class="modal-container dev-options-container">
+            <div class="modal-header dev-options-header">
+                <h2>Developer Options</h2>
+                <button class="modal-close-btn" tabindex="0" onclick="closeDevOptions()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body dev-options-body" id="dev-options-body"></div>
+        </div>
+    </div>
+
+    <!-- Developer Challenge Modal Overlay (Tinfoil-style) -->
+    <div id="dev-challenge-modal" class="modal-overlay">
+        <div class="dev-challenge-container">
+            <!-- Close button -->
+            <button class="dev-challenge-close" tabindex="0" onclick="closeDevChallenge()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Progress bar - 10 boxes (Konami code: ↑↑↓↓←→←→BA = 10 inputs) -->
+            <div class="dev-challenge-progress" id="dev-challenge-progress">
+                <div class="progress-box" id="prog-0"></div>
+                <div class="progress-box" id="prog-1"></div>
+                <div class="progress-box" id="prog-2"></div>
+                <div class="progress-box" id="prog-3"></div>
+                <div class="progress-box" id="prog-4"></div>
+                <div class="progress-box" id="prog-5"></div>
+                <div class="progress-box" id="prog-6"></div>
+                <div class="progress-box" id="prog-7"></div>
+                <div class="progress-box" id="prog-8"></div>
+                <div class="progress-box" id="prog-9"></div>
+            </div>
+
+            <!-- Challenge text -->
+            <h3 class="dev-challenge-title">Developer Access</h3>
+            <p class="dev-challenge-text">
+                "Chosen wielder of the exploit chain...<br>
+                Overcome the Trial of the Code and claim<br>
+                the developer's true power..."
+            </p>
+
+            <!-- Hint -->
+            <p class="dev-challenge-hint">Enter the sacred sequence to proceed.</p>
+        </div>
     </div>
 
     <script src="int64.js"></script>
     <script src="rop.js"></script>
     <script src="main.js"></script>
     <script src="umtx2.js"></script>
-    <script src="custom_host_stuff.js"></script>
     <script src="syscalls.js"></script>
     <script type="module" src="psfree/psfree.js"></script>
     <script src="payload_map.js"></script>
+    
+    <!-- Modular UI Scripts (in dependency order) -->
+    <script src="js/constants.js"></script>
+    <script src="js/settings-manager.js"></script>
+    <script src="js/utils/firmware-compat.js"></script>
+    <script src="js/utils/page-switcher.js"></script>
+    <script src="js/ui/toast-notifications.js"></script>
+    <script src="js/ui/settings-view.js"></script>
+    <script src="js/ui/version-selection.js"></script>
+    <script src="js/ui/payloads-view.js"></script>
+    <script src="js/ui/licenses-modal.js"></script>
+    <script src="js/ui/developer-options.js"></script>
+    <script src="js/app.js"></script>
 
     <script>
         addEventListener('unhandledrejection', (event) => {
@@ -83,9 +217,13 @@
             );
             throw reason;
         });
-        document.getElementById("current-fw").innerHTML = fw_str;
+        // TEST MODE: Guard against undefined fw_str in test mode
+        if (window.fw_str) {
+            document.getElementById("current-fw").innerHTML = fw_str;
+        }
         registerAppCacheEventHandlers();
         registerL2ButtonHandler();
+        registerKonamiCode();
         window.onload = function () {
             let autoload = sessionStorage.getItem(SESSIONSTORE_ON_LOAD_AUTORUN_KEY);
             if (autoload) {

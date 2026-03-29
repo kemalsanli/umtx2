@@ -1,6 +1,8 @@
 import os
 import hashlib
 import argparse
+import json
+import re
 
 def calculate_file_hash(file_path):
     sha256_hash = hashlib.sha256()
@@ -9,9 +11,56 @@ def calculate_file_hash(file_path):
         sha256_hash.update(data)
     return sha256_hash.hexdigest()
 
+def load_payload_map(directory_path):
+    """Load payload_map.js and extract payload version info for smart caching."""
+    payload_map_path = os.path.join(directory_path, "payload_map.js")
+    if not os.path.exists(payload_map_path):
+        return {}
+    
+    with open(payload_map_path, "r") as f:
+        content = f.read()
+    
+    # Extract all filePath entries from the payload_map
+    # Match filePath: "payloads/..." patterns
+    file_paths = re.findall(r'filePath:\s*"([^"]+)"', content)
+    
+    # Group by payload id: extract from path like "payloads/etahen/2.4b/etaHEN-2.4B.bin"
+    payload_files = {}  # {payload_id: [filePath, ...]}
+    for fp in file_paths:
+        if not fp:
+            continue
+        parts = fp.split("/")
+        if len(parts) >= 3 and parts[0] == "payloads":
+            payload_id = parts[1]
+            if payload_id not in payload_files:
+                payload_files[payload_id] = []
+            payload_files[payload_id].append(fp)
+    
+    return payload_files
+
+def get_selected_versions_from_env():
+    """
+    In CI, this reads selected versions from environment variable or a config file.
+    For now, returns empty dict meaning 'include all default versions'.
+    
+    When the PS5 browser generates the manifest client-side, it reads from localStorage.
+    """
+    # Check for environment variable with selected versions
+    # Format: PAYLOAD_SELECTED_VERSIONS={"etahen":"2.4b","kstuff":"1.5",...}
+    env_val = os.environ.get('PAYLOAD_SELECTED_VERSIONS', '')
+    if env_val:
+        try:
+            return json.loads(env_val)
+        except json.JSONDecodeError:
+            pass
+    return {}
+
 def generate_cache_manifest(directory_path, include_payloads=True):
     manifest = ["CACHE MANIFEST"]
     manifest.append("")
+    
+    payload_files = load_payload_map(directory_path)
+    selected_versions = get_selected_versions_from_env()
     
     for root, _, files in os.walk(directory_path):
         for file in files:
@@ -22,6 +71,32 @@ def generate_cache_manifest(directory_path, include_payloads=True):
 
             if not include_payloads and 'payload' in root:
                 continue
+            
+            # Smart payload caching: Only include selected/default version files
+            rel_path = os.path.relpath(file_path, directory_path)
+            rel_path = rel_path.replace("\\", "/")
+            
+            if 'payloads/' in rel_path and include_payloads:
+                # Check if this file is inside a payload directory
+                parts = rel_path.split("/")
+                # payloads/{id}/{version}/{filename}
+                if len(parts) >= 4 and parts[0] == "payloads":
+                    payload_id = parts[1]
+                    version = parts[2]
+                    
+                    # Always include metadata.json files (small, useful for debugging)
+                    if file == "metadata.json":
+                        file_hash = calculate_file_hash(file_path)
+                        manifest.append(rel_path + " #" + file_hash)
+                        continue
+                    
+                    # For ELF/bin files: check if this version is selected
+                    if selected_versions and payload_id in selected_versions:
+                        # Only include the selected version
+                        if version != selected_versions[payload_id]:
+                            continue
+                    # If no selection info, include all (backward compatibility)
+            
             file_hash = calculate_file_hash(file_path)
             
             if args.cloudflare_workaround and file == 'index.html':
@@ -91,7 +166,13 @@ parser.add_argument("--update-manifest-tag", action="store_true", default=True,
                     help="Toggle updating the manifest tag in the HTML file (default: True).")
 parser.add_argument("--clean", action="store_true",
                     help="Remove the previously generated cache manifest file and the manifest attribute from the HTML file.")
+parser.add_argument("--selected-versions", type=str, default=None,
+                    help="JSON string of selected versions for smart caching. Format: {\"etahen\":\"2.4b\",...}")
 args = parser.parse_args()
+
+# Handle selected versions from command line
+if args.selected_versions:
+    os.environ['PAYLOAD_SELECTED_VERSIONS'] = args.selected_versions
 
 if args.directory_path is None:
     index_html_path = None

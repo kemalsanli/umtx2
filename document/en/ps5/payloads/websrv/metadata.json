@@ -1,0 +1,26 @@
+{
+  "id": "websrv",
+  "displayTitle": "websrv",
+  "description": "Custom homebrew loader. Runs on port 8080.",
+  "authors": [
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/ps5-payload-dev/websrv",
+  "sourceRepo": "ps5-payload-dev/websrv",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.28.1",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.28.1/websrv-ps5.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 1443488,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

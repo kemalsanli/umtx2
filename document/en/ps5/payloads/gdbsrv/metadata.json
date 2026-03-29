@@ -1,0 +1,26 @@
+{
+  "id": "gdbsrv",
+  "displayTitle": "gdbsrv",
+  "description": "GDB server. Runs on port 2159.",
+  "authors": [
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/ps5-payload-dev/gdbsrv",
+  "sourceRepo": "ps5-payload-dev/gdbsrv",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.7.1",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.7.1/gdbsrv-ps5.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 156688,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

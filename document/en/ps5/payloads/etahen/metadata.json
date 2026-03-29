@@ -1,0 +1,38 @@
+{
+  "id": "etahen",
+  "displayTitle": "etaHEN",
+  "description": "AIO HEN",
+  "authors": [
+    "LightningMods",
+    "Buzzer",
+    "sleirsgoevy",
+    "ChendoChap",
+    "astrelsky",
+    "illusion",
+    "CTN",
+    "SiSTR0",
+    "Nomadic"
+  ],
+  "projectUrl": "https://github.com/etaHEN/etaHEN",
+  "sourceRepo": "etaHEN/etaHEN",
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "2.4b",
+      "fileName": "etaHEN-2.4B.bin",
+      "filePath": "payloads/etahen/2.4b/etaHEN-2.4B.bin",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 4605992,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

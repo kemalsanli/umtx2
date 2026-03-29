@@ -4,9 +4,19 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      force_payload_update:
+        description: 'Force payload update even if no changes'
+        required: false
+        default: 'false'
+        type: boolean
+  # Twice daily: 06:00 and 18:00 UTC
+  schedule:
+    - cron: '0 6 * * *'    # 06:00 UTC
+    - cron: '0 18 * * *'   # 18:00 UTC
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,7 +25,57 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  update-payloads:
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.update.outputs.has_changes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml requests
+
+      - name: Update payloads
+        id: update
+        run: |
+          python .github/scripts/update_payloads.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            # Get list of changed payloads
+            CHANGES=$(git diff --name-only | grep 'payloads/.*/metadata.json' | sed 's|document/en/ps5/payloads/||g' | sed 's|/metadata.json||g' | tr '\n' ', ' | sed 's/,$//')
+            
+            # Create detailed commit message
+            if [ -n "$CHANGES" ]; then
+              git add .
+              git commit -m "chore(payloads): update $CHANGES
+
+          Automated payload update:
+          - Synced with latest GitHub releases
+          - Updated metadata and changelogs
+          - Verified compatibility
+
+          Run: $(date '+%Y-%m-%d %H:%M UTC')"
+              git push
+            fi
+          fi
+
   deploy:
+    needs: update-payloads
+    if: always()
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -23,6 +83,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

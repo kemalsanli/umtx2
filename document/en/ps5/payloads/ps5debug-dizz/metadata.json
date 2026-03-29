@@ -1,0 +1,31 @@
+{
+  "id": "ps5debug-dizz",
+  "displayTitle": "ps5debug",
+  "description": "Debugger, open source version by DizzRL",
+  "authors": [
+    "Dizz",
+    "astrelsky",
+    "John Tornblom",
+    "SiSTR0",
+    "golden",
+    "idlesauce"
+  ],
+  "projectUrl": "https://github.com/idlesauce/ps5debug",
+  "sourceRepo": "idlesauce/ps5debug",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.0.1-r2",
+      "fileName": "ps5debug_dizz.elf",
+      "filePath": "payloads/ps5debug-dizz/0.0.1-r2/ps5debug_dizz.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 165928,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

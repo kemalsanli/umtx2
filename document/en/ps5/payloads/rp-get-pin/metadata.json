@@ -1,0 +1,26 @@
+{
+  "id": "rp-get-pin",
+  "displayTitle": "ps5-remoteplay-get-pin",
+  "description": "Get Remote Play PIN for offline activated users. Send again to cancel.",
+  "authors": [
+    "idlesauce"
+  ],
+  "projectUrl": "https://github.com/idlesauce/ps5-remoteplay-get-pin",
+  "sourceRepo": "idlesauce/ps5-remoteplay-get-pin",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.1.1",
+      "fileName": "rp-get-pin.elf",
+      "filePath": "payloads/rp-get-pin/0.1.1/rp-get-pin.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 117848,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

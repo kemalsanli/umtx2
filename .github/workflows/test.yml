@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Make test script executable
+        run: chmod +x .github/scripts/run_tests.py
+      
+      - name: Run Test Suite
+        run: python3 .github/scripts/run_tests.py
+      
+      - name: JS Syntax Check (all files)
+        run: |
+          echo "Checking JavaScript syntax for all .js files..."
+          find document/en/ps5 -name "*.js" -type f | while read file; do
+            echo "Checking: $file"
+            node --check "$file"
+          done
+      
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "================================"
+          echo "Test run completed!"
+          echo "================================"

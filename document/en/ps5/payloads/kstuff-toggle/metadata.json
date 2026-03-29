@@ -1,0 +1,31 @@
+{
+  "id": "kstuff-toggle",
+  "displayTitle": "kstuff-toggle",
+  "description": "Kstuff Toggle Beta",
+  "authors": [
+    "EchoStretch",
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/EchoStretch/kstuff-toggle",
+  "sourceRepo": "EchoStretch/kstuff-toggle",
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.2",
+      "fileName": "kstuff-toggle.elf",
+      "filePath": "payloads/kstuff-toggle/0.2/kstuff-toggle.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 112736,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

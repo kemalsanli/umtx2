@@ -101,6 +101,7 @@ a:focus {
 
 #payloads-view .btn {
     width: 100% !important;
+    position: relative;
 }
 
 .payload-btn-title {
@@ -109,6 +110,15 @@ a:focus {
     font-size: 1.3rem;
     padding: 0;
     margin: 0;
+}
+
+/* Inline version text next to payload title (post-JB payloads view only) */
+.fw-version {
+    font-size: 0.8em;
+    font-weight: 400;
+    opacity: 0.5;
+    color: inherit;
+    margin-left: 0.5rem;
 }
 
 .payload-btn-description {
@@ -305,3 +315,1082 @@ a:focus {
 .mb-2 { margin-bottom: 0.5rem !important; }
 .mb-3 { margin-bottom: 1rem !important; }
 .mb-4 { margin-bottom: 1.5rem !important; }
+
+/* Payload badges */
+.payload-badge-container {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    z-index: 1;
+}
+
+.payload-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.version-badge {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.4);
+}
+
+.hidden-badge {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #FF9800;
+    border: 1px solid rgba(255, 152, 0, 0.4);
+}
+
+.btn:hover .version-badge {
+    background-color: rgba(33, 150, 243, 0.3);
+    border-color: rgba(33, 150, 243, 0.6);
+}
+
+.btn:hover .hidden-badge {
+    background-color: rgba(255, 152, 0, 0.3);
+    border-color: rgba(255, 152, 0, 0.6);
+}
+
+/* PS5-style top bar row */
+.top-bar-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    position: relative;
+    min-height: 5rem;
+    /* margin-top removed - content now positioned absolutely */
+}
+
+.top-bar-content {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.top-bar-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color-primary);
+}
+
+.top-bar-subtitle {
+    margin: 0.1rem 0 0 0;
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+}
+
+/* Top-right buttons container (Settings + Profile + Clock) - PS5 style */
+.top-right-buttons {
+    position: absolute;
+    right: 3.2rem;    /* 170x → 51px ≈ 3.2rem */
+    top: 1.5rem;      /* 80x baz değeri */
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* Hide top-right buttons on post-JB payloads screen */
+body.jailbreak-active .top-right-buttons {
+    display: none;
+}
+
+/* Settings gear icon - PS5 style */
+.settings-icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-primary);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    margin-right: 2.25rem;  /* 120x → 36px = 2.25rem */
+}
+
+.settings-icon-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.settings-icon-btn:active {
+    transform: scale(0.95);
+}
+
+.settings-icon-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Profile button - PS5 style */
+.profile-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    display: block;
+    margin-right: 3.2rem;   /* 170x → 51px ≈ 3.2rem */
+}
+
+.profile-btn:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* PS5-style clock */
+.ps5-clock {
+    font-family: 'SST', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: white;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+/* Settings view */
+#settings-view {
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.settings-header h2 {
+    margin: 0;
+    color: var(--text-color-primary);
+    font-size: 1.3rem;
+}
+
+/* Refresh corner button (top-right, mirrors back-btn style) */
+.refresh-corner-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    background: var(--surface-color-primary);
+    border: none;
+    color: var(--text-color-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.25s ease;
+    white-space: nowrap;
+}
+
+.refresh-corner-btn:hover {
+    background: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.refresh-corner-btn.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.refresh-corner-btn.loading .refresh-icon {
+    animation: spin 1s linear infinite;
+}
+
+.refresh-icon {
+    display: block;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.back-btn {
+    padding: 0.5rem 1.5rem !important;
+    font-size: 1rem !important;
+    min-width: auto !important;
+    width: auto !important;
+    line-height: 1.5 !important;
+    border-radius: 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.back-btn svg {
+    display: block;
+}
+
+#settings-payloads-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    overflow-y: auto;
+    align-content: start;
+    padding-bottom: 1rem;
+}
+
+#settings-payloads-grid .btn {
+    width: 100% !important;
+    position: relative;
+}
+
+.settings-payload-hidden {
+    opacity: 0.5;
+}
+
+/* Version selection screen */
+#version-selection-view {
+    flex-direction: column;
+}
+
+.version-selection-header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--surface-color-primary);
+    flex-shrink: 0;
+}
+
+.version-back-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--surface-color-primary);
+    color: var(--text-color-primary);
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.version-back-btn:hover {
+    background-color: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.version-toggle-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--surface-color-primary);
+    color: var(--text-color-primary);
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.version-toggle-btn:hover {
+    background-color: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.version-toggle-btn.hidden-state {
+    background-color: rgba(255, 152, 0, 0.3);
+    color: #FF9800;
+}
+
+.version-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    padding: 1rem 2rem 2rem 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    align-content: start;
+}
+
+.version-card {
+    background-color: var(--surface-color-primary);
+    border-radius: 1.25rem;
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.version-card:hover {
+    background-color: var(--surface-color-hover);
+}
+
+.version-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.version-card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color-primary);
+    margin: 0;
+}
+
+.version-card:hover .version-card-title {
+    color: var(--text-color-primary-hover);
+}
+
+.version-card-selected {
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.version-card-date {
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
+    margin: 0;
+}
+
+.version-card:hover .version-card-date {
+    color: var(--text-color-secondary-hover);
+}
+
+.version-card-changelog {
+    margin: 0.5rem 0;
+    padding: 0;
+}
+
+.version-card-changelog-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color-secondary);
+    margin: 0 0 0.3rem 0;
+}
+
+.version-card:hover .version-card-changelog-title {
+    color: var(--text-color-secondary-hover);
+}
+
+.version-card-changelog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.version-card-changelog-item {
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
+    margin: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.version-card-changelog-item:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+.version-card:hover .version-card-changelog-item {
+    color: var(--text-color-secondary-hover);
+}
+
+.version-card-select-btn {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--surface-color-secondary);
+    color: var(--text-color-primary);
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.version-card-select-btn:hover {
+    background-color: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.version-card-changelog-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.version-card-changelog-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.version-card-changelog-list::-webkit-scrollbar-thumb {
+    background: var(--surface-color-secondary);
+    border-radius: 2px;
+}
+
+.version-card-changelog-list::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-color-hover);
+}
+
+
+/* =====================================================
+   Phase 4: Licenses Button & Modal
+   ===================================================== */
+
+/* R2 indicator box (matching L2 style) */
+.r2-licenses-box {
+    background: #bdc0c2;
+    border-radius: 5px;
+    padding: 0.2rem 0.4rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    color: #4e4e4e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Modal Overlay (shared by Licenses and Dev Options) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Container */
+.modal-container {
+    background: var(--background-color-primary);
+    border: 1px solid var(--surface-color-primary);
+    border-radius: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--surface-color-primary);
+    flex-shrink: 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--text-color-primary);
+    font-size: 1.4rem;
+}
+
+.modal-close-btn {
+    background: var(--surface-color-primary);
+    border: none;
+    color: var(--text-color-secondary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background: var(--surface-color-hover);
+    color: var(--text-color-primary);
+}
+
+/* Modal Tabs */
+.modal-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--surface-color-primary);
+    flex-shrink: 0;
+}
+
+.modal-tab {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color-tertiary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.modal-tab.active {
+    color: var(--text-color-primary);
+    border-bottom-color: var(--text-color-primary);
+}
+
+.modal-tab:hover {
+    color: var(--text-color-secondary);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 1rem 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* License Tab Content */
+.license-tab-content {
+    display: none;
+}
+
+.license-tab-content.active {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* License Card */
+.license-card {
+    background: var(--surface-color-primary);
+    border-radius: 1rem;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.license-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.license-card-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color-primary);
+}
+
+.license-card-link {
+    color: #2196F3;
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.license-card-link:hover {
+    text-decoration: underline;
+}
+
+.license-card-link.small {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.license-card-section {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.license-card-label {
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
+    font-weight: 600;
+}
+
+.license-card-value {
+    font-size: 0.85rem;
+    color: var(--text-color-secondary);
+}
+
+
+/* =====================================================
+   Phase 5: Firmware Compatibility Badges
+   ===================================================== */
+
+/* Incompatible badge for settings grid */
+.incompatible-badge {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.btn:hover .incompatible-badge {
+    background-color: rgba(244, 67, 54, 0.3);
+    border-color: rgba(244, 67, 54, 0.6);
+}
+
+/* Version card - incompatible state */
+.version-card-incompatible {
+    background-color: rgba(244, 67, 54, 0.08);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.version-card-incompatible:hover {
+    background-color: rgba(244, 67, 54, 0.15);
+}
+
+/* Version card incompatibility badge */
+.version-card-incompat-badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.4);
+    white-space: nowrap;
+}
+
+/* Disabled select button for incompatible versions */
+.version-card-select-btn-disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    background-color: rgba(244, 67, 54, 0.15) !important;
+    color: #F44336 !important;
+}
+
+/* Firmware incompatible warning message */
+.fw-incompatible-warning {
+    grid-column: span 2;
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.fw-incompatible-warning p {
+    margin: 0.3rem 0;
+    color: #F44336;
+    font-size: 0.95rem;
+}
+
+.fw-incompatible-sub {
+    color: var(--text-color-tertiary) !important;
+    font-size: 0.85rem !important;
+    margin-top: 0.5rem !important;
+}
+
+
+/* =====================================================
+   Phase 6: Pre-release Badges
+   ===================================================== */
+
+/* Pre-release badge (shared between settings grid and version cards) */
+.prerelease-badge {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #FF9800;
+    border: 1px solid rgba(255, 152, 0, 0.4);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.btn:hover .prerelease-badge {
+    background-color: rgba(255, 152, 0, 0.3);
+    border-color: rgba(255, 152, 0, 0.6);
+}
+
+/* Pre-release warning in version card */
+.prerelease-warning {
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    color: #FF9800;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+
+/* =====================================================
+   Phase 7: Developer Options
+   ===================================================== */
+
+/* Dev options container */
+.dev-options-container {
+    border-color: rgba(244, 67, 54, 0.3);
+}
+
+.dev-options-header h2 {
+    color: #F44336;
+}
+
+.dev-options-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+}
+
+/* Dev option toggle row */
+.dev-option-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: var(--surface-color-primary);
+    border-radius: 0.75rem;
+    transition: background-color 0.25s ease;
+}
+
+.dev-option-toggle:hover {
+    background: var(--surface-color-secondary);
+}
+
+.dev-option-label {
+    color: var(--text-color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--surface-color-secondary);
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-color-secondary);
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background-color: rgba(244, 67, 54, 0.5);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: #F44336;
+}
+
+.slider.round {
+    border-radius: 26px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Dev option action buttons */
+.dev-option-button {
+    padding: 0.8rem 1.2rem;
+    background: var(--surface-color-primary);
+    color: var(--text-color-primary);
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    text-align: center;
+}
+
+.dev-option-button:hover {
+    background: var(--surface-color-hover);
+    color: var(--text-color-primary-hover);
+}
+
+.dev-option-button.danger {
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.dev-option-button.danger:hover {
+    background: rgba(244, 67, 54, 0.2);
+    color: #F44336;
+}
+
+/* Scrollbar for modal body */
+.modal-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--surface-color-secondary);
+    border-radius: 2px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-color-hover);
+}
+
+
+/* =====================================================
+   Developer Settings Button (Settings Grid)
+   ===================================================== */
+
+.settings-dev-btn {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.2s ease;
+    border-radius: 0.75rem;
+    gap: 0.8rem;
+}
+
+.settings-dev-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dev-btn-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: var(--text-color-primary);
+    flex-shrink: 0;
+}
+
+.dev-btn-text {
+    font-size: 1rem;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.dev-btn-arrow {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+    opacity: 0.5;
+    margin-left: auto;
+}
+
+
+/* =====================================================
+   Developer Challenge Modal (Tinfoil-style)
+   ===================================================== */
+
+.dev-challenge-container {
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Close button */
+.dev-challenge-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dev-challenge-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Progress boxes */
+.dev-challenge-progress {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.progress-box {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.progress-box.correct {
+    background: #00d26a;
+    border-color: #00d26a;
+    box-shadow: 0 0 12px rgba(0, 210, 106, 0.5);
+}
+
+/* Shake animation for wrong input */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
+
+.dev-challenge-progress.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+.dev-challenge-progress.shake .progress-box {
+    border-color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+}
+
+/* Challenge text */
+.dev-challenge-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+}
+
+.dev-challenge-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+}
+
+.dev-challenge-hint {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   Author link style
+   ===================================================== */
+
+.author-link {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.author-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   Credits Link (idlesauce)
+   ===================================================== */
+
+.credits-link {
+    margin-top: 3rem;
+    text-align: center;
+    opacity: 0.4;
+    font-size: 0.8rem;
+}
+
+.credits-author {
+    color: inherit;
+    text-decoration: none;
+}
+
+.credits-author:hover {
+    text-decoration: underline;
+    opacity: 1;
+}

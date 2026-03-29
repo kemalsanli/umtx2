@@ -1,0 +1,292 @@
+# Payload configuration for auto-update system v2
+# This file defines all payloads and their sources
+# Fields: id, displayTitle, description, authors, projectUrl, sourceType,
+#         sourceRepo, sourcePattern, toPort, supportedFirmwares, license, manualVersions
+
+payloads:
+  - id: etahen
+    displayTitle: etaHEN
+    description: AIO HEN
+    authors:
+      - LightningMods
+      - Buzzer
+      - sleirsgoevy
+      - ChendoChap
+      - astrelsky
+      - illusion
+      - CTN
+      - SiSTR0
+      - Nomadic
+    projectUrl: https://github.com/etaHEN/etaHEN
+    sourceType: direct
+    sourceRepo: etaHEN/etaHEN
+    sourcePattern: etaHEN-*.bin
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: 2.4b
+        fileName: etaHEN-2.4B.bin
+        url: https://github.com/etaHEN/etaHEN/raw/main/etaHEN-2.4B.bin
+        isDefault: true
+        releaseDate: 2024-01-15
+
+  - id: kstuff
+    displayTitle: ps5-kstuff
+    description: FPKG enabler
+    authors:
+      - sleirsgoevy
+      - john-tornblom
+      - EchoStretch
+      - buzzer-re
+      - idlesauce
+      - BestPig
+      - LightningMods
+      - zecoxao
+    projectUrl: https://github.com/EchoStretch/ps4jb-payloads/
+    sourceType: direct
+    sourceRepo: EchoStretch/ps4jb-payloads
+    sourcePattern: kstuff*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.5"
+        fileName: kstuff.elf
+        url: https://github.com/EchoStretch/ps4jb-payloads/releases/download/kstuff-ps5/kstuff-ps5.elf
+        isDefault: true
+        releaseDate: 2023-10-01
+
+  - id: byepervisor
+    displayTitle: Byepervisor HEN
+    description: FPKG enabler
+    authors:
+      - SpecterDev
+      - ChendoChap
+      - flatz
+      - fail0verflow
+      - Znullptr
+      - kiwidog
+      - sleirsgoevy
+      - EchoStretch
+      - LightningMods
+      - BestPig
+      - zecoxao
+      - TheOfficialFloW
+    projectUrl: https://github.com/EchoStretch/Byepervisor
+    sourceType: direct
+    sourceRepo: EchoStretch/Byepervisor
+    sourcePattern: byepervisor*.elf
+    toPort: 9021
+    supportedFirmwares: ["1.00", "1.01", "1.02", "1.12", "1.14", "2.00", "2.20", "2.25", "2.26", "2.30", "2.50", "2.70"]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: d89a105
+        fileName: byepervisor.elf
+        url: https://github.com/EchoStretch/Byepervisor/releases/download/latest/byepervisor.elf
+        isDefault: true
+        releaseDate: 2024-01-20
+
+  - id: libhijacker
+    displayTitle: libhijacker game-patch
+    description: Patches supported games to run at higher framerates, and adds debug menus to certain titles.
+    authors:
+      - illusion0001
+      - astrelsky
+    projectUrl: https://github.com/illusion0001/libhijacker
+    sourceType: github-release
+    sourceRepo: illusion0001/libhijacker-game-patch
+    sourcePattern: libhijacker-game-patch*.elf
+    supportedFirmwares: ["3.", "4."]
+    license:
+      type: ""
+      url: ""
+
+  - id: websrv
+    displayTitle: websrv
+    description: Custom homebrew loader. Runs on port 8080.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/websrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/websrv
+    sourcePattern: websrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: ftpsrv
+    displayTitle: ftpsrv
+    description: FTP server. Runs on port 2121.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/ftpsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/ftpsrv
+    sourcePattern: ftpsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: klogsrv
+    displayTitle: klogsrv
+    description: Klog server. Runs on port 3232.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/klogsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/klogsrv
+    sourcePattern: klogsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: shsrv
+    displayTitle: shsrv
+    description: Telnet shell server. Runs on port 2323.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/shsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/shsrv
+    sourcePattern: shsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: gdbsrv
+    displayTitle: gdbsrv
+    description: GDB server. Runs on port 2159.
+    authors:
+      - john-tornblom
+    projectUrl: https://github.com/ps5-payload-dev/gdbsrv
+    sourceType: github-release
+    sourceRepo: ps5-payload-dev/gdbsrv
+    sourcePattern: gdbsrv-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: ps5debug
+    displayTitle: ps5debug
+    description: Debugger
+    authors:
+      - SiSTR0
+      - ctn123
+    projectUrl: https://github.com/GoldHEN/ps5debug
+    sourceType: github-release
+    sourceRepo: GoldHEN/ps5debug
+    sourcePattern: ps5debug*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+
+  - id: ps5debug-dizz
+    displayTitle: ps5debug
+    description: Debugger, open source version by DizzRL
+    authors:
+      - Dizz
+      - astrelsky
+      - John Tornblom
+      - SiSTR0
+      - golden
+      - idlesauce
+    projectUrl: https://github.com/idlesauce/ps5debug
+    sourceType: github-release
+    sourceRepo: idlesauce/ps5debug
+    sourcePattern: ps5debug*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: kstuff-toggle
+    displayTitle: kstuff-toggle
+    description: Kstuff Toggle Beta
+    authors:
+      - EchoStretch
+      - john-tornblom
+    projectUrl: https://github.com/EchoStretch/kstuff-toggle
+    sourceType: direct
+    sourceRepo: EchoStretch/kstuff-toggle
+    sourcePattern: kstuff-toggle*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "0.2"
+        fileName: kstuff-toggle.elf
+        url: https://github.com/EchoStretch/kstuff-toggle/releases/download/latest/kstuff-toggle.elf
+        isDefault: true
+        releaseDate: 2024-01-10
+
+  - id: ps5-versions
+    displayTitle: ps5-versions
+    description: Shows kernel build, os and sdk versions
+    authors:
+      - SiSTRo
+    projectUrl: https://github.com/SiSTR0/ps5-versions
+    sourceType: github-release
+    sourceRepo: SiSTR0/ps5-versions
+    sourcePattern: ps5-versions*.elf
+    supportedFirmwares: ["1.", "2.", "3.", "4."]
+    license:
+      type: ""
+      url: ""
+
+  - id: rp-get-pin
+    displayTitle: ps5-remoteplay-get-pin
+    description: Get Remote Play PIN for offline activated users. Send again to cancel.
+    authors:
+      - idlesauce
+    projectUrl: https://github.com/idlesauce/ps5-remoteplay-get-pin
+    sourceType: github-release
+    sourceRepo: idlesauce/ps5-remoteplay-get-pin
+    sourcePattern: rp-get-pin*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+
+  - id: appcache-remove
+    displayTitle: Browser appcache remover
+    description: Deletes for only the current user in webkit-only mode
+    authors:
+      - Storm21CH
+      - idlesauce
+    projectUrl: https://github.com/Storm21CH/PS5_Browser_appCache_remove
+    sourceType: custom
+    customAction: appcache-remove
+    sourceRepo: ""
+    supportedFirmwares: []
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.0"
+        fileName: ""
+        url: ""
+        isDefault: true
+        releaseDate: 2023-01-01

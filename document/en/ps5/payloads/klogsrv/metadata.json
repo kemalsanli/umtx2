@@ -1,0 +1,26 @@
+{
+  "id": "klogsrv",
+  "displayTitle": "klogsrv",
+  "description": "Klog server. Runs on port 3232.",
+  "authors": [
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/ps5-payload-dev/klogsrv",
+  "sourceRepo": "ps5-payload-dev/klogsrv",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.7.1",
+      "fileName": "klogsrv-ps5.elf",
+      "filePath": "payloads/klogsrv/0.7.1/klogsrv-ps5.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 134808,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

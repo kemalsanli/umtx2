@@ -1,0 +1,26 @@
+{
+  "id": "shsrv",
+  "displayTitle": "shsrv",
+  "description": "Telnet shell server. Runs on port 2323.",
+  "authors": [
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/ps5-payload-dev/shsrv",
+  "sourceRepo": "ps5-payload-dev/shsrv",
+  "supportedFirmwares": [],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.18",
+      "fileName": "shsrv-ps5.elf",
+      "filePath": "payloads/shsrv/0.18/shsrv-ps5.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 912952,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}

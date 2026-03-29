@@ -1,0 +1,30 @@
+{
+  "id": "libhijacker",
+  "displayTitle": "libhijacker game-patch",
+  "description": "Patches supported games to run at higher framerates, and adds debug menus to certain titles.",
+  "authors": [
+    "illusion0001",
+    "astrelsky"
+  ],
+  "projectUrl": "https://github.com/illusion0001/libhijacker",
+  "sourceRepo": "illusion0001/libhijacker-game-patch",
+  "supportedFirmwares": [
+    "3.",
+    "4."
+  ],
+  "toPort": null,
+  "versions": [
+    {
+      "version": "1.160",
+      "fileName": "libhijacker-game-patch.v1.160.elf",
+      "filePath": "payloads/libhijacker/1.160/libhijacker-game-patch.v1.160.elf",
+      "downloadUrl": "",
+      "hash": "",
+      "fileSize": 1162832,
+      "releaseDate": "",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ]
+}
