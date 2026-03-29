@@ -41,5 +41,9 @@
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  }
 }
