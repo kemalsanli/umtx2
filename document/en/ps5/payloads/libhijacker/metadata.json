@@ -26,5 +26,9 @@
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/illusion0001/libhijacker-game-patch/blob/main/LICENSE"
+  }
 }

@@ -14,13 +14,33 @@
       "version": "0.18",
       "fileName": "shsrv-ps5.elf",
       "filePath": "payloads/shsrv/0.18/shsrv-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.18/shsrv-ps5.elf",
+      "hash": "5d53f6a4262b98aa29659ed1a5a56094633394141abd1902ac06b915e901b4bd",
       "fileSize": 912952,
-      "releaseDate": "",
+      "releaseDate": "2025-11-08",
       "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "make sure stack is aligned",
+        "add browse command",
+        "add procstat command"
+      ]
+    },
+    {
+      "version": "0.17",
+      "fileName": "shsrv-ps5.elf",
+      "filePath": "payloads/shsrv/0.17/shsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.17/shsrv-ps5.elf",
+      "hash": "211b56513fe21d90c0a804418d79ada7638c460ac2a6e0dbfe0d1425e0c893e4",
+      "fileSize": 912952,
+      "releaseDate": "2025-08-14",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/ps5-payload-dev/shsrv/blob/main/LICENSE"
+  }
 }

@@ -11,16 +11,119 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.30",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.30/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.30/websrv-ps5.elf",
+      "hash": "65f72e6ebcd0c6311247362aba32c38acb2adbe09039e71c4f573e6db630b430",
+      "fileSize": 1446784,
+      "releaseDate": "2026-02-23",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "filepicker: allow the selection of either a file or a folder in the same dialog",
+        "elfldr: support launching of remote http(s) payloads",
+        "transmission: fix launch script"
+      ]
+    },
+    {
+      "version": "0.29",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.29/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.29/websrv-ps5.elf",
+      "hash": "f018d23536848aa2b20ea9f1c5a685e4829fe0f9b5ea4f83baedf22f0fba58fe",
+      "fileSize": 1443904,
+      "releaseDate": "2026-01-01",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.28.3",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.28.3/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.28.3/websrv-ps5.elf",
+      "hash": "5d2b6f609995b92c48e9a9561ad2042cc67b516893a9f1456a4924538603e048",
+      "fileSize": 1443600,
+      "releaseDate": "2025-12-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "retroarch: ensure opengl is disabled",
+        "websrv: improve html dir listing",
+        "websrv: cosmtics"
+      ]
+    },
+    {
       "version": "0.28.1",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.28.1/websrv-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.28.1/websrv-ps5.elf",
+      "hash": "f1a65a9f0da384a928745f76f5378da3d31abcb9ee6d35cee6c7709b6452a6d2",
       "fileSize": 1443488,
-      "releaseDate": "",
-      "isDefault": true,
+      "releaseDate": "2025-11-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.28",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.28/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.28/websrv-ps5.elf",
+      "hash": "312cd5b4e4397c8ecce545d429577f3bcb936a0d19a2140d93c4a336f158a2ee",
+      "fileSize": 1443456,
+      "releaseDate": "2025-11-25",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "homebrew.js: add pickDevice()",
+        "fs: fix html rendering of directories"
+      ]
+    },
+    {
+      "version": "0.27",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.27/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.27/websrv-ps5.elf",
+      "hash": "d20fb5f499aa55ed48203ec12fec13848d2402f243fcd80aba2e8c2305c4595f",
+      "fileSize": 1442808,
+      "releaseDate": "2025-11-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "make sure stack is aligned before invoking homebrew",
+        "homberew.js: add pickDirectory()"
+      ]
+    },
+    {
+      "version": "0.26.1",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.26.1/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.26.1/websrv-ps5.elf",
+      "hash": "60c86099e7fdc7ebdc1d8db6faef950630f9c72b740c2fad28cc3ea8bee06b0f",
+      "fileSize": 1440344,
+      "releaseDate": "2025-08-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.26",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.26/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.26/websrv-ps5.elf",
+      "hash": "83770ef00cdcbe0289ca866d0495b3d3451885ef1a0378dfd5e03ba06a187896",
+      "fileSize": 1440208,
+      "releaseDate": "2025-08-14",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/ps5-payload-dev/websrv/blob/main/LICENSE"
+  }
 }

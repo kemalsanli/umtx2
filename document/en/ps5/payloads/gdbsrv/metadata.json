@@ -11,16 +11,62 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.7.3",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.7.3/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7.3/gdbsrv-ps5.elf",
+      "hash": "833d23a3336b5db806541c7d76904d8644caac7247dd2323fc7696c0fe40973e",
+      "fileSize": 156960,
+      "releaseDate": "2025-12-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "ensure the interior gets the SIGCONT when detaching"
+      ]
+    },
+    {
+      "version": "0.7.2",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.7.2/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7.2/gdbsrv-ps5.elf",
+      "hash": "148e2ce13a8e83c6d678fd38c34d1b9d271ba5ba8ea7dc86473fb9ca5f772b1f",
+      "fileSize": 156728,
+      "releaseDate": "2025-11-08",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution."
+      ]
+    },
+    {
       "version": "0.7.1",
       "fileName": "gdbsrv-ps5.elf",
       "filePath": "payloads/gdbsrv/0.7.1/gdbsrv-ps5.elf",
-      "downloadUrl": "",
-      "hash": "",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7.1/gdbsrv-ps5.elf",
+      "hash": "dee10d057c88f128553ffa33a6ca6f74898e6201642aa9ee48fae54471de735b",
       "fileSize": 156688,
-      "releaseDate": "",
-      "isDefault": true,
+      "releaseDate": "2025-10-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "cosmetics"
+      ]
+    },
+    {
+      "version": "0.7",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.7/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7/gdbsrv-ps5.elf",
+      "hash": "b04b473fc1a6aa61d208662174c35de0736c7100972d4f6aac45052c2cb9ff50",
+      "fileSize": 156776,
+      "releaseDate": "2025-08-08",
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }
-  ]
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": "https://github.com/ps5-payload-dev/gdbsrv/blob/main/LICENSE"
+  }
 }
