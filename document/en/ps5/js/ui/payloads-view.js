@@ -35,6 +35,11 @@ function populatePayloadsPage(wkOnlyMode) {
             continue;
         }
 
+        // Skip payloads marked as willHideEveryTime - never show in UI under any circumstance
+        if (payload.willHideEveryTime) {
+            continue;
+        }
+
         // Skip hidden payloads - they don't show in post-JB view
         if (!isPayloadVisible(payload.id)) {
             continue;

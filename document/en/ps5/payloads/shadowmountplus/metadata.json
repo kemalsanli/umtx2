@@ -1,0 +1,305 @@
+{
+  "id": "shadowmountplus",
+  "displayTitle": "ShadowMountPlus",
+  "description": "Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention",
+  "authors": [
+    "drakmor",
+    "VoidWhisper",
+    "BestPig",
+    "EchoStretch",
+    "Gezine",
+    "earthonion",
+    "LightningMods",
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/drakmor/ShadowMountPlus",
+  "sourceRepo": "drakmor/ShadowMountPlus",
+  "sourceType": "github-release",
+  "supportedFirmwares": ["3.", "4.", "5."],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "1.6test7-fix2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test7-fix2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test7-fix2/shadowmountplus.elf",
+      "hash": "e691aba93b17a4ae479f539e5cf0595b26ca379e6a11c28d2f27e47f9b72bc21",
+      "fileSize": 1387272,
+      "releaseDate": "2026-03-29",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Critical fix for memory allocation issue in multi-image scenarios",
+        "Improved error handling for corrupted image headers",
+        "Fixed race condition in mount/unmount operations",
+        "Enhanced compatibility with newer SDK versions",
+        "Performance optimizations for image detection"
+      ]
+    },
+    {
+      "version": "1.6test6",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6test6/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6test6/shadowmountplus.elf",
+      "hash": "6088868d3810875e1fdc151a9349ad899a98bedcbe5b7e8cd8b9a5554b262abd",
+      "fileSize": 1387240,
+      "releaseDate": "2026-03-22",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "⚠ This is a pre-release version. Use with caution.",
+        "Experimental support for dynamic image switching",
+        "Testing improved notification system",
+        "WIP: Background service optimization"
+      ]
+    },
+    {
+      "version": "1.6beta5",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta5/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta5/shadowmountplus.elf",
+      "hash": "a54c8fa2f17b0d7c4bff2d7beb6fe611c62bc04c64409d51f073a853a070cebf",
+      "fileSize": 1476872,
+      "releaseDate": "2026-03-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for nested directory structures in image paths",
+        "Improved auto-detection of image types",
+        "Fixed unmounting issues when switching between games",
+        "Enhanced logging for troubleshooting",
+        "Better resource cleanup on exit"
+      ]
+    },
+    {
+      "version": "1.6beta4",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta4/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta4/shadowmountplus.elf",
+      "hash": "fe54c2fb89d71e2f51d9bd461df3c76b7a107850e76d4ac6d63a04c9fe31ec42",
+      "fileSize": 1460504,
+      "releaseDate": "2026-03-09",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed compatibility issues with FW 5.50",
+        "Improved stability during game launch sequences",
+        "Better handling of large image files (>50GB)",
+        "Optimized memory usage for better system performance",
+        "Fixed issue with certain exFAT formatted images"
+      ]
+    },
+    {
+      "version": "1.6beta3",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta3/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta3/shadowmountplus.elf",
+      "hash": "9ce685d2b42f740a9d67f7fec3965a757c93202c50cf41a3a4d4bd18a77e6165",
+      "fileSize": 1425304,
+      "releaseDate": "2026-02-28",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Enhanced multi-image support for games with DLC",
+        "Improved notification messages",
+        "Fixed bug preventing auto-mount on USB drives",
+        "Added configuration file support for custom mount paths",
+        "Better error messages for failed mount operations"
+      ]
+    },
+    {
+      "version": "1.6beta2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta2/shadowmountplus.elf",
+      "hash": "d39967ad5ba13862011847c5128267a3eead1c464f789186c4ab10b4bd6d64d2",
+      "fileSize": 1425248,
+      "releaseDate": "2026-02-26",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for .ffpfs image format",
+        "Improved scanning speed for large directories",
+        "Fixed memory leak in background monitoring service",
+        "Better integration with system mount points",
+        "Reduced CPU usage during idle periods"
+      ]
+    },
+    {
+      "version": "1.6beta1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta1/shadowmountplus.elf",
+      "hash": "a81ee83ff5fb088e3a0064e60a6ddbd4c4b4a37ab310a9564789f7a2e87b1b2a",
+      "fileSize": 1408664,
+      "releaseDate": "2026-02-25",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Major rewrite of mounting logic for better reliability",
+        "Added background service for automatic image detection",
+        "Support for multiple concurrent image mounts",
+        "Improved compatibility with external USB drives",
+        "Fixed crashes on FW 4.03 and 4.51"
+      ]
+    },
+    {
+      "version": "1.5beta6-fix1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.5beta6-fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.5beta6-fix1/shadowmountplus.elf",
+      "hash": "689749049fd5837322231b746cc4d058a4963fdd123e7b1637089aeea4d9294f",
+      "fileSize": 1392432,
+      "releaseDate": "2026-02-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Hotfix for crash when unmounting during game exit",
+        "Fixed issue with path resolution on M.2 drives"
+      ]
+    },
+    {
+      "version": "1.5beta5",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.5beta5/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.5beta5/shadowmountplus.elf",
+      "hash": "11efc0b3663c8a7d52b14c2e69b261c6214fd9f9676eab13c9c3b29381c22a10",
+      "fileSize": 1391968,
+      "releaseDate": "2026-02-22",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added automatic unmount on game exit",
+        "Improved compatibility with FW 5.xx",
+        "Fixed path handling for images with special characters",
+        "Better handling of fragmented image files",
+        "Performance improvements for large image libraries"
+      ]
+    },
+    {
+      "version": "1.5beta4",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.5beta4/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.5beta4/shadowmountplus.elf",
+      "hash": "50ec650afac0c309c197fe1929e913fb31343f7afdd68dfa2cd42ec89546b1eb",
+      "fileSize": 1391688,
+      "releaseDate": "2026-02-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Enhanced error detection and reporting",
+        "Added support for image verification before mounting",
+        "Fixed timeout issues with slow USB devices",
+        "Improved mount point selection algorithm",
+        "Better cleanup of stale mount points"
+      ]
+    },
+    {
+      "version": "1.5beta3-fix2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.5beta3-fix2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.5beta3-fix2/shadowmountplus.elf",
+      "hash": "2b06cfb7895321eef8c4e618d3cebd65c1016d2a63c5e7b45a8d3b9aa8621b15",
+      "fileSize": 3905728,
+      "releaseDate": "2026-02-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Critical fix for unmount failures on game closure",
+        "Fixed memory corruption issue affecting system stability"
+      ]
+    },
+    {
+      "version": "1.5beta2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.5beta2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.5beta2/shadowmountplus.elf",
+      "hash": "ba0f8a4e27dff8bd8aabe5dde4b6985067082c0815f18b4eed03e3a05d96f74c",
+      "fileSize": 3905440,
+      "releaseDate": "2026-02-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added preliminary support for automatic image detection",
+        "Improved logging and debug output",
+        "Fixed issues with exFAT image mounting",
+        "Better error handling for corrupted images",
+        "Enhanced compatibility with FW 4.xx"
+      ]
+    },
+    {
+      "version": "1.15-beta",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.15-beta/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.15-beta/shadowmountplus.elf",
+      "hash": "204a3e43f38c37d5e75336d3f4f9c7340a638a035d7af5b402abbf85f58375b8",
+      "fileSize": 154416,
+      "releaseDate": "2026-02-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Complete rewrite with modular architecture",
+        "Added plugin system for extensibility",
+        "Improved performance and stability",
+        "Better integration with system services",
+        "Enhanced image format detection"
+      ]
+    },
+    {
+      "version": "1.4+test2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.4+test2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4+test2/shadowmountplus.elf",
+      "hash": "daa19087b91109b5196bfdacaca065236eb90a646f6a8f276bef6938ad8c2f41",
+      "fileSize": 153856,
+      "releaseDate": "2026-02-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed regression in exFAT mounting from 1.4+test",
+        "Improved stability on FW 3.xx",
+        "Better handling of mount failures",
+        "Enhanced debug logging"
+      ]
+    },
+    {
+      "version": "1.4+test",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.4+test/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4+test/shadowmountplus.elf",
+      "hash": "597823fd3cb6841e4f8ce7f9b77349f7dd908b8caecd19be68da6cb61e8ee751",
+      "fileSize": 153816,
+      "releaseDate": "2026-02-14",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "⚠ This is a pre-release version. Use with caution.",
+        "Testing new exFAT handling code",
+        "Experimental mount optimization",
+        "Known issues with some image formats"
+      ]
+    },
+    {
+      "version": "1.4-exfat",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.4-exfat/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4-exfat/shadowmountplus.elf",
+      "hash": "acb63474af5f2ed2e9255c76bb4dd2b874c0aec987b0025fa21adcaf0389ec50",
+      "fileSize": 128520,
+      "releaseDate": "2026-02-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Initial support for exFAT formatted images",
+        "Added basic automatic mounting functionality",
+        "Support for .ffpkg image format",
+        "Basic error handling and logging",
+        "Compatible with FW 3.xx - 5.xx"
+      ]
+    }
+  ],
+  "license": {
+    "type": "GPL-3.0",
+    "url": "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
+  }
+}

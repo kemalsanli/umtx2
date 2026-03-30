@@ -1,0 +1,43 @@
+{
+  "id": "kstuff-lite-1200-only",
+  "displayTitle": "kstuff-lite (FW 12.00 only)",
+  "description": "FPKG enabler optimized for FW 12.00 only - Hidden from UI to prevent crashes on lower firmware",
+  "authors": [
+    "drakmor",
+    "sleirsgoevy",
+    "EchoStretch",
+    "zecoxao",
+    "flatz",
+    "idlesauce",
+    "buzzer-re",
+    "Al-Azif",
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/drakmor/kstuff-lite",
+  "sourceRepo": "drakmor/kstuff-lite",
+  "sourceType": "github-release",
+  "supportedFirmwares": ["12."],
+  "toPort": 9021,
+  "willHideEveryTime": true,
+  "versions": [
+    {
+      "version": "1.1-dr-12.00-only",
+      "fileName": "kstuff-12.00-only.elf",
+      "filePath": "payloads/kstuff-lite-1200-only/1.1-dr/kstuff-12.00-only.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr/kstuff-12.00-only.elf",
+      "hash": "4aacb238f165d1e241d8744f10e798ba7d7cb007d5c569804a0a1dace03f526d",
+      "fileSize": 1527064,
+      "releaseDate": "2026-03-29",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Optimized specifically for FW 12.00",
+        "Do NOT use on firmware below 12.00"
+      ]
+    }
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  }
+}
