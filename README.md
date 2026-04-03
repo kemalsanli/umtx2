@@ -33,11 +33,19 @@ etaHEN, elfldr, ftpsrv, websrv, gdbsrv, klogsrv, shsrv, ps5debug, ps5debug-dizz,
 
 ## How to Use
 
+### Option A: Browser (recommended)
+
 1. Open the host URL on your PS5 browser
 2. Tap **Jailbreak** for full kernel exploit, or **Webkit-only** for sender-only mode
 3. Select and run payloads from the menu
 4. Hit the gear icon (top right) to manage settings — show/hide payloads, pick versions, check cache
 5. Press **L2** to open the URL redirector
+
+### Option B: PKG Install
+
+1. Download `PPSX43000-KemalSanli UMTX 2.pkg` from [GitHub Releases](https://github.com/kemalsanli/umtx2/releases)
+2. Install the PKG on your jailbroken PS5 (via etaHEN, WebDAV, FTP, etc.)
+3. Launch the app from your home screen — it opens the UMTX 2 host directly
 
 ## Hosting
 
