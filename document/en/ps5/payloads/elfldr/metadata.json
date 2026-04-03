@@ -11,6 +11,20 @@
   "toPort": null,
   "versions": [
     {
+      "version": "0.22.2",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.22.2/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.22.2/elfldr-ps5.elf",
+      "hash": "b456a30d5f1d4941b985a44e06613018f608cc9c62bf992e2564494d365216cd",
+      "fileSize": 397000,
+      "releaseDate": "2026-04-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.22.1",
       "fileName": "elfldr-ps5.elf",
       "filePath": "payloads/elfldr/0.22.1/elfldr-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "add7cf2cc101448b631a40eaf1744ba576de0f5571ff480da8583ec0d03106d9",
       "fileSize": 397000,
       "releaseDate": "2026-02-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "uri: use libSceHttp instead of libSeHttp2"

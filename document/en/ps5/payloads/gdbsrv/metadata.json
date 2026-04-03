@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.7.4",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.7.4/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.7.4/gdbsrv-ps5.elf",
+      "hash": "3179aa766c949dbf6b510a38f96210cfddaf06db949d0028cfbad211706f4803",
+      "fileSize": 173424,
+      "releaseDate": "2026-04-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.7.3",
       "fileName": "gdbsrv-ps5.elf",
       "filePath": "payloads/gdbsrv/0.7.3/gdbsrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "833d23a3336b5db806541c7d76904d8644caac7247dd2323fc7696c0fe40973e",
       "fileSize": 156960,
       "releaseDate": "2025-12-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "ensure the interior gets the SIGCONT when detaching"

@@ -8,7 +8,11 @@
   "projectUrl": "https://ko-fi.com/voidwhisper",
   "sourceRepo": "",
   "sourceType": "direct",
-  "supportedFirmwares": ["3.", "4.", "5."],
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
   "toPort": 9021,
   "versions": [
     {
@@ -20,19 +24,8 @@
       "fileSize": 1557888,
       "releaseDate": "2026-03-31",
       "isDefault": true,
-      "isPreRelease": true,
-      "changelog": [
-        "⚠ This is a beta version. Use with caution.",
-        "WebUI accessible at ps5ip:7007",
-        "Dual-pane File Commander for direct file manipulation",
-        "Network-based Package Manager for remote .pkg installations",
-        "Payload Manager for automated .elf or .bin file injection",
-        "Sentinel Warden: Intelligent background monitor for automatic kstuff toggling",
-        "System vitals monitoring (APU/CPU temperatures)",
-        "Requires kstuff - send kstuff.elf before VoidShell or place in /data directory",
-        "Copy assets.zip contents to /data/voidshell/www/assets",
-        "Install VoidShell_local.pkg for PS5-local web interface access"
-      ]
+      "isPreRelease": false,
+      "changelog": []
     },
     {
       "version": "pre-beta",
@@ -43,14 +36,8 @@
       "fileSize": 1407984,
       "releaseDate": "2025-12-01",
       "isDefault": false,
-      "isPreRelease": true,
-      "changelog": [
-        "⚠ For testing purposes and providing feedback only.",
-        "Requires Kstuff 1.6.7 - send payload first",
-        "Copy index.html to /data/voidshell/www",
-        "Access via ps5ip:7007",
-        "Run repair tool inside webserver if icons are broken"
-      ]
+      "isPreRelease": false,
+      "changelog": []
     }
   ],
   "license": {

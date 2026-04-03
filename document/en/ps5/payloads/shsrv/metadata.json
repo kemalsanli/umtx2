@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.18.1",
+      "fileName": "shsrv-ps5.elf",
+      "filePath": "payloads/shsrv/0.18.1/shsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.18.1/shsrv-ps5.elf",
+      "hash": "daab08c87c364f86dce143e6672f1f68e520760099d24a8eacf3c5c6d6c08c57",
+      "fileSize": 980808,
+      "releaseDate": "2026-04-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.18",
       "fileName": "shsrv-ps5.elf",
       "filePath": "payloads/shsrv/0.18/shsrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "5d53f6a4262b98aa29659ed1a5a56094633394141abd1902ac06b915e901b4bd",
       "fileSize": 912952,
       "releaseDate": "2025-11-08",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "make sure stack is aligned",
