@@ -70,7 +70,7 @@ Additional credits to the PS5 homebrew community and all payload developers whos
 - **PSFree** — obhq (WebKit exploit framework)
 - **[Browser AppCache Remover](https://github.com/Storm21CH/PS5_Browser_appCache_remove)** — [Storm21CH](https://github.com/Storm21CH)
 - **[Mashm4n](https://www.reddit.com/u/Mashm4n)** — PS5 fPKG creation for UMTX 2
-- **TheOfficialFloW**, [sleirsgoevy](https://github.com/sleirsgoevy), [fail0verflow](https://github.com/fail0verflow), [SpecterDev](https://github.com/SpecterDev), [ChendoChap](https://github.com/ChendoChap), [flatz](https://github.com/flatz) — PS5 security research
+- **[TheOfficialFloW](https://github.com/TheOfficialFloW)**, [sleirsgoevy](https://github.com/sleirsgoevy), [fail0verflow](https://github.com/fail0verflow), [SpecterDev](https://github.com/SpecterDev), [ChendoChap](https://github.com/ChendoChap), [flatz](https://github.com/flatz) — PS5 security research
 - **[shahrilnet](https://github.com/shahrilnet)**, n0llptr — UMTX implementations
 - **All PS5 homebrew community members**
 
