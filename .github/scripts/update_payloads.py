@@ -761,6 +761,7 @@ def generate_payload_map_js(payloads_config: List[Dict]) -> str:
     lines.append(" * @property {string[]} [supportedFirmwares]")
     lines.append(" * @property {number} [toPort]")
     lines.append(" * @property {string} [customAction]")
+    lines.append(" * @property {boolean} [willHideEveryTime]")
     lines.append(" * @property {boolean} visible")
     lines.append(" */")
     lines.append("")
@@ -821,6 +822,9 @@ def generate_payload_map_js(payloads_config: List[Dict]) -> str:
 
         if 'customAction' in payload and payload['customAction']:
             lines.append(f'        customAction: "{payload["customAction"]}",')
+
+        if payload.get('willHideEveryTime'):
+            lines.append("        willHideEveryTime: true,")
 
         lines.append("        visible: true")
         lines.append("    },")
@@ -897,6 +901,58 @@ def main():
         payload['supportedFirmwares'] = firmware_compat
         
         print(f"  Found {len(versions)} version(s)")
+
+    # SAFETY: Detect orphaned payloads (on disk but not in payloads.yaml)
+    # This prevents accidental data loss when a payload is manually added
+    # to payload_map.js but forgotten from payloads.yaml.
+    configured_ids = {p['id'] for p in config['payloads']}
+    orphaned_payloads = []
+
+    if PAYLOADS_DIR.exists():
+        for payload_dir in sorted(PAYLOADS_DIR.iterdir()):
+            if not payload_dir.is_dir():
+                continue
+            metadata_file = payload_dir / "metadata.json"
+            if not metadata_file.exists():
+                continue
+            payload_id = payload_dir.name
+            if payload_id not in configured_ids:
+                print(f"\n  ⚠ WARNING: Orphaned payload detected: '{payload_id}'")
+                print(f"    This payload exists on disk but is NOT in payloads.yaml!")
+                print(f"    Including from existing metadata to prevent data loss.")
+                try:
+                    with open(metadata_file, 'r') as f:
+                        orphan_meta = json.load(f)
+                    orphan_entry = {
+                        'id': payload_id,
+                        'displayTitle': orphan_meta.get('displayTitle', payload_id),
+                        'description': orphan_meta.get('description', ''),
+                        'authors': orphan_meta.get('authors', []),
+                        'projectUrl': orphan_meta.get('projectUrl', ''),
+                        'sourceType': orphan_meta.get('sourceType', 'direct'),
+                        'sourceRepo': orphan_meta.get('sourceRepo', ''),
+                        'versions': orphan_meta.get('versions', []),
+                        'supportedFirmwares': orphan_meta.get('supportedFirmwares', []),
+                        'willHideEveryTime': orphan_meta.get('willHideEveryTime', False),
+                    }
+                    if orphan_meta.get('toPort'):
+                        orphan_entry['toPort'] = orphan_meta['toPort']
+                    if orphan_meta.get('customAction'):
+                        orphan_entry['customAction'] = orphan_meta['customAction']
+                    config['payloads'].append(orphan_entry)
+                    orphaned_payloads.append(payload_id)
+                except Exception as e:
+                    print(f"    ERROR: Could not load metadata for '{payload_id}': {e}")
+
+    if orphaned_payloads:
+        print(f"\n{'=' * 60}")
+        print(f"  ⚠ {len(orphaned_payloads)} ORPHANED PAYLOAD(S) DETECTED:")
+        for oid in orphaned_payloads:
+            print(f"    - {oid}")
+        print(f"  These payloads are NOT in .github/payloads.yaml.")
+        print(f"  They have been included from existing metadata to prevent data loss.")
+        print(f"  ACTION REQUIRED: Add them to payloads.yaml to silence this warning.")
+        print(f"{'=' * 60}")
 
     # Generate new payload_map.js
     new_content = generate_payload_map_js(config['payloads'])

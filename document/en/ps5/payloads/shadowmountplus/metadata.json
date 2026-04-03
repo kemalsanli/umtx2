@@ -15,7 +15,11 @@
   "projectUrl": "https://github.com/drakmor/ShadowMountPlus",
   "sourceRepo": "drakmor/ShadowMountPlus",
   "sourceType": "github-release",
-  "supportedFirmwares": ["3.", "4.", "5."],
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
   "toPort": 9021,
   "versions": [
     {
@@ -47,7 +51,7 @@
       "isDefault": false,
       "isPreRelease": true,
       "changelog": [
-        "⚠ This is a pre-release version. Use with caution.",
+        "\u26a0 This is a pre-release version. Use with caution.",
         "Experimental support for dynamic image switching",
         "Testing improved notification system",
         "WIP: Background service optimization"
@@ -273,7 +277,7 @@
       "isDefault": false,
       "isPreRelease": true,
       "changelog": [
-        "⚠ This is a pre-release version. Use with caution.",
+        "\u26a0 This is a pre-release version. Use with caution.",
         "Testing new exFAT handling code",
         "Experimental mount optimization",
         "Known issues with some image formats"

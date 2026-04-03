@@ -16,12 +16,14 @@
   "projectUrl": "https://github.com/drakmor/kstuff-lite",
   "sourceRepo": "drakmor/kstuff-lite",
   "sourceType": "github-release",
-  "supportedFirmwares": ["12."],
+  "supportedFirmwares": [
+    "12."
+  ],
   "toPort": 9021,
   "willHideEveryTime": true,
   "versions": [
     {
-      "version": "1.1-dr-12.00-only",
+      "version": "1.1-dr",
       "fileName": "kstuff-12.00-only.elf",
       "filePath": "payloads/kstuff-lite-1200-only/1.1-dr/kstuff-12.00-only.elf",
       "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr/kstuff-12.00-only.elf",
@@ -30,10 +32,7 @@
       "releaseDate": "2026-03-29",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": [
-        "Optimized specifically for FW 12.00",
-        "Do NOT use on firmware below 12.00"
-      ]
+      "changelog": []
     }
   ],
   "license": {

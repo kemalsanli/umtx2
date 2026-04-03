@@ -1,5 +1,5 @@
 {
-  "id": "kstuff-lite-dr",
+  "id": "kstuff-lite",
   "displayTitle": "kstuff-lite (drakmor fork)",
   "description": "FPKG enabler - Performance optimized fork with 1.5-2x speed improvement",
   "authors": [
@@ -16,7 +16,11 @@
   "projectUrl": "https://github.com/drakmor/kstuff-lite",
   "sourceRepo": "drakmor/kstuff-lite",
   "sourceType": "github-release",
-  "supportedFirmwares": ["3.", "4.", "5."],
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ],
   "toPort": 9021,
   "versions": [
     {

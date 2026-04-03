@@ -237,6 +237,106 @@ payloads:
       type: ""
       url: ""
 
+  # --- ShadowMountPlus: Automatic game image mounter ---
+  # Repo has GitHub Releases with .elf assets - fully automated
+  - id: shadowmountplus
+    displayTitle: ShadowMountPlus
+    description: Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention
+    authors:
+      - drakmor
+      - VoidWhisper
+      - BestPig
+      - EchoStretch
+      - Gezine
+      - earthonion
+      - LightningMods
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/ShadowMountPlus
+    sourceType: github-release
+    sourceRepo: drakmor/ShadowMountPlus
+    sourcePattern: shadowmountplus*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/drakmor/ShadowMountPlus/blob/main/LICENSE"
+
+  # --- BackPork: System library sideloader ---
+  # Repo has GitHub Releases with .elf assets - fully automated
+  - id: backpork
+    displayTitle: BackPork
+    description: Background payload for sideloading system libraries into PS5 games
+    authors:
+      - BestPig
+    projectUrl: https://github.com/BestPig/BackPork
+    sourceType: github-release
+    sourceRepo: BestPig/BackPork
+    sourcePattern: ps5-backpork*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/BestPig/BackPork/blob/main/LICENSE"
+
+  # --- kstuff-lite: Performance optimized FPKG enabler (drakmor fork) ---
+  # Repo has GitHub Releases with .elf assets
+  # Note: directory name is 'kstuff-lite', id must match directory name
+  - id: kstuff-lite
+    displayTitle: kstuff-lite (drakmor fork)
+    description: FPKG enabler - Performance optimized fork with 1.5-2x speed improvement
+    authors:
+      - drakmor
+      - sleirsgoevy
+      - EchoStretch
+      - zecoxao
+      - flatz
+      - idlesauce
+      - buzzer-re
+      - Al-Azif
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/kstuff-lite
+    sourceType: github-release
+    sourceRepo: drakmor/kstuff-lite
+    sourcePattern: kstuff*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+
+  # --- kstuff-lite 12.00 only: FW 12.00 specific version ---
+  # Uses same repo as kstuff-lite but different asset pattern
+  # willHideEveryTime: true - Never shown in UI (crashes on lower FW)
+  - id: kstuff-lite-1200-only
+    displayTitle: kstuff-lite (FW 12.00 only)
+    description: FPKG enabler optimized for FW 12.00 only - Hidden from UI to prevent crashes on lower firmware
+    authors:
+      - drakmor
+      - sleirsgoevy
+      - EchoStretch
+      - zecoxao
+      - flatz
+      - idlesauce
+      - buzzer-re
+      - Al-Azif
+      - john-tornblom
+    projectUrl: https://github.com/drakmor/kstuff-lite
+    sourceType: direct
+    sourceRepo: drakmor/kstuff-lite
+    sourcePattern: kstuff-12.00-only*.elf
+    toPort: 9021
+    supportedFirmwares: ["12."]
+    willHideEveryTime: true
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "1.1-dr"
+        fileName: kstuff-12.00-only.elf
+        url: https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr/kstuff-12.00-only.elf
+        isDefault: true
+        releaseDate: 2026-03-29
+
   # ===========================================================================
   # Pattern B: direct (Manual URL Management)
   # Use this when:
