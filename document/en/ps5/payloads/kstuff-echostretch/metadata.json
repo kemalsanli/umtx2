@@ -1,0 +1,264 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "versions": [
+    {
+      "version": "1.6.7",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.7/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.7/kstuff.elf",
+      "hash": "f1c1f4b2b6395644af04cbe9828aba58586acf7aacb9e01113cac92ce16e3569",
+      "fileSize": 1550152,
+      "releaseDate": "2026-01-04",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Kstuff 3.00-10.01**",
+        "A huge thanks to @sleirsgoevy for the help and creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Implemented auto-mounting\ud83c\udf89",
+        "Added USB Rest Mode support with USB monitoring . \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.6",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.6/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.6/kstuff.elf",
+      "hash": "f8df629ed7545e4a31c6090806f8b32b8d46cb18cadd4042084d134115ca4655",
+      "fileSize": 1533768,
+      "releaseDate": "2025-12-06",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 10.01",
+        "A huge thanks to @sleirsgoevy for the help and creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 10.00 / 10.01 support \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.5",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.5/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.5/kstuff.elf",
+      "hash": "2c84150dda30162d3761a3b5761367fcdd2a4cc050e1f0efc738761cb56a6c79",
+      "fileSize": 1533768,
+      "releaseDate": "2025-11-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 9.60",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "Big thanks to sadew2d (Discord) for the help running the porting tool and getting the offsets fixed.",
+        "\ud83d\udd39 Changelog",
+        "Added full 9.05 support \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.4",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.4/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.4/kstuff.elf",
+      "hash": "b263c6ea8d3654d35fbc4d703edfffbcc764843a7a9cb5f66ce105353c7c1495",
+      "fileSize": 1516456,
+      "releaseDate": "2025-09-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 9.60",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 9.xx support \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.3",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.3/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.3/kstuff.elf",
+      "hash": "ffcfb19af7e9fa954c765a3ba22dafc06d9f1f46ae5a0b0e125183c9a494229c",
+      "fileSize": 1511816,
+      "releaseDate": "2025-09-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 9.00",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 9.00 support \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.2",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.2/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.2/kstuff.elf",
+      "hash": "73fbe5fe798d6987692689516ea7e9188f40338f2802d664f2bad505e49f3db8",
+      "fileSize": 1510888,
+      "releaseDate": "2025-09-08",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 8.60 \u2014 including complete 8.40/8.60 support!",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 8.40/8.60 support \ud83c\udf89",
+        "Fixed Shellcore Patching Method Thanks @idlesauce",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6.1",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6.1/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6.1/kstuff.elf",
+      "hash": "58da0908cb7f01000fee0c4f0ee7b693cfcd862f27902c3083515296455840d0",
+      "fileSize": 1492648,
+      "releaseDate": "2025-09-03",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 8.20 \u2014 including complete 8.20 support!",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 8.20 support \ud83c\udf89",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.6",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.6/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.6/kstuff.elf",
+      "hash": "ec9324d0bf36dc1997524e20cc171c7386e5e1c496f492ff3f0e549526cf3899",
+      "fileSize": 1491720,
+      "releaseDate": "2025-08-30",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Full support is now available for firmware 3.00 through 8.00 \u2014 including complete 8.00 support!",
+        "A huge thanks to @sleirsgoevy for creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif and everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added full 8.00 support \ud83c\udf89",
+        "Updated to the latest source from @sleirsgoevy",
+        "Integrated DLC support by @idlesauce",
+        "\ud83d\udcc2 Original Source:",
+        "[github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb](https://github.com/sleirsgoevy/ps4jb-payloads/tree/bd-jb)"
+      ]
+    },
+    {
+      "version": "1.5",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.5/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.5/kstuff.elf",
+      "hash": "0650a8ffea5c0c55368d33b9fa5c15fb89c53cdb87a1152fd94c4f65601e79c9",
+      "fileSize": 1472976,
+      "releaseDate": "2025-05-04",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Disable ASLR by skipping the check by @buzzer-re",
+        "VR2 bypass beta by @Al-Azif",
+        "Error Msg Disable by @LightningMods",
+        "Added remaining offsets for 3.10",
+        "Removed \\x66\\x90 from shellcore offsets as its not needed by @Al-Azif"
+      ]
+    },
+    {
+      "version": "1.4",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.4/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.4/kstuff.elf",
+      "hash": "d033d730c08a06cd320d29e2c2a2e18c1154e849db241c77bb2c301e24695669",
+      "fileSize": 1471248,
+      "releaseDate": "2025-04-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Great news, everyone! We now have complete support for all 7.xx firmware versions\u2014covering everything from 3.00 up to 7.61!",
+        "A huge shoutout to @sleirsgoevy for creating this project! We also couldn\u2019t have started without the help of @zecoxao and keys friend, so a massive thanks to them. Big appreciation as well to @buzzer-re , @BestPig , @idlesauce , @Al-Azif  and everyone else who contributed\u2014we truly value all your support!"
+      ]
+    },
+    {
+      "version": "1.3",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.3/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.3/kstuff.elf",
+      "hash": "996ebfb4e2c4f27859415102aaed22a27124c33d4e97153d404f1f1bb0e9d1b1",
+      "fileSize": 1449680,
+      "releaseDate": "2025-03-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "3.xx/4.xx fw bypass fix",
+        "Supports FW 3.00-6.50"
+      ]
+    },
+    {
+      "version": "1.2",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.2/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.2/kstuff.elf",
+      "hash": "031a327b2991e1d59c01691d6d25344045d87d778ed9f4db3fb203ef55594ef8",
+      "fileSize": 1449680,
+      "releaseDate": "2025-03-23",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added support for 6.xx firmwares",
+        "Supports FW 3.00-6.50"
+      ]
+    },
+    {
+      "version": "1.1",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/1.1/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/v1.1/kstuff.elf",
+      "hash": "72aa8d2b5fe46e9b98a8e15023f023efec8dbd36d5edffa6e13ef349a2c5c285",
+      "fileSize": 1447088,
+      "releaseDate": "2025-03-13",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added SceShellCore patches to allow installing pkgs that require higher firmwares.",
+        "Supports FW 3.00-5.50",
+        "For 5.XX requires host/elfldr with updated offsets"
+      ]
+    },
+    {
+      "version": "5xx-support-v1",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-echostretch/5xx-support-v1/kstuff.elf",
+      "downloadUrl": "https://github.com/EchoStretch/kstuff/releases/download/5xx-support-v1/kstuff.elf",
+      "hash": "659d35de3f24c748b63d6ca32da6b8511cc11eac49fea9eac477aca10488c8fe",
+      "fileSize": 1444016,
+      "releaseDate": "2025-03-12",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Supports FW 3.00-5.50",
+        "For 5.XX requires host/elfldr with updated offsets"
+      ]
+    }
+  ],
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ]
+}

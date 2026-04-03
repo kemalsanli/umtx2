@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.30.1",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.30.1/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.30.1/websrv-ps5.elf",
+      "hash": "5b5d55ba51c8b5a4fb9929f690efc4ce488f86fe3d0f22223106643be9d5c2ab",
+      "fileSize": 1446784,
+      "releaseDate": "2026-04-03",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.30",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.30/websrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "65f72e6ebcd0c6311247362aba32c38acb2adbe09039e71c4f573e6db630b430",
       "fileSize": 1446784,
       "releaseDate": "2026-02-23",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "filepicker: allow the selection of either a file or a folder in the same dialog",
