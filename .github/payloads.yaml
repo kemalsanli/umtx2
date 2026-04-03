@@ -346,7 +346,32 @@ payloads:
   #   - Using custom/non-GitHub hosting
   # ===========================================================================
 
-  # --- kstuff: FPKG enabler ---
+  # --- kstuff (EchoStretch fork): FPKG enabler ---
+  # EchoStretch/kstuff repo has releases, but they're community builds.
+  # Using github-release for automatic updates from this fork.
+  - id: kstuff-echostretch
+    displayTitle: ps5-kstuff (EchoStretch fork)
+    description: FPKG enabler - Community fork with additional patches
+    authors:
+      - EchoStretch
+      - sleirsgoevy
+      - john-tornblom
+      - buzzer-re
+      - idlesauce
+      - BestPig
+      - LightningMods
+      - zecoxao
+    projectUrl: https://github.com/EchoStretch/kstuff
+    sourceType: github-release
+    sourceRepo: EchoStretch/kstuff
+    sourcePattern: kstuff*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+
+  # --- kstuff: FPKG enabler (original distribution) ---
   # EchoStretch/ps4jb-payloads is a multi-payload collection repo with NO releases.
   # The binary must be linked manually.
   - id: kstuff
