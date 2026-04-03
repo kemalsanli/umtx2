@@ -69,6 +69,7 @@ Additional credits to the PS5 homebrew community and all payload developers whos
 - **libhijacker** — illusion0001, astrelsky
 - **PSFree** — obhq (WebKit exploit framework)
 - **Storm21CH** — Browser AppCache remover utility
+- **[Mashm4n](https://www.reddit.com/u/Mashm4n)** — PS5 fPKG creation for UMTX 2
 - **TheFloW, sleirsgoevy, fail0verflow, SpecterDev, ChendoChap, flatz** — PS5 security research
 - **shahrilnet, n0llptr** — UMTX implementations
 - **All PS5 homebrew community members**
