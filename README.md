@@ -27,9 +27,9 @@ A web-based PS5 jailbreak host. Open it in your PS5 browser, pick your firmware,
 
 ## Payloads
 
-19+ payloads ready to go:
+20+ payloads ready to go:
 
-etaHEN, elfldr, ftpsrv, websrv, gdbsrv, klogsrv, shsrv, ps5debug, ps5debug-dizz, byepervisor, backpork, kstuff, kstuff-toggle, libhijacker, ps5-versions, rp-get-pin, ShadowMountPlus, and more.
+etaHEN, elfldr, ftpsrv, websrv, gdbsrv, klogsrv, shsrv, ps5debug, ps5debug-dizz, byepervisor, backpork, kstuff, kstuff-toggle, libhijacker, ps5-versions, rp-get-pin, ShadowMountPlus, VoidShell, and more.
 
 ## How to Use
 
@@ -55,6 +55,7 @@ Additional credits to the PS5 homebrew community and all payload developers whos
 - **ps5-kstuff** — sleirsgoevy, EchoStretch, john-tornblom, LightningMods, BestPig, zecoxao
 - **kstuff-lite** — drakmor (Performance optimized fork)
 - **ShadowMountPlus** — drakmor, VoidWhisper, BestPig, EchoStretch, Gezine, earthonion, LightningMods, john-tornblom
+- **VoidShell** — VoidWhisper (PS5 homebrew dashboard with WebUI)
 - **Byepervisor** — SpecterDev, ChendoChap, flatz, fail0verflow, EchoStretch, LightningMods
 - **BackPork** — BestPig (System library sideloading)
 - **libhijacker** — illusion0001, astrelsky

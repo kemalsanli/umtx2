@@ -1,0 +1,60 @@
+{
+  "id": "voidshell",
+  "displayTitle": "VoidShell",
+  "description": "Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, and payload manager (Port 7007)",
+  "authors": [
+    "VoidWhisper"
+  ],
+  "projectUrl": "https://ko-fi.com/voidwhisper",
+  "sourceRepo": "",
+  "sourceType": "direct",
+  "supportedFirmwares": ["3.", "4.", "5."],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "2.0-beta",
+      "fileName": "voidshell.elf",
+      "filePath": "payloads/voidshell/2.0-beta/voidshell.elf",
+      "downloadUrl": "",
+      "hash": "8df410beac7c0fbf99483d72193dba2d2f93f46715f3381760290118f3c52a3a",
+      "fileSize": 1557888,
+      "releaseDate": "2026-03-31",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "⚠ This is a beta version. Use with caution.",
+        "WebUI accessible at ps5ip:7007",
+        "Dual-pane File Commander for direct file manipulation",
+        "Network-based Package Manager for remote .pkg installations",
+        "Payload Manager for automated .elf or .bin file injection",
+        "Sentinel Warden: Intelligent background monitor for automatic kstuff toggling",
+        "System vitals monitoring (APU/CPU temperatures)",
+        "Requires kstuff - send kstuff.elf before VoidShell or place in /data directory",
+        "Copy assets.zip contents to /data/voidshell/www/assets",
+        "Install VoidShell_local.pkg for PS5-local web interface access"
+      ]
+    },
+    {
+      "version": "pre-beta",
+      "fileName": "voidshell.elf",
+      "filePath": "payloads/voidshell/pre-beta/voidshell.elf",
+      "downloadUrl": "",
+      "hash": "a343250e19a1d4b143fcad53566452cb63e52a1587d6362dac2ac6c98aa93862",
+      "fileSize": 1407984,
+      "releaseDate": "2025-12-01",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "⚠ For testing purposes and providing feedback only.",
+        "Requires Kstuff 1.6.7 - send payload first",
+        "Copy index.html to /data/voidshell/www",
+        "Access via ps5ip:7007",
+        "Run repair tool inside webserver if icons are broken"
+      ]
+    }
+  ],
+  "license": {
+    "type": "Proprietary",
+    "url": "https://ko-fi.com/voidwhisper"
+  }
+}

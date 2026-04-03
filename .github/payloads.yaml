@@ -355,6 +355,34 @@ payloads:
         isDefault: true
         releaseDate: 2023-06-01
 
+  # --- VoidShell: PS5 Homebrew Dashboard ---
+  # Ko-fi exclusive distribution (orphaned - no GitHub releases)
+  # This payload requires manual version management.
+  - id: voidshell
+    displayTitle: VoidShell
+    description: Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, and payload manager (Port 7007)
+    authors:
+      - VoidWhisper
+    projectUrl: https://ko-fi.com/voidwhisper
+    sourceType: direct
+    sourceRepo: ""
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: "Proprietary"
+      url: "https://ko-fi.com/voidwhisper"
+    manualVersions:
+      - version: "2.0-beta"
+        fileName: voidshell.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-03-31
+      - version: "pre-beta"
+        fileName: voidshell.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-12-01
+
   # ===========================================================================
   # Pattern C: custom (JavaScript Actions - No Binary Download)
   # Use this for browser-based actions that don't require a binary payload.
