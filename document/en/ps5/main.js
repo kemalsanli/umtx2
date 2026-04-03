@@ -871,7 +871,24 @@ async function main(userlandRW, wkOnly = false) {
             }
         }
 
-        if (await load_local_elf("payloads/elfldr/latest/elfldr-ps5.elf") == 0) {
+        // Resolve elfldr path from payload_map (dynamic, respects version selection)
+        var elfldrPayload = null;
+        for (var i = 0; i < payload_map.length; i++) {
+            if (payload_map[i].id === "elfldr") {
+                elfldrPayload = payload_map[i];
+                break;
+            }
+        }
+        var elfldrPath = "";
+        if (elfldrPayload) {
+            var elfldrVerInfo = resolveActiveVersion(elfldrPayload);
+            elfldrPath = elfldrVerInfo.filePath;
+        }
+        // Fallback to hardcoded path if resolution fails
+        if (!elfldrPath) {
+            elfldrPath = "payloads/elfldr/latest/elfldr-ps5.elf";
+        }
+        if (await load_local_elf(elfldrPath) == 0) {
             await log(`elfldr listening on ${ip.ip}:9021`, LogLevel.INFO);
             is_elfldr_running = true;
         } else {

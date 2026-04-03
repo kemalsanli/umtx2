@@ -13,6 +13,12 @@ let payloadVisibility = {};
 let payloadVersions = {};
 
 /**
+ * Cache state tracking (payloadId → Set of version strings that were pre-fetched).
+ * @type {Object<string, string[]>}
+ */
+let payloadCacheState = {};
+
+/**
  * Load settings from localStorage.
  */
 function loadSettings() {
@@ -21,6 +27,8 @@ function loadSettings() {
         const versions = localStorage.getItem(window.SETTINGS_PAYLOAD_VERSIONS);
         payloadVisibility = visibility ? JSON.parse(visibility) : {};
         payloadVersions = versions ? JSON.parse(versions) : {};
+        const cacheState = localStorage.getItem(window.SETTINGS_PAYLOAD_CACHE_STATE);
+        payloadCacheState = cacheState ? JSON.parse(cacheState) : {};
     } catch (e) {
         console.error("Error loading settings:", e);
         payloadVisibility = {};
@@ -35,6 +43,7 @@ function saveSettings() {
     try {
         localStorage.setItem(window.SETTINGS_PAYLOAD_VISIBILITY, JSON.stringify(payloadVisibility));
         localStorage.setItem(window.SETTINGS_PAYLOAD_VERSIONS, JSON.stringify(payloadVersions));
+        localStorage.setItem(window.SETTINGS_PAYLOAD_CACHE_STATE, JSON.stringify(payloadCacheState));
     } catch (e) {
         console.error("Error saving settings:", e);
     }
@@ -88,6 +97,31 @@ function setSelectedVersion(payloadId, version) {
 }
 
 /**
+ * Check if a specific version of a payload was successfully pre-fetched (cached).
+ * @param {string} payloadId
+ * @param {string} version
+ * @returns {boolean}
+ */
+function isVersionCached(payloadId, version) {
+    return payloadCacheState[payloadId] && payloadCacheState[payloadId].indexOf(version) !== -1;
+}
+
+/**
+ * Mark a version as successfully pre-fetched (cached).
+ * @param {string} payloadId
+ * @param {string} version
+ */
+function markVersionCached(payloadId, version) {
+    if (!payloadCacheState[payloadId]) {
+        payloadCacheState[payloadId] = [];
+    }
+    if (payloadCacheState[payloadId].indexOf(version) === -1) {
+        payloadCacheState[payloadId].push(version);
+    }
+    saveSettings();
+}
+
+/**
  * Resolve the active version info for a payload.
  * Returns filePath (new v2 format) with fallback to fileName (legacy).
  * @param {Object} payload
@@ -133,6 +167,8 @@ window.setPayloadVisible = setPayloadVisible;
 window.getSelectedVersion = getSelectedVersion;
 window.setSelectedVersion = setSelectedVersion;
 window.resolveActiveVersion = resolveActiveVersion;
+window.isVersionCached = isVersionCached;
+window.markVersionCached = markVersionCached;
 
 // Load settings on script init
 loadSettings();

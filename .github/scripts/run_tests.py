@@ -411,6 +411,89 @@ def test_firmware_offsets():
     
     print_success(f"All {len(offset_files)} offset files are valid")
 
+def test_cache_payload_sync():
+    """Validate that cache.appcache contains all default payload versions from payload_map.js."""
+    print_info("Validating cache.appcache sync with payload_map.js...")
+    
+    # Parse payload_map.js for default version filePaths
+    payload_map_file = BASE_DIR / "payload_map.js"
+    if not payload_map_file.exists():
+        raise AssertionError("payload_map.js not found")
+    
+    with open(payload_map_file, 'r') as f:
+        pm_content = f.read()
+    
+    # Extract default version filePaths using regex
+    default_paths = set()
+    # Find each filePath and check if isDefault: true appears after it
+    for fp_match in re.finditer(r'filePath:\s*"([^"]*)"', pm_content):
+        path = fp_match.group(1)
+        if not path:
+            continue  # Skip empty paths (custom actions)
+        start = fp_match.end()
+        lookahead = pm_content[start:start + 500]
+        if re.search(r'isDefault:\s*true', lookahead):
+            default_paths.add(path)
+    
+    if not default_paths:
+        raise AssertionError("No default payload versions found in payload_map.js")
+    
+    # Parse cache.appcache
+    appcache_file = BASE_DIR / "cache.appcache"
+    if not appcache_file.exists():
+        raise AssertionError("cache.appcache not found")
+    
+    with open(appcache_file, 'r') as f:
+        lines = f.readlines()
+    
+    # Extract cached files
+    cached_files = set()
+    in_cache_section = False
+    for line in lines:
+        line = line.strip()
+        if line == "CACHE MANIFEST":
+            in_cache_section = True
+            continue
+        if line == "NETWORK:":
+            break
+        if in_cache_section and line and not line.startswith("#"):
+            file_path = line.split("#")[0].strip()
+            if file_path:
+                cached_files.add(file_path)
+    
+    # Cross-validate: every default payload must be in cache.appcache
+    # Use case-insensitive comparison (macOS filesystem is case-insensitive)
+    default_paths_lower = {p.lower() for p in default_paths}
+    cached_files_lower = {p.lower() for p in cached_files}
+    missing_in_cache_lower = default_paths_lower - cached_files_lower
+    if missing_in_cache_lower:
+        # Map back to original paths for error message
+        missing_original = []
+        for dp in default_paths:
+            if dp.lower() in missing_in_cache_lower:
+                missing_original.append(dp)
+        raise AssertionError(
+            f"Default payload versions missing from cache.appcache:\n  - " +
+            "\n  - ".join(sorted(missing_original))
+        )
+    
+    # Cross-validate: every payload binary in cache.appcache must exist on disk
+    missing_on_disk = []
+    for cached_file in cached_files:
+        if cached_file.startswith("payloads/") and (cached_file.endswith(".elf") or cached_file.endswith(".bin")):
+            file_path = BASE_DIR / cached_file
+            if not file_path.exists():
+                missing_on_disk.append(cached_file)
+    
+    if missing_on_disk:
+        raise AssertionError(
+            f"Payload files in cache.appcache not found on disk:\n  - " +
+            "\n  - ".join(sorted(missing_on_disk))
+        )
+    
+    print_success(f"cache.appcache sync verified ({len(default_paths)} default payloads, {len(cached_files)} total files)")
+
+
 def main():
     """Run all tests and report results."""
     print(f"\n{Colors.BLUE}{'='*60}")
@@ -424,6 +507,7 @@ def main():
         ("HTML References", test_html_references),
         ("Payload Map", test_payload_map),
         ("AppCache", test_appcache),
+        ("Cache-Payload Sync", test_cache_payload_sync),
         ("Global Functions", test_global_functions),
         ("CSS Validity", test_css_validity),
         ("Firmware Offsets", test_firmware_offsets),

@@ -147,8 +147,15 @@ async function showSettingsVersionPage(payload) {
                 var cachedBadge = document.createElement('span');
                 cachedBadge.className = 'version-card-cached-badge';
                 cachedBadge.textContent = 'Cached';
-                cachedBadge.title = 'Available offline';
+                cachedBadge.title = 'Available offline (in AppCache)';
                 cardBadges.appendChild(cachedBadge);
+            } else {
+                // Non-default versions require network
+                var onlineBadge = document.createElement('span');
+                onlineBadge.className = 'version-card-online-badge';
+                onlineBadge.textContent = 'Online Required';
+                onlineBadge.title = 'This version is not in AppCache and requires network';
+                cardBadges.appendChild(onlineBadge);
             }
 
             // Check if this version is currently selected
