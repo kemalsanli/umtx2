@@ -140,11 +140,13 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Major rewrite of mounting logic for better reliability",
-        "Added background service for automatic image detection",
-        "Support for multiple concurrent image mounts",
-        "Improved compatibility with external USB drives",
-        "Fixed crashes on FW 4.03 and 4.51"
+        "The first beta of the 1.6, which will receive new features.",
+        "Instant game mounting has been restored, eliminating the need to wait for Kstuff.",
+        "To avoid kernel panics, load Kstuff/EthaHEN last in autoload.txt.",
+        "Added support backports for games in images.",
+        "Place the unpacked backport in /data/backports/TITLEID and load backpork.elf.",
+        "Added \"force_mount\" option",
+        "A known issue: when using ffpkg, the console won't shut down or restart on older firmware versions. The recommended solution is to use exfat. I'll try to fix this in the next release."
       ]
     },
     {
@@ -158,8 +160,12 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Hotfix for crash when unmounting during game exit",
-        "Fixed issue with path resolution on M.2 drives"
+        "Fixed issues with remounting unmounted images (this happens when the first /dev/lvd* numbers remain occupied and the system frees them, unmounting all mounted images).",
+        "Changed the mount folder to /data/imgmnt to align with Dump Installer. The old /data/ufsmnt folder must be manually deleted.",
+        "You can use config.ini to change the R/W mode individually for each image, as some games require the ability to write to the file system.",
+        "Improved verbosity of mounting error messages.",
+        "Added caching of app.db requests.",
+        "fix1 - Added a forced mount option for damaged file systems. It's better to fix the errors than to use this option."
       ]
     },
     {
@@ -209,8 +215,16 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Critical fix for unmount failures on game closure",
-        "Fixed memory corruption issue affecting system stability"
+        "Optimized mounting parameters and the speed has been increased.",
+        "Automatic param.json correction",
+        "Extended error diagnostics output",
+        "Optional recursive folder scanning (slower)",
+        "Automatic disk image size calculation in creation scripts",
+        "Fixed exFAT image creation on Windows",
+        "Expanded documentation, examples, and troubleshooting guidance",
+        "fix: Fix source stability checks to avoid false wait/skip loops",
+        "fix: exFAT image builds in Windows",
+        "Please read README.md"
       ]
     },
     {
@@ -224,11 +238,13 @@
       "isDefault": false,
       "isPreRelease": false,
       "changelog": [
-        "Added preliminary support for automatic image detection",
-        "Improved logging and debug output",
-        "Fixed issues with exFAT image mounting",
-        "Better error handling for corrupted images",
-        "Enhanced compatibility with FW 4.xx"
+        "Completely refactored",
+        "Working with a large number of folders",
+        "Eliminating duplicate operations",
+        "Correct game registration",
+        "Mounting images as read-only by default",
+        "Correct unmounting and deleting folders on shutdown/restart",
+        "The ability to customize folders for scanning"
       ]
     },
     {
@@ -251,9 +267,9 @@
     },
     {
       "version": "1.4+test2",
-      "fileName": "shadowmountplus.elf",
-      "filePath": "payloads/shadowmountplus/1.4+test2/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4+test2/shadowmountplus.elf",
+      "fileName": "shadowmount.elf",
+      "filePath": "payloads/shadowmountplus/1.4+test2/shadowmount.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4%2Btest2/shadowmount.elf",
       "hash": "daa19087b91109b5196bfdacaca065236eb90a646f6a8f276bef6938ad8c2f41",
       "fileSize": 153856,
       "releaseDate": "2026-02-15",
@@ -268,9 +284,9 @@
     },
     {
       "version": "1.4+test",
-      "fileName": "shadowmountplus.elf",
-      "filePath": "payloads/shadowmountplus/1.4+test/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4+test/shadowmountplus.elf",
+      "fileName": "shadowmount.elf",
+      "filePath": "payloads/shadowmountplus/1.4+test/shadowmount.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4%2Btest/shadowmount.elf",
       "hash": "597823fd3cb6841e4f8ce7f9b77349f7dd908b8caecd19be68da6cb61e8ee751",
       "fileSize": 153816,
       "releaseDate": "2026-02-14",
@@ -285,9 +301,9 @@
     },
     {
       "version": "1.4-exfat",
-      "fileName": "shadowmountplus.elf",
-      "filePath": "payloads/shadowmountplus/1.4-exfat/shadowmountplus.elf",
-      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4-exfat/shadowmountplus.elf",
+      "fileName": "shadowmount.elf",
+      "filePath": "payloads/shadowmountplus/1.4-exfat/shadowmount.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.4-exfat/shadowmount.elf",
       "hash": "acb63474af5f2ed2e9255c76bb4dd2b874c0aec987b0025fa21adcaf0389ec50",
       "fileSize": 128520,
       "releaseDate": "2026-02-13",
