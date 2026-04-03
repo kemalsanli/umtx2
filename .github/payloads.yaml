@@ -239,6 +239,7 @@ payloads:
 
   # --- ShadowMountPlus: Automatic game image mounter ---
   # Repo has GitHub Releases with .elf assets - fully automated
+  # Note: Asset name is 'shadowmount.elf' (without 'plus' suffix)
   - id: shadowmountplus
     displayTitle: ShadowMountPlus
     description: Automatic game image mounter - Mount .ffpkg, .exfat, and .ffpfs images automatically without manual intervention
@@ -254,7 +255,7 @@ payloads:
     projectUrl: https://github.com/drakmor/ShadowMountPlus
     sourceType: github-release
     sourceRepo: drakmor/ShadowMountPlus
-    sourcePattern: shadowmountplus*.elf
+    sourcePattern: shadowmount*.elf
     toPort: 9021
     supportedFirmwares: ["3.", "4.", "5."]
     license:

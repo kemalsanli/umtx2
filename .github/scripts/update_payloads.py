@@ -489,12 +489,16 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
     
     Step 1: gh release list → get tagName, name, isPrerelease
     Step 2: gh release view TAG → get body, url, assets, createdAt
+    
+    IMPORTANT: Existing versions are preserved even if they disappear from GitHub.
+    This prevents data loss when releases are deleted or pruned upstream.
     """
     repo = payload_config['sourceRepo']
     pattern = payload_config.get('sourcePattern', '*.elf')
+    payload_id = payload_config['id']
     versions = []
     
-    # Preserve existing versions from metadata
+    # Preserve existing versions from metadata to prevent data loss
     existing_versions = {v['version']: v for v in metadata.get('versions', [])}
 
     # Step 1: Get release list (tagName, name, isPrerelease only)
@@ -511,21 +515,35 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
         # Step 2: Get release details (body, url, assets, publishedAt) via gh release view
         details = get_release_details(repo, tag)
         if not details:
-            print(f"  No details found for {repo}@{tag}")
+            # If we can't fetch details but have existing version, preserve it
+            if version in existing_versions:
+                print(f"  Preserving existing version (fetch failed): {version}")
+                versions.append(existing_versions[version])
+            else:
+                print(f"  No details found for {repo}@{tag}")
             continue
 
         body = details.get('body', '')
-        # FIXED: Now uses 'publishedAt' instead of 'createdAt'
         published_at = details.get('publishedAt', '')
         assets = details.get('assets', [])
 
         if not assets:
-            print(f"  No assets found for {repo}@{tag}")
+            # No assets in release - preserve existing if available
+            if version in existing_versions:
+                print(f"  Preserving existing version (no assets): {version}")
+                versions.append(existing_versions[version])
+            else:
+                print(f"  No assets found for {repo}@{tag}")
             continue
 
         matched = match_asset(assets, pattern)
         if not matched:
-            print(f"  No matching asset for pattern '{pattern}' in {repo}@{tag}")
+            # Asset name doesn't match pattern - preserve existing if available
+            if version in existing_versions:
+                print(f"  Preserving existing version (asset mismatch): {version}")
+                versions.append(existing_versions[version])
+            else:
+                print(f"  No matching asset for pattern '{pattern}' in {repo}@{tag}")
             continue
 
         file_name = matched['name']
@@ -534,7 +552,7 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
             download_url = f"https://github.com/{repo}/releases/download/{tag}/{file_name}"
 
         # Create version directory
-        version_dir = PAYLOADS_DIR / payload_config['id'] / version
+        version_dir = PAYLOADS_DIR / payload_id / version
         version_dir.mkdir(parents=True, exist_ok=True)
         
         dest_path = version_dir / file_name
@@ -554,19 +572,36 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
                 file_hash, file_size = download_file(download_url, dest_path)
             except Exception as e:
                 print(f"  Error downloading {file_name}: {e}")
+                # Preserve existing version if download fails
+                if version in existing_versions:
+                    print(f"  Preserving existing version (download failed): {version}")
+                    versions.append(existing_versions[version])
                 continue
 
-        # Parse changelog
+        # Parse changelog from GitHub release body
         changelog = parse_changelog(body)
+        
+        # PRESERVE existing changelog if it's more detailed than the release body.
+        # This prevents overwriting manually-written changelogs with sparse GitHub notes.
+        existing_ver = existing_versions.get(version)
+        if existing_ver and existing_ver.get('changelog'):
+            existing_cl = existing_ver['changelog']
+            # Use existing changelog if it has more entries or same count
+            # (existing entries are typically more detailed)
+            if len(existing_cl) >= len(changelog):
+                changelog = existing_cl
+                print(f"  Preserved existing changelog for {version} ({len(changelog)} entries)")
         
         # Add pre-release warning to changelog if applicable
         if is_prerelease:
-            changelog.insert(0, "⚠ This is a pre-release version. Use with caution.")
+            pre_warning = "⚠ This is a pre-release version. Use with caution."
+            if pre_warning not in changelog:
+                changelog.insert(0, pre_warning)
 
         versions.append({
             'version': version,
             'fileName': file_name,
-            'filePath': f"payloads/{payload_config['id']}/{version}/{file_name}",
+            'filePath': f"payloads/{payload_id}/{version}/{file_name}",
             'downloadUrl': download_url,
             'hash': file_hash,
             'fileSize': file_size,
@@ -575,6 +610,20 @@ def update_payload_from_github_release(payload_config: Dict, metadata: Dict) -> 
             'isPreRelease': is_prerelease,
             'changelog': changelog
         })
+
+    # PRESERVE: Add versions from existing metadata that weren't found in GitHub releases.
+    # This prevents data loss when releases are deleted/pruned from the upstream repo.
+    seen_versions = {v['version'] for v in versions}
+    for ver_key, ver_data in existing_versions.items():
+        if ver_key not in seen_versions:
+            # Check if the binary still exists on disk
+            ver_file = ver_data.get('fileName', '')
+            ver_path = PAYLOADS_DIR / payload_id / ver_key / ver_file
+            if ver_file and ver_path.exists():
+                print(f"  Preserving orphaned version (not in GitHub releases): {ver_key}")
+                versions.append(ver_data)
+            else:
+                print(f"  Skipping orphaned version (binary missing): {ver_key}")
 
     # Sort versions by releaseDate (most recent first) and set isDefault accordingly
     # This ensures the most recent version is always marked as default, regardless of
