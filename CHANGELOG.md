@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 This is a custom fork of [idlesauce/umtx2](https://github.com/idlesauce/umtx2). Changes listed here are specific to this fork.
 
+## [2.1.1] - 2026-04-03
+
+### Added
+- **PS5 fPKG Package** — Install UMTX 2 directly on your PS5 home screen (`PPSX43000-KemalSanli UMTX 2.pkg`)
+- **PKG Install instructions** — Added "Option B: PKG Install" to README
+
+### Credits
+- Thanks to [u/Mashm4n](https://www.reddit.com/u/Mashm4n) for creating the PS5 fPKG
+
+---
+
 ## [2.1.0] - 2026-03-30
 
 ### Added
@@ -44,5 +55,6 @@ This is a custom fork of [idlesauce/umtx2](https://github.com/idlesauce/umtx2). 
 
 **Note:** For the original UMTX2 features (PS5 jailbreak, payload loading, firmware detection), see [idlesauce/umtx2](https://github.com/idlesauce/umtx2).
 
+[2.1.1]: https://github.com/kemalsanli/umtx2/releases/tag/v2.1.1
 [2.1.0]: https://github.com/kemalsanli/umtx2/releases/tag/v2.1.0
 [2.0.0]: https://github.com/kemalsanli/umtx2/releases/tag/v2.0.0
