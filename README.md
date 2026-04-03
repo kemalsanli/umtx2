@@ -57,21 +57,21 @@ Live at: [https://kemalsanli.github.io/umtx2/](https://kemalsanli.github.io/umtx
 
 Additional credits to the PS5 homebrew community and all payload developers whose tools make this ecosystem possible:
 
-- **etaHEN** — LightningMods, Buzzer, sleirsgoevy, ChendoChap, astrelsky, illusion, CTN, SiSTR0, Nomadic
-- **ps5-payload-dev** — john-tornblom (websrv, ftpsrv, klogsrv, shsrv, gdbsrv, elfldr)
-- **ps5debug** — SiSTR0, ctn123, DizzRL
-- **ps5-kstuff** — sleirsgoevy, EchoStretch, john-tornblom, LightningMods, BestPig, zecoxao
-- **kstuff-lite** — drakmor (Performance optimized fork)
-- **ShadowMountPlus** — drakmor, VoidWhisper, BestPig, EchoStretch, Gezine, earthonion, LightningMods, john-tornblom
-- **VoidShell** — VoidWhisper (PS5 homebrew dashboard with WebUI)
-- **Byepervisor** — SpecterDev, ChendoChap, flatz, fail0verflow, EchoStretch, LightningMods
-- **BackPork** — BestPig (System library sideloading)
-- **libhijacker** — illusion0001, astrelsky
+- **[etaHEN](https://github.com/etaHEN/etaHEN)** — [LightningMods](https://github.com/LightningMods), [Buzzer](https://github.com/Buzzer), [sleirsgoevy](https://github.com/sleirsgoevy), [ChendoChap](https://github.com/ChendoChap), [astrelsky](https://github.com/astrelsky), [illusion](https://github.com/illusion), [CTN](https://github.com/CTN), [SiSTR0](https://github.com/SiSTR0), [Nomadic](https://github.com/Nomadic)
+- **ps5-payload-dev** — [john-tornblom](https://github.com/john-tornblom) ([websrv](https://github.com/ps5-payload-dev/websrv), [ftpsrv](https://github.com/ps5-payload-dev/ftpsrv), [klogsrv](https://github.com/ps5-payload-dev/klogsrv), [shsrv](https://github.com/ps5-payload-dev/shsrv), [gdbsrv](https://github.com/ps5-payload-dev/gdbsrv), [elfldr](https://github.com/ps5-payload-dev/elfldr))
+- **[ps5debug](https://github.com/idlesauce/ps5debug)** — [SiSTR0](https://github.com/SiSTR0), ctn123, [Dizz](https://github.com/Dizz), [golden](https://github.com/golden), [idlesauce](https://github.com/idlesauce)
+- **[ps5-kstuff](https://github.com/EchoStretch/kstuff)** — [sleirsgoevy](https://github.com/sleirsgoevy), [EchoStretch](https://github.com/EchoStretch), [john-tornblom](https://github.com/john-tornblom), [LightningMods](https://github.com/LightningMods), [BestPig](https://github.com/BestPig), [zecoxao](https://github.com/zecoxao), [buzzer-re](https://github.com/buzzer-re)
+- **[kstuff-lite](https://github.com/drakmor/kstuff-lite)** — [drakmor](https://github.com/drakmor) (Performance optimized fork)
+- **[ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus)** — [drakmor](https://github.com/drakmor), [VoidWhisper](https://github.com/VoidWhisper), [BestPig](https://github.com/BestPig), [EchoStretch](https://github.com/EchoStretch), [Gezine](https://github.com/Gezine), [earthonion](https://github.com/earthonion), [LightningMods](https://github.com/LightningMods), [john-tornblom](https://github.com/john-tornblom)
+- **VoidShell** — [VoidWhisper](https://github.com/VoidWhisper) ([Ko-fi](https://ko-fi.com/voidwhisper))
+- **[Byepervisor](https://github.com/EchoStretch/Byepervisor)** — [SpecterDev](https://github.com/SpecterDev), [ChendoChap](https://github.com/ChendoChap), [flatz](https://github.com/flatz), [fail0verflow](https://github.com/fail0verflow), [Znullptr](https://github.com/Znullptr), [kiwidog](https://github.com/kiwidog), [sleirsgoevy](https://github.com/sleirsgoevy), [EchoStretch](https://github.com/EchoStretch), [LightningMods](https://github.com/LightningMods), [BestPig](https://github.com/BestPig), [zecoxao](https://github.com/zecoxao), [TheOfficialFloW](https://github.com/TheOfficialFloW)
+- **[BackPork](https://github.com/BestPig/BackPork)** — [BestPig](https://github.com/BestPig) (System library sideloading)
+- **[libhijacker](https://github.com/illusion0001/libhijacker)** — [illusion0001](https://github.com/illusionyy), [astrelsky](https://github.com/astrelsky)
 - **PSFree** — obhq (WebKit exploit framework)
-- **Storm21CH** — Browser AppCache remover utility
+- **[Browser AppCache Remover](https://github.com/Storm21CH/PS5_Browser_appCache_remove)** — [Storm21CH](https://github.com/Storm21CH)
 - **[Mashm4n](https://www.reddit.com/u/Mashm4n)** — PS5 fPKG creation for UMTX 2
-- **TheFloW, sleirsgoevy, fail0verflow, SpecterDev, ChendoChap, flatz** — PS5 security research
-- **shahrilnet, n0llptr** — UMTX implementations
+- **TheOfficialFloW**, [sleirsgoevy](https://github.com/sleirsgoevy), [fail0verflow](https://github.com/fail0verflow), [SpecterDev](https://github.com/SpecterDev), [ChendoChap](https://github.com/ChendoChap), [flatz](https://github.com/flatz) — PS5 security research
+- **[shahrilnet](https://github.com/shahrilnet)**, n0llptr — UMTX implementations
 - **All PS5 homebrew community members**
 
 Individual payloads retain their original licenses. Check the respective GitHub repositories or the Licences button in the app for details.
