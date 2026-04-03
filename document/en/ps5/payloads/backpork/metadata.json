@@ -20,11 +20,7 @@
       "releaseDate": "2026-01-18",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": [
-        "Initial Release",
-        "Automatically mounts fakelib folder from game's app directory using unionfs",
-        "Monitors game launches and performs cleanup on exit"
-      ]
+      "changelog": []
     }
   ],
   "license": {

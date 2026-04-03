@@ -34,11 +34,83 @@
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "Added FW 12.00 support",
-        "Fixed issues for FW 11.40 and 11.60",
-        "1.5-2x performance improvement",
-        "Replaced libtomcrypt with isa-l_crypto (Zen 2 optimized)",
-        "Improved kernel panic protection"
+        "Kstuff Lite 1.1-dr Supports Firmware 3.00-12.00",
+        "This is a version of [kstuff-lite](https://github.com/EchoStretch/kstuff-lite) that has been significantly optimized for performance (3-4 times faster) and reliability.",
+        "A huge thanks to @sleirsgoevy for the help and creating this project, and to @zecoxao, @flatz, @idlesauce, @buzzer-re, @Al-Azif, @EchoStretch everyone else who contributed. Your work and support are greatly appreciated!",
+        "\ud83d\udd39 Changelog",
+        "Added Support Upto 12.00 (with fixes for firmware versions 11.40,11.60, 12.00)"
+      ]
+    },
+    {
+      "version": "1.1-dr-beta6",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.1-dr-beta6/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr-beta6/kstuff.elf",
+      "hash": "c4eb96b6ef909df977484045c505d410277dbd1f541fd4b64ed9e85ae54ebe51",
+      "fileSize": 1524280,
+      "releaseDate": "2026-03-21",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Fixed kernel panic for firmware 9.0"
+      ]
+    },
+    {
+      "version": "1.1-dr-test5",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.1-dr-test5/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr-test5/kstuff.elf",
+      "hash": "9ff5d20704964131af8686e093ce05e628321ac7800f2287b67f2fb9ae83185e",
+      "fileSize": 1524280,
+      "releaseDate": "2026-03-16",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Added numerous data validation checks to prevent kernel panics. It might be a bit slower, but hopefully more stable."
+      ]
+    },
+    {
+      "version": "1.1-dr-test4",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.1-dr-test4/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr-test4/kstuff.elf",
+      "hash": "f53f4a4cc2d3db6d0e4c30127fad7a14d11fb04f5a13bcf6d0f3bffaba73460b",
+      "fileSize": 1524280,
+      "releaseDate": "2026-03-15",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Final speed improvement. Testing."
+      ]
+    },
+    {
+      "version": "1.1-dr-test2",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.1-dr-test2/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr-test2/kstuff.elf",
+      "hash": "1323977330432b78035aaebb7ab29f20fb2d66349b0f07611571d8a00f8f489f",
+      "fileSize": 1540960,
+      "releaseDate": "2026-03-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "More optimizations, more speed (more bugs?)"
+      ]
+    },
+    {
+      "version": "1.1-dr-test",
+      "fileName": "kstuff.elf",
+      "filePath": "payloads/kstuff-lite/1.1-dr-test/kstuff.elf",
+      "downloadUrl": "https://github.com/drakmor/kstuff-lite/releases/download/1.1-dr-test/kstuff.elf",
+      "hash": "b196f0c93b8b9c4a68bf94f50ca30ffe84a48bd7e49cc8ad2ee6af8813d01f1c",
+      "fileSize": 1536816,
+      "releaseDate": "2026-03-11",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Replaced the crypto library - significantly increased reading speed for PS4 games.",
+        "Added a mode to disable automounting by creating the file /data/.kstuff_noautomount",
+        "Other minor optimizations."
       ]
     }
   ],
