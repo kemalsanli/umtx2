@@ -34,16 +34,15 @@ def extract_default_versions_from_payload_map(directory_path):
     
     default_paths = set()
     
-    # Find all version entries by matching filePath + isDefault proximity.
-    # The changelog array can contain {} characters (e.g. unicode escapes like \u2605),
-    # so the old [^{}]* pattern would break. Instead, we find each filePath line and
-    # check if isDefault: true appears within a reasonable distance after it.
-    for fp_match in re.finditer(r'filePath:\s*"([^"]*)"', content):
-        # Look ahead from this position for isDefault: true (within ~500 chars)
-        start = fp_match.end()
-        lookahead = content[start:start + 500]
-        if re.search(r'isDefault:\s*true', lookahead):
-            default_paths.add(fp_match.group(1))
+    # Find version object blocks that contain isDefault: true.
+    # Version objects in payload_map.js are flat (no nested {}) so [^{}]*
+    # safely matches their entire content without crossing object boundaries.
+    for match in re.finditer(r'\{[^{}]*version:\s*"[^"]*"[^{}]*\}', content, re.DOTALL):
+        block = match.group(0)
+        if re.search(r'isDefault:\s*true', block):
+            fp_match = re.search(r'filePath:\s*"([^"]*)"', block)
+            if fp_match and fp_match.group(1):
+                default_paths.add(fp_match.group(1))
     
     return default_paths
 
@@ -80,11 +79,8 @@ def generate_cache_manifest(directory_path, include_payloads=True):
                         continue
                     
                     # For ELF/bin files: only include default versions
-                    # Use case-insensitive comparison (macOS filesystem is case-insensitive)
                     if lower_file.endswith('.elf') or lower_file.endswith('.bin'):
-                        rel_path_lower = rel_path.lower()
-                        default_paths_lower = {p.lower() for p in default_paths}
-                        if rel_path_lower not in default_paths_lower:
+                        if rel_path not in default_paths:
                             continue
             
             file_hash = calculate_file_hash(file_path)

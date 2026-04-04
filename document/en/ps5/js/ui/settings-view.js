@@ -36,9 +36,6 @@ function closeSettings() {
  */
 function preFetchSelectedPayloads() {
     var count = 0;
-    var successCount = 0;
-    var failCount = 0;
-    var pendingFetches = [];
     
     for (var i = 0; i < payload_map.length; i++) {
         var payload = payload_map[i];
@@ -67,38 +64,20 @@ function preFetchSelectedPayloads() {
         }
         
         if (isDefault) {
-            // Mark default versions as cached (they're in AppCache)
-            markVersionCached(payload.id, versionInfo.version);
-            continue;
-        }
-        
-        // Skip if already cached
-        if (isVersionCached(payload.id, versionInfo.version)) {
             continue;
         }
         
         // Fire-and-forget fetch to pre-load into HTTP cache
         count++;
-        var fetchPromise = fetch(versionInfo.filePath, { cache: "default" })
-            .then(function(plId, ver) {
-                return function(response) {
-                    if (response.ok) {
-                        markVersionCached(plId, ver);
-                        successCount++;
-                    } else {
-                        failCount++;
-                    }
-                };
-            })
-            ["catch"](function() {
-                failCount++;
+        fetch(versionInfo.filePath, { cache: "default" })
+            ["catch"](function(err) {
+                // Silently ignore errors
             });
-        pendingFetches.push(fetchPromise);
     }
     
     // Show brief notification if we're caching anything
     if (count > 0) {
-        showToast("Caching " + count + " selected payload(s)...", 2000);
+        showToast("Caching selected payloads...", 2000);
     }
 }
 

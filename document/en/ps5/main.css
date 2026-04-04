@@ -775,16 +775,6 @@ body.jailbreak-active .top-right-buttons {
     display: inline-block;
 }
 
-.version-card-online-badge {
-    background: rgba(255, 152, 0, 0.2);
-    color: #FF9800;
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-    display: inline-block;
-}
-
 .version-card-date {
     font-size: 0.85rem;
     color: var(--text-color-tertiary);
