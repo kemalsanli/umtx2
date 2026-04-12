@@ -1,8 +1,25 @@
 {
+  "id": "kstuff-echostretch",
+  "displayTitle": "ps5-kstuff (EchoStretch fork)",
+  "description": "FPKG enabler - Community fork with additional patches",
+  "authors": [
+    "EchoStretch",
+    "sleirsgoevy",
+    "john-tornblom",
+    "buzzer-re",
+    "idlesauce",
+    "BestPig",
+    "LightningMods",
+    "zecoxao"
+  ],
+  "projectUrl": "https://github.com/EchoStretch/kstuff",
+  "sourceRepo": "EchoStretch/kstuff",
+  "sourceType": "github-release",
   "license": {
     "type": "Unknown",
     "url": ""
   },
+  "toPort": 9021,
   "versions": [
     {
       "version": "1.6.7",
