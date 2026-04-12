@@ -486,7 +486,7 @@ payloads:
   # This payload requires manual version management.
   - id: voidshell
     displayTitle: VoidShell
-    description: Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, and payload manager (Port 7007)
+    description: Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, payload manager, Sentinel Warden, cheats support, app dumper, and save tools (Port 7007)
     authors:
       - VoidWhisper
     projectUrl: https://ko-fi.com/voidwhisper
@@ -498,10 +498,15 @@ payloads:
       type: "Proprietary"
       url: "https://ko-fi.com/voidwhisper"
     manualVersions:
-      - version: "2.0-beta"
+      - version: "3.0-beta"
         fileName: voidshell.elf
         url: ""
         isDefault: true
+        releaseDate: 2026-04-12
+      - version: "2.0-beta"
+        fileName: voidshell.elf
+        url: ""
+        isDefault: false
         releaseDate: 2026-03-31
       - version: "pre-beta"
         fileName: voidshell.elf

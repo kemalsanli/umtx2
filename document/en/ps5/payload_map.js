@@ -1637,7 +1637,7 @@ const payload_map = [
     {
         id: "voidshell",
         displayTitle: "VoidShell",
-        description: "Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, and payload manager (Port 7007)",
+        description: "Comprehensive PS5 homebrew dashboard with WebUI - System monitor, file manager, package installer, payload manager, Sentinel Warden, cheats support, app dumper, and save tools (Port 7007)",
         author: "VoidWhisper",
         authors: [{"name": "VoidWhisper", "github": "https://github.com/VoidWhisper", "role": "Developer"}],
         projectUrl: "https://ko-fi.com/voidwhisper",
@@ -1646,6 +1646,18 @@ const payload_map = [
         sourceRepo: "",
         versions: [
             {
+                version: "3.0-beta",
+                fileName: "voidshell.elf",
+                filePath: "payloads/voidshell/3.0-beta/voidshell.elf",
+                downloadUrl: "",
+                hash: "719f92d95c8334e11be8f6141410ca73f2e4e3706f46d5f4e541bda88176d63c",
+                fileSize: 2629696,
+                releaseDate: "2026-04-12",
+                isDefault: true,
+                isPreRelease: false,
+                changelog: ["Full web dashboard redesign", "Sentinel Warden for automatic kstuff safety handling", "Cheats support with auto-inject (mc4, shn, json)", "Integrated app dumper (USB, ext1, /data/dump)", "Save backup and restore tools", "Fan override and thermal controls", "Light and dark theme support", "Embedded kstuff (separate kstuff.elf usually not needed)"]
+            },
+            {
                 version: "2.0-beta",
                 fileName: "voidshell.elf",
                 filePath: "payloads/voidshell/2.0-beta/voidshell.elf",
@@ -1653,7 +1665,7 @@ const payload_map = [
                 hash: "8df410beac7c0fbf99483d72193dba2d2f93f46715f3381760290118f3c52a3a",
                 fileSize: 1557888,
                 releaseDate: "2026-03-31",
-                isDefault: true,
+                isDefault: false,
                 isPreRelease: false,
                 changelog: []
             },
