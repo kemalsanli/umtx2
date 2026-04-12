@@ -25,20 +25,7 @@
       "releaseDate": "2026-04-12",
       "isDefault": true,
       "isPreRelease": false,
-      "changelog": [
-        "Full web dashboard redesign",
-        "Sentinel Warden for automatic kstuff safety handling",
-        "Cheats support with auto-inject (mc4, shn, json)",
-        "Integrated app dumper (USB, ext1, /data/dump)",
-        "Save backup and restore tools",
-        "Fan override and thermal controls",
-        "Light and dark theme support",
-        "Desktop and mobile browser support",
-        "First-run tour and built-in help system",
-        "Game artwork and metadata via RAWG API",
-        "Improved rest mode and wake-up handling",
-        "Embedded kstuff (separate kstuff.elf usually not needed)"
-      ]
+      "changelog": []
     },
     {
       "version": "2.0-beta",
