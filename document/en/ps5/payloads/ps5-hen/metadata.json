@@ -1,0 +1,35 @@
+{
+  "id": "ps5-hen",
+  "displayTitle": "ps5-hen",
+  "description": "HEN - Defeats the Hypervisor and enables homebrew and PS4 FPKG support",
+  "authors": [
+    "cragson"
+  ],
+  "projectUrl": "https://github.com/cragson/ps5-hen",
+  "sourceRepo": "cragson/ps5-hen",
+  "supportedFirmwares": [
+    "1.",
+    "2.",
+    "3.",
+    "4."
+  ],
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "dev-latest",
+      "fileName": "ps5-hen.elf",
+      "filePath": "payloads/ps5-hen/dev-latest/ps5-hen.elf",
+      "downloadUrl": "https://github.com/cragson/ps5-hen/releases/download/dev-latest/ps5-hen.elf",
+      "hash": "e3359befe93809ec1c96a50bdf61ee0b0a8f56228a4e62dadab3738faf618723",
+      "fileSize": 1509616,
+      "releaseDate": "2026-03-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ],
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  }
+}

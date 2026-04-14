@@ -1,23 +1,15 @@
 {
   "id": "appcache-remove",
   "displayTitle": "Browser appcache remover",
-  "description": "Deletes browser appcache for only the current user in webkit-only mode",
+  "description": "Deletes for only the current user in webkit-only mode",
   "authors": [
-    {
-      "name": "Storm21CH",
-      "github": "https://github.com/Storm21CH",
-      "role": "Developer"
-    },
-    {
-      "name": "idlesauce",
-      "github": "https://github.com/idlesauce",
-      "role": "Developer"
-    }
+    "Storm21CH",
+    "idlesauce"
   ],
   "projectUrl": "https://github.com/Storm21CH/PS5_Browser_appCache_remove",
   "license": {
     "type": "Unknown",
-    "url": "https://github.com//blob/main/LICENSE"
+    "url": ""
   },
   "sourceType": "custom",
   "sourceRepo": "",

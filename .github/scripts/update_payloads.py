@@ -939,6 +939,16 @@ def main():
             print(f"  No versions found, keeping existing metadata")
             versions = metadata.get('versions', [])
 
+        # Ensure top-level fields from config are always in metadata
+        metadata['id'] = payload_id
+        metadata['displayTitle'] = payload.get('displayTitle', payload_id)
+        metadata['description'] = payload.get('description', '')
+        metadata['authors'] = payload.get('authors', [])
+        metadata['projectUrl'] = payload.get('projectUrl', '')
+        metadata['sourceRepo'] = payload.get('sourceRepo', '')
+        if 'toPort' in payload:
+            metadata['toPort'] = payload['toPort']
+
         # Update metadata with all version info
         metadata['versions'] = versions
         metadata['supportedFirmwares'] = firmware_compat

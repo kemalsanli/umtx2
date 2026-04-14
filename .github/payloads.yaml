@@ -481,6 +481,31 @@ payloads:
         isDefault: true
         releaseDate: 2023-06-01
 
+  # --- ps5-hen: Homebrew Enabler by cragson ---
+  # cragson/ps5-hen only has a dev-latest pre-release tag.
+  # No proper versioned releases - treating as orphaned/direct.
+  - id: ps5-hen
+    displayTitle: ps5-hen
+    description: HEN - Defeats the Hypervisor and enables homebrew and PS4 FPKG support
+    authors:
+      - cragson
+    projectUrl: https://github.com/cragson/ps5-hen
+    sourceType: direct
+    sourceRepo: cragson/ps5-hen
+    sourcePattern: ps5-hen*.elf
+    toPort: 9021
+    supportedFirmwares: ["1.", "2.", "3.", "4."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "dev-latest"
+        fileName: ps5-hen.elf
+        url: https://github.com/cragson/ps5-hen/releases/download/dev-latest/ps5-hen.elf
+        isDefault: true
+        isPreRelease: true
+        releaseDate: 2026-03-20
+
   # --- VoidShell: PS5 Homebrew Dashboard ---
   # Ko-fi exclusive distribution (orphaned - no GitHub releases)
   # This payload requires manual version management.
