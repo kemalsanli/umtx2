@@ -24,8 +24,12 @@
       "fileSize": 1509616,
       "releaseDate": "2026-03-20",
       "isDefault": true,
-      "isPreRelease": false,
-      "changelog": []
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Automated development build from commit ab93d63e816d1a1aeeef349726630ba377c71843.",
+        "**Warning:** This is a development build. Use at your own risk."
+      ]
     }
   ],
   "license": {
