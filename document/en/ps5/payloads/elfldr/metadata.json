@@ -11,6 +11,20 @@
   "toPort": null,
   "versions": [
     {
+      "version": "0.23",
+      "fileName": "elfldr-ps5.elf",
+      "filePath": "payloads/elfldr/0.23/elfldr-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/elfldr/releases/download/v0.23/elfldr-ps5.elf",
+      "hash": "092d16ee0ede0c494947efd38d1a17bbd7cc4b022d3858ea898833c188c703e8",
+      "fileSize": 397000,
+      "releaseDate": "2026-05-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "add initial support for loading local payloads via http get requests"
+      ]
+    },
+    {
       "version": "0.22.2",
       "fileName": "elfldr-ps5.elf",
       "filePath": "payloads/elfldr/0.22.2/elfldr-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "b456a30d5f1d4941b985a44e06613018f608cc9c62bf992e2564494d365216cd",
       "fileSize": 397000,
       "releaseDate": "2026-04-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest sdk"

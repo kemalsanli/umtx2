@@ -11,6 +11,21 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.8",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.8/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.8/gdbsrv-ps5.elf",
+      "hash": "7621b829bd8b6d6f3d2328fa12c16af956b0ca128250f92a91eddc100c87f208",
+      "fileSize": 173480,
+      "releaseDate": "2026-05-12",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest ps4 and ps5 payload sdk",
+        "add command line argument to supress gui notifications"
+      ]
+    },
+    {
       "version": "0.7.4",
       "fileName": "gdbsrv-ps5.elf",
       "filePath": "payloads/gdbsrv/0.7.4/gdbsrv-ps5.elf",
@@ -18,7 +33,7 @@
       "hash": "3179aa766c949dbf6b510a38f96210cfddaf06db949d0028cfbad211706f4803",
       "fileSize": 173424,
       "releaseDate": "2026-04-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest sdk"
