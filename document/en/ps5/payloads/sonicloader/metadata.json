@@ -14,6 +14,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6.0-elf-arsenal-rebrand",
+      "fileName": "sonic-loader.elf",
+      "filePath": "payloads/sonicloader/1.6.0-elf-arsenal-rebrand/sonic-loader.elf",
+      "downloadUrl": "",
+      "hash": "8f492648f76a4741abd0107c112c6499dad5aa19c34224a5e96a9adda8728c4f",
+      "fileSize": 8103248,
+      "releaseDate": "2026-05-22",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "1.5.7",
+      "fileName": "sonic-loader.elf",
+      "filePath": "payloads/sonicloader/1.5.7/sonic-loader.elf",
+      "downloadUrl": "",
+      "hash": "059ccb7fd81d91bb7f42f2778f2f17e4ddde5a762b2478e9dd31119b3bb4cc89",
+      "fileSize": 6526816,
+      "releaseDate": "2026-05-18",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
       "version": "1.5.6",
       "fileName": "sonic-loader.elf",
       "filePath": "payloads/sonicloader/1.5.6/sonic-loader.elf",
@@ -21,7 +45,7 @@
       "hash": "56fe7e6c591b823fb2fa221e84921bb512574118207050b3bc4bee10521dc2ec",
       "fileSize": 6526640,
       "releaseDate": "2026-05-16",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": []
     }

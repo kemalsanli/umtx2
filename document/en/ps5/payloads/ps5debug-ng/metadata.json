@@ -1,0 +1,46 @@
+{
+  "license": {
+    "type": "GPL-3.0",
+    "url": "https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/main/LICENSE"
+  },
+  "id": "ps5debug-ng",
+  "displayTitle": "ps5debug-NG",
+  "description": "PS5 debugger payload - userland TCP wire-protocol server hosted inside SceShellCore (successor to GoldHEN/ps5debug)",
+  "authors": [
+    "OpenSourcereR-dev"
+  ],
+  "projectUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG",
+  "sourceRepo": "OpenSourcereR-dev/ps5debug-NG",
+  "toPort": 9021,
+  "supportedFirmwares": [],
+  "versions": [
+    {
+      "version": "1.2.3",
+      "fileName": "ps5debug-NG.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.3/ps5debug-NG.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.3/ps5debug-NG.elf",
+      "hash": "286a785b1fa0a93f2bf55b07025dc125918f37d842f3f7d20509d445dbd69211",
+      "fileSize": 3975240,
+      "releaseDate": "2026-05-15",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Hotfix: Fixed a rare save-corruption issue"
+      ]
+    },
+    {
+      "version": "1.2.2",
+      "fileName": "ps5debug-NG.elf",
+      "filePath": "payloads/ps5debug-ng/1.2.2/ps5debug-NG.elf",
+      "downloadUrl": "https://github.com/OpenSourcereR-dev/ps5debug-NG/releases/download/1.2.2/ps5debug-NG.elf",
+      "hash": "64f2a69f7d2a0c6fdb57468acc720e24bbfe57d5e389698b7e072094f94cc2a6",
+      "fileSize": 3975240,
+      "releaseDate": "2026-05-14",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "Initial stable public release"
+      ]
+    }
+  ]
+}

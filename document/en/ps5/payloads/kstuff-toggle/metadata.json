@@ -1,7 +1,7 @@
 {
   "id": "kstuff-toggle",
-  "displayTitle": "kstuff-toggle",
-  "description": "Kstuff Toggle Beta",
+  "displayTitle": "kstuff-toggle (legacy 0.2)",
+  "description": "Kstuff Toggle Beta - original single-binary release",
   "authors": [
     "EchoStretch",
     "john-tornblom"

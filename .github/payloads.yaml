@@ -185,6 +185,24 @@ payloads:
       type: ""
       url: ""
 
+  # --- ps5debug-NG: Next-gen PS5 debugger (replacement for GoldHEN/ps5debug 404) ---
+  # GPL-3.0 userland TCP debugger hosted inside SceShellCore.
+  # Active project with proper GitHub releases - fully automated.
+  - id: ps5debug-ng
+    displayTitle: ps5debug-NG
+    description: PS5 debugger payload - userland TCP wire-protocol server hosted inside SceShellCore (successor to GoldHEN/ps5debug)
+    authors:
+      - OpenSourcereR-dev
+    projectUrl: https://github.com/OpenSourcereR-dev/ps5debug-NG
+    sourceType: github-release
+    sourceRepo: OpenSourcereR-dev/ps5debug-NG
+    sourcePattern: ps5debug-NG*.elf
+    toPort: 9021
+    supportedFirmwares: []
+    license:
+      type: "GPL-3.0"
+      url: "https://github.com/OpenSourcereR-dev/ps5debug-NG/blob/main/LICENSE"
+
   # --- ps5debug-dizz: Open source debugger by DizzRL ---
   - id: ps5debug-dizz
     displayTitle: ps5debug
@@ -402,13 +420,15 @@ payloads:
         isDefault: true
         releaseDate: 2023-10-01
 
-  # --- kstuff-toggle: Kstuff Toggle ---
+  # --- kstuff-toggle: Kstuff Toggle (legacy single-elf release 0.2) ---
   # EchoStretch/kstuff-toggle has releases but assets are ZIP-only.
   # Cannot use github-release (ZIP extraction is disabled for security).
-  # Must be updated manually when new versions are released.
+  # Starting with 0.3 the ZIP ships THREE variant binaries (-1/-2/-3), so
+  # newer versions live under separate kstuff-toggle-ps5/-ps4/-both entries.
+  # This entry is kept for the original single-binary 0.2 release.
   - id: kstuff-toggle
-    displayTitle: kstuff-toggle
-    description: Kstuff Toggle Beta
+    displayTitle: kstuff-toggle (legacy 0.2)
+    description: Kstuff Toggle Beta - original single-binary release
     authors:
       - EchoStretch
       - john-tornblom
@@ -427,6 +447,122 @@ payloads:
         url: https://github.com/EchoStretch/kstuff-toggle/releases/download/latest/kstuff-toggle.elf
         isDefault: true
         releaseDate: 2024-01-10
+
+  # --- kstuff-toggle-ps5: PS5 sysentvec only (Payload 1) ---
+  # ZIP-only releases; binaries extracted manually. 0.3+ ships three variants
+  # (-1 PS5 sysentvec, -2 PS4 sysentvec, -3 both). This entry tracks Payload-1.
+  - id: kstuff-toggle-ps5
+    displayTitle: kstuff-toggle (PS5 sysentvec)
+    description: Kstuff Toggle - toggles PS5 sysentvec only (Payload 1)
+    authors:
+      - EchoStretch
+      - john-tornblom
+    projectUrl: https://github.com/EchoStretch/kstuff-toggle
+    sourceType: direct
+    sourceRepo: EchoStretch/kstuff-toggle
+    sourcePattern: kstuff-toggle-ps5*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "0.6"
+        fileName: kstuff-toggle-ps5.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-05-07
+      - version: "0.5"
+        fileName: kstuff-toggle-ps5.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2026-03-29
+      - version: "0.4"
+        fileName: kstuff-toggle-ps5.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-11-17
+      - version: "0.3"
+        fileName: kstuff-toggle-ps5.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-10-19
+
+  # --- kstuff-toggle-ps4: PS4 sysentvec only (Payload 2) ---
+  - id: kstuff-toggle-ps4
+    displayTitle: kstuff-toggle (PS4 sysentvec)
+    description: Kstuff Toggle - toggles PS4 sysentvec only (Payload 2)
+    authors:
+      - EchoStretch
+      - john-tornblom
+    projectUrl: https://github.com/EchoStretch/kstuff-toggle
+    sourceType: direct
+    sourceRepo: EchoStretch/kstuff-toggle
+    sourcePattern: kstuff-toggle-ps4*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "0.6"
+        fileName: kstuff-toggle-ps4.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-05-07
+      - version: "0.5"
+        fileName: kstuff-toggle-ps4.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2026-03-29
+      - version: "0.4"
+        fileName: kstuff-toggle-ps4.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-11-17
+      - version: "0.3"
+        fileName: kstuff-toggle-ps4.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-10-19
+
+  # --- kstuff-toggle-both: PS5 + PS4 sysentvec (Payload 3) ---
+  - id: kstuff-toggle-both
+    displayTitle: kstuff-toggle (both sysentvec)
+    description: Kstuff Toggle - toggles PS5 + PS4 sysentvec (Payload 3, equivalent to legacy 0.2 behavior)
+    authors:
+      - EchoStretch
+      - john-tornblom
+    projectUrl: https://github.com/EchoStretch/kstuff-toggle
+    sourceType: direct
+    sourceRepo: EchoStretch/kstuff-toggle
+    sourcePattern: kstuff-toggle-both*.elf
+    toPort: 9021
+    supportedFirmwares: ["3.", "4.", "5."]
+    license:
+      type: ""
+      url: ""
+    manualVersions:
+      - version: "0.6"
+        fileName: kstuff-toggle-both.elf
+        url: ""
+        isDefault: true
+        releaseDate: 2026-05-07
+      - version: "0.5"
+        fileName: kstuff-toggle-both.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2026-03-29
+      - version: "0.4"
+        fileName: kstuff-toggle-both.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-11-17
+      - version: "0.3"
+        fileName: kstuff-toggle-both.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2025-10-19
 
   # --- libhijacker: Game patch framework ---
   # illusion0001/libhijacker-game-patch has 28 releases but ALL assets are ZIP format.
@@ -554,10 +690,20 @@ payloads:
       type: "GPL-3.0"
       url: "https://git.earthonion.com/soniciso/sonicloader"
     manualVersions:
-      - version: "1.5.6"
+      - version: "1.6.0-elf-arsenal-rebrand"
         fileName: sonic-loader.elf
         url: ""
         isDefault: true
+        releaseDate: 2026-05-22
+      - version: "1.5.7"
+        fileName: sonic-loader.elf
+        url: ""
+        isDefault: false
+        releaseDate: 2026-05-18
+      - version: "1.5.6"
+        fileName: sonic-loader.elf
+        url: ""
+        isDefault: false
         releaseDate: 2026-05-16
 
   # ===========================================================================

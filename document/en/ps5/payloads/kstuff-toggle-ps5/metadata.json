@@ -1,0 +1,71 @@
+{
+  "license": {
+    "type": "Unknown",
+    "url": ""
+  },
+  "id": "kstuff-toggle-ps5",
+  "displayTitle": "kstuff-toggle (PS5 sysentvec)",
+  "description": "Kstuff Toggle - toggles PS5 sysentvec only (Payload 1)",
+  "authors": [
+    "EchoStretch",
+    "john-tornblom"
+  ],
+  "projectUrl": "https://github.com/EchoStretch/kstuff-toggle",
+  "sourceRepo": "EchoStretch/kstuff-toggle",
+  "toPort": 9021,
+  "versions": [
+    {
+      "version": "0.6",
+      "fileName": "kstuff-toggle-ps5.elf",
+      "filePath": "payloads/kstuff-toggle-ps5/0.6/kstuff-toggle-ps5.elf",
+      "downloadUrl": "",
+      "hash": "9009b96f36721a1b4c305735038d70cd72d596c553156bfa2a27e60a68ae2dee",
+      "fileSize": 109448,
+      "releaseDate": "2026-05-07",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.5",
+      "fileName": "kstuff-toggle-ps5.elf",
+      "filePath": "payloads/kstuff-toggle-ps5/0.5/kstuff-toggle-ps5.elf",
+      "downloadUrl": "",
+      "hash": "c823976cea5493e5523e6f8109827eb8274956372af359d97a39b0eb5e98da32",
+      "fileSize": 109448,
+      "releaseDate": "2026-03-29",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.4",
+      "fileName": "kstuff-toggle-ps5.elf",
+      "filePath": "payloads/kstuff-toggle-ps5/0.4/kstuff-toggle-ps5.elf",
+      "downloadUrl": "",
+      "hash": "5fe9ed0933462bfe9e7ee1eec4c5c7dad9b2b736dfcd376141598d2b0196f194",
+      "fileSize": 109128,
+      "releaseDate": "2025-11-17",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
+      "version": "0.3",
+      "fileName": "kstuff-toggle-ps5.elf",
+      "filePath": "payloads/kstuff-toggle-ps5/0.3/kstuff-toggle-ps5.elf",
+      "downloadUrl": "",
+      "hash": "d7c554dd21b9c37ed320bd310519a7daf29c3830e79b087b020cb11cb56546bf",
+      "fileSize": 109128,
+      "releaseDate": "2025-10-19",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": []
+    }
+  ],
+  "supportedFirmwares": [
+    "3.",
+    "4.",
+    "5."
+  ]
+}
