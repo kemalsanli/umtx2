@@ -11,6 +11,24 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.32",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.32/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.32/websrv-ps5.elf",
+      "hash": "8dd24df100bff6db156e86bdf9380d5c0fcd2a680c2b08f5c87380d5007190c5",
+      "fileSize": 1597088,
+      "releaseDate": "2026-05-25",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "mari0: initial commit",
+        "pemu: initial commit",
+        "scummvm: bump to version 2026.2.0",
+        "openjazz: bump to version 20260301",
+        "eduke32: bump to version 20260203"
+      ]
+    },
+    {
       "version": "0.31",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.31/websrv-ps5.elf",
@@ -18,7 +36,7 @@
       "hash": "bfe1664adf119a953a7a9c0aef2f817adadd014823eabfa3ad3d0de2ab0aa8c2",
       "fileSize": 1596936,
       "releaseDate": "2026-05-13",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "install shellui launcher if not already installed",
