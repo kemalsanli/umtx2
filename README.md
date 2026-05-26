@@ -51,6 +51,12 @@ etaHEN, elfldr, ftpsrv, websrv, gdbsrv, klogsrv, shsrv, ps5debug, ps5debug-dizz,
 
 Live at: [https://kemalsanli.github.io/umtx2/](https://kemalsanli.github.io/umtx2/)
 
+### Self-hosted
+
+If you'd rather run your own instance (LAN-only, custom domain, or fully offline / air-gapped), use the companion repo:
+
+**[kemalsanli/umtx2-self-hosted](https://github.com/kemalsanli/umtx2-self-hosted)** — Docker scaffolding that mirrors this repo. `docker compose up -d --build` and point your PS5 browser at `http://<your-server>:8080`. An internal cron pulls fresh payload metadata twice a day, so your instance stays in sync without manual updates. For offline servers, every push to this repo automatically produces a self-contained bundle (scaffolding + frozen snapshot) under the [self-hosted releases](https://github.com/kemalsanli/umtx2-self-hosted/releases) — download, extract, run.
+
 ## Credits & Special Thanks
 
 **Special thanks to [idlesauce](https://github.com/idlesauce)** for the original UMTX2 host — this project wouldn't exist without their work on the kernel exploit, payload system, and the entire host implementation.
