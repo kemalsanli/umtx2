@@ -23,6 +23,22 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.6beta16",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.6beta16/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.6beta16/shadowmountplus.elf",
+      "hash": "a35246fb3bb6042b25653b51cdcbc33254b40339342bf1d2dd0d2eceee2ca526",
+      "fileSize": 1457528,
+      "releaseDate": "2026-06-28",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Attempting to restore occupied mount points for nullfs",
+        "Prefer fakelib2 over fakelib for game overlays",
+        "To replace the fakelib folder in images, use `backports/PPSAXXXXX/fakelib2` in the same directory as the image. The image\u2019s `fakelib` folder will not be mounted, so copy all required files into `fakelib2`."
+      ]
+    },
+    {
       "version": "1.6test15-fix2",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.6test15-fix2/shadowmountplus.elf",
@@ -30,7 +46,7 @@
       "hash": "8ab32f4cede840a73515c05697fe81759bc98cf41fc22b43e09943262f447e99",
       "fileSize": 1457520,
       "releaseDate": "2026-06-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Fixed issues with mounting in /system_ex/app",

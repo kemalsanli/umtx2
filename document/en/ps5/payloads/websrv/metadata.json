@@ -11,6 +11,22 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.33",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.33/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.33/websrv-ps5.elf",
+      "hash": "4676a40ac4c7ca1adeb04980efa48dd33a8961446b42e6a12abfcbe96090c8ac",
+      "fileSize": 1597248,
+      "releaseDate": "2026-06-28",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "pemu: create sdl2 window in fullscreen mode",
+        "devilutionx: bump version to 1.5.5",
+        "ps5: simplify hbldr"
+      ]
+    },
+    {
       "version": "0.32",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.32/websrv-ps5.elf",
@@ -18,7 +34,7 @@
       "hash": "8dd24df100bff6db156e86bdf9380d5c0fcd2a680c2b08f5c87380d5007190c5",
       "fileSize": 1597088,
       "releaseDate": "2026-05-25",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "mari0: initial commit",

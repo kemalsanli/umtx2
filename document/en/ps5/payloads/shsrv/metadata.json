@@ -11,6 +11,18 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.19",
+      "fileName": "shsrv-ps5.elf",
+      "filePath": "payloads/shsrv/0.19/shsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/shsrv/releases/download/v0.19/shsrv-ps5.elf",
+      "hash": "797827b50a93dbf327abdca45063d76ea24b17e561d927f397a0b73cadb2e2bd",
+      "fileSize": 981872,
+      "releaseDate": "2026-06-28",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
       "version": "0.18.2",
       "fileName": "shsrv-ps5.elf",
       "filePath": "payloads/shsrv/0.18.2/shsrv-ps5.elf",
@@ -18,7 +30,7 @@
       "hash": "990f7fbcf3761f97db9b97638d3e119352447fb904b2cf70b191c02289e1c69e",
       "fileSize": 980808,
       "releaseDate": "2026-05-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest payload sdk"
