@@ -15,6 +15,28 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.3.3",
+      "fileName": "pldmgr_v0.3.3.elf",
+      "filePath": "payloads/payload-manager/0.3.3/pldmgr_v0.3.3.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.3.3/pldmgr_v0.3.3.elf",
+      "hash": "8a214dcc190c893b1dea43ab64cb89c431a34630906c31413f6f44c0389b698e",
+      "fileSize": 2050320,
+      "releaseDate": "2026-07-17",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Cloud Repository Search & Sort**: Added search functionality and sorting options (Category, Update Time, Name) to the Cloud Repository view. Sort preferences are persisted across sessions.",
+        "**Custom Payload Categories**: Added support for custom payload categories in third-party repositories and increased source limits.",
+        "**Media App Category**: Moved the Payload Manager launcher icon to the \"Media\" tab on the PS5 home screen to keep the Games tab clean (thanks to @lucaszhongsj).",
+        "*Note: You may need to remove your existing Payload Manager shortcut from the home screen first for the new one to correctly appear in the Media tab.*",
+        "**Repository Version Display**: When a custom repository explicitly defines a version, the frontend now displays it instead of trying to guess it from the filename (thanks to @lucaszhongsj).",
+        "**Standby Recovery**: Fixed an issue where the HTTP server would become unresponsive after waking the console from Rest Mode or dropping the network connection. The daemon now cleanly restarts the socket to recover the connection (fixes [#61](https://github.com/itsPLK/ps5-payload-manager/issues/61)).",
+        "**SSL Verification Fixes**: Resolved intermittent SSL verification failures with mbedTLS and added a fallback to insecure downloads on SSL verification failure (fixes [#42](https://github.com/itsPLK/ps5-payload-manager/issues/42)).",
+        "**App Installer Cleanup**: Added missing termination calls for the application installer utility (`sceAppInstUtil`) to ensure it closes properly.",
+        "**iOS File Upload**: Removed the `accept` attribute on the file input to help mitigate an issue where payloads were greyed out for some iOS users ([#39](https://github.com/itsPLK/ps5-payload-manager/issues/39))."
+      ]
+    },
+    {
       "version": "0.3.1",
       "fileName": "pldmgr_v0.3.1.elf",
       "filePath": "payloads/payload-manager/0.3.1/pldmgr_v0.3.1.elf",
@@ -22,7 +44,7 @@
       "hash": "518740adbacccb9094fadb07dd424c53ee290f38306449ccc9d6957fdf813c0b",
       "fileSize": 2050320,
       "releaseDate": "2026-06-06",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Fixed an issue where installed payloads were not showing on the dashboard for some users ([#28](https://github.com/itsPLK/ps5-payload-manager/issues/28)).",
