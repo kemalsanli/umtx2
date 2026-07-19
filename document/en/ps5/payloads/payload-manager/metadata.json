@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.4.0",
+      "fileName": "pldmgr_v0.4.0.elf",
+      "filePath": "payloads/payload-manager/0.4.0/pldmgr_v0.4.0.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.4.0/pldmgr_v0.4.0.elf",
+      "hash": "460808dead44100c4cb6e4ad8a768ffd1c5445afc7d1cb83e2727030240a85fd",
+      "fileSize": 2132240,
+      "releaseDate": "2026-07-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Translations**: Added localization support (i18n) for the web dashboard.",
+        "**New Languages**:",
+        "**Chinese Simplified** (thanks to @owendswang)",
+        "**Polish**",
+        "**Static Linking**: Statically link third-party dependencies in the build script to prevent dynamic linking issues (thanks to @owendswang in [#66](https://github.com/itsPLK/ps5-payload-manager/pull/66)).",
+        "---",
+        "PS5 Payload Manager now officially supports community translations! If you'd like to see the app in your native language, you can help us translate it over on our **[Crowdin Project](https://crowdin.com/project/ps5-payload-manager)**.",
+        "Once a language hits 70% completion, it will automatically be included in the next release!",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file."
+      ]
+    },
+    {
       "version": "0.3.3",
       "fileName": "pldmgr_v0.3.3.elf",
       "filePath": "payloads/payload-manager/0.3.3/pldmgr_v0.3.3.elf",
@@ -22,7 +45,7 @@
       "hash": "8a214dcc190c893b1dea43ab64cb89c431a34630906c31413f6f44c0389b698e",
       "fileSize": 2050320,
       "releaseDate": "2026-07-17",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Cloud Repository Search & Sort**: Added search functionality and sorting options (Category, Update Time, Name) to the Cloud Repository view. Sort preferences are persisted across sessions.",
