@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.4.1",
+      "fileName": "pldmgr_v0.4.1.elf",
+      "filePath": "payloads/payload-manager/0.4.1/pldmgr_v0.4.1.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.4.1/pldmgr_v0.4.1.elf",
+      "hash": "8f26faf1f6e831150af3284e2cca4944917f073efedfb4db0335cfab75a17951",
+      "fileSize": 2132240,
+      "releaseDate": "2026-07-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Translations**: Updated existing translations and added new languages.",
+        "**New Languages**:",
+        "**Italian** (thanks to Leon90)",
+        "**Portuguese (Brazilian)** (thanks to matmarson, slipttees, marcusvrb)",
+        "**Russian** (thanks to Akela-1979)",
+        "---",
+        "PS5 Payload Manager now officially supports community translations! If you'd like to see the app in your native language, you can help us translate it over on our **[Crowdin Project](https://crowdin.com/project/ps5-payload-manager)**.",
+        "Once a language hits 70% completion, it will automatically be included in the next release!",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file."
+      ]
+    },
+    {
       "version": "0.4.0",
       "fileName": "pldmgr_v0.4.0.elf",
       "filePath": "payloads/payload-manager/0.4.0/pldmgr_v0.4.0.elf",
@@ -22,7 +45,7 @@
       "hash": "460808dead44100c4cb6e4ad8a768ffd1c5445afc7d1cb83e2727030240a85fd",
       "fileSize": 2132240,
       "releaseDate": "2026-07-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Translations**: Added localization support (i18n) for the web dashboard.",
