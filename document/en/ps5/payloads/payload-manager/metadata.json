@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.5.0",
+      "fileName": "pldmgr_v0.5.0.elf",
+      "filePath": "payloads/payload-manager/0.5.0/pldmgr_v0.5.0.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.0/pldmgr_v0.5.0.elf",
+      "hash": "1fe181908027fc625147ac888288ed1bee72a378b4751d36a8a8e0582d306169",
+      "fileSize": 2394384,
+      "releaseDate": "2026-07-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Payload Favorites / Pinning**: Added support for pinning favorite payloads to the top of the dashboard with a dedicated edit mode ([#65](https://github.com/itsPLK/ps5-payload-manager/pull/65), thanks to @techsociology).",
+        "**Payload Launch Indicator**: Introduced a visual checkmark indicator for payloads launched during the active session ([#44](https://github.com/itsPLK/ps5-payload-manager/issues/44)).",
+        "**New Languages**:",
+        "**French** (thanks to Oblik20, Chronoss)",
+        "**Japanese** (thanks to Jane101KR)",
+        "**Korean** (thanks to Jane101KR)",
+        "**Translations**: Updated localization files across supported languages.",
+        "**Launch History Tracking**: Added an in-memory session payload history manager and `/history_list` endpoint to track executed payloads.",
+        "---",
+        "PS5 Payload Manager now officially supports community translations! If you'd like to see the app in your native language, you can help us translate it over on our **[Crowdin Project](https://crowdin.com/project/ps5-payload-manager)**."
+      ]
+    },
+    {
       "version": "0.4.2",
       "fileName": "pldmgr_v0.4.2.elf",
       "filePath": "payloads/payload-manager/0.4.2/pldmgr_v0.4.2.elf",
@@ -22,7 +45,7 @@
       "hash": "ed6039f1f62a9de5016721e003a11da001a09695718e5b893424d9af0a5d56a2",
       "fileSize": 2345232,
       "releaseDate": "2026-07-20",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**System Language Support**: Added a \"System Default\" option in Settings to dynamically follow the OS/browser language ([#69](https://github.com/itsPLK/ps5-payload-manager/pull/69)).",
