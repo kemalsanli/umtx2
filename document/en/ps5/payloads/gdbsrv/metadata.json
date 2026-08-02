@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.9",
+      "fileName": "gdbsrv-ps5.elf",
+      "filePath": "payloads/gdbsrv/0.9/gdbsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/gdbsrv/releases/download/v0.9/gdbsrv-ps5.elf",
+      "hash": "80952d75f423768b95385f0944e5a5c2f417dcc10c22c1bb6516a923ad8894e5",
+      "fileSize": 174248,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.8",
       "fileName": "gdbsrv-ps5.elf",
       "filePath": "payloads/gdbsrv/0.8/gdbsrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "7621b829bd8b6d6f3d2328fa12c16af956b0ca128250f92a91eddc100c87f208",
       "fileSize": 173480,
       "releaseDate": "2026-05-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest ps4 and ps5 payload sdk",

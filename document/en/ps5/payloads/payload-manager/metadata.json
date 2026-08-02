@@ -15,6 +15,28 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.5.1",
+      "fileName": "pldmgr_v0.5.1.elf",
+      "filePath": "payloads/payload-manager/0.5.1/pldmgr_v0.5.1.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.1/pldmgr_v0.5.1.elf",
+      "hash": "05617c69ea145d1c11b8f7a6b7d3bd9e6df3831afd25d71a4ac85d63fb8e28aa",
+      "fileSize": 2410768,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Translations**: Updated localization files across supported languages.",
+        "**New Languages**:",
+        "**Arabic** (thanks to mohamad.z.k28, abdoulacadat, DumDum143, HoussamLovy, c0ncerta, sgs2ofameer)",
+        "**Thai** (thanks to Modmycon, hpokemon776)",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file.",
+        "Simply install the update directly within the Payload Manager app (from the repository).",
+        "The updated version will automatically launch on every subsequent startup, regardless of whether you load the old or new `.elf` file initially.",
+        "This means **you don't need to update your autoloader config** or replace any files on your console/USB!"
+      ]
+    },
+    {
       "version": "0.5.0",
       "fileName": "pldmgr_v0.5.0.elf",
       "filePath": "payloads/payload-manager/0.5.0/pldmgr_v0.5.0.elf",
@@ -22,7 +44,7 @@
       "hash": "1fe181908027fc625147ac888288ed1bee72a378b4751d36a8a8e0582d306169",
       "fileSize": 2394384,
       "releaseDate": "2026-07-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Payload Favorites / Pinning**: Added support for pinning favorite payloads to the top of the dashboard with a dedicated edit mode ([#65](https://github.com/itsPLK/ps5-payload-manager/pull/65), thanks to @techsociology).",

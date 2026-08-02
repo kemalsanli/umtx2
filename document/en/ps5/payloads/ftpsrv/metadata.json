@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.21",
+      "fileName": "ftpsrv-ps5-install.elf",
+      "filePath": "payloads/ftpsrv/0.21/ftpsrv-ps5-install.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.21/ftpsrv-ps5-install.elf",
+      "hash": "f86aed1194e92146135e1e8964993ae99663a38361b0825d2ca51d2e78a54da4",
+      "fileSize": 717272,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.20",
       "fileName": "ftpsrv-ps5-install.elf",
       "filePath": "payloads/ftpsrv/0.20/ftpsrv-ps5-install.elf",
@@ -18,7 +32,7 @@
       "hash": "23f69de0f1ab1e1a3869473e87a271f750ec595056df0142fabbf21f5153c077",
       "fileSize": 700120,
       "releaseDate": "2026-05-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "add command line argument to suppress GUI notifications",

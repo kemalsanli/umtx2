@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.9",
+      "fileName": "klogsrv-ps5.elf",
+      "filePath": "payloads/klogsrv/0.9/klogsrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/klogsrv/releases/download/v0.9/klogsrv-ps5.elf",
+      "hash": "e828ec144231f81547cb58bc7d2c396fa984be0c2295f31364b58017816dcceb",
+      "fileSize": 136016,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk"
+      ]
+    },
+    {
       "version": "0.8",
       "fileName": "klogsrv-ps5.elf",
       "filePath": "payloads/klogsrv/0.8/klogsrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "f6eb1b415ecf3340b89a56a0cb04ba5c714430085851ada13a98012b63a5a4cf",
       "fileSize": 135248,
       "releaseDate": "2026-05-12",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest ps4 and ps5 payload sdk",
