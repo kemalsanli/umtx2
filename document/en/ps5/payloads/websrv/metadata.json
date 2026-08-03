@@ -11,6 +11,24 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.34",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.34/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.34/websrv-ps5.elf",
+      "hash": "54730c867c6e1148536fdcb370e63a7762d989ea87b62488ad4caff64d43f263",
+      "fileSize": 1597864,
+      "releaseDate": "2026-08-02",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "rebuild with latest sdk",
+        "VVVVVV: initial commit",
+        "Wolf4SDL: initial commit",
+        "CrispyDoom: Initial commit",
+        "hbldr: add support for relative paths in file-related syscalls for later firmwares"
+      ]
+    },
+    {
       "version": "0.33",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.33/websrv-ps5.elf",
@@ -18,7 +36,7 @@
       "hash": "4676a40ac4c7ca1adeb04980efa48dd33a8961446b42e6a12abfcbe96090c8ac",
       "fileSize": 1597248,
       "releaseDate": "2026-06-28",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "pemu: create sdl2 window in fullscreen mode",
