@@ -14,6 +14,23 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.4",
+      "fileName": "nanodns.elf",
+      "filePath": "payloads/nanodns/0.4/nanodns.elf",
+      "downloadUrl": "https://github.com/drakmor/nanoDNS/releases/download/0.4/nanodns.elf",
+      "hash": "dcb845f3570771275b22b37534bf924a7f8ae219fb91ef00c6bccab85d1c2420",
+      "fileSize": 132352,
+      "releaseDate": "2026-08-04",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "IPv6 support",
+        "Quiet mode",
+        "Yandex.DNS fix (remove old nanodns.ini)"
+      ]
+    },
+    {
       "version": "0.3",
       "fileName": "nanodns.elf",
       "filePath": "payloads/nanodns/0.3/nanodns.elf",
@@ -21,7 +38,7 @@
       "hash": "ce1c8b31036ab948da65b362a4b6f249ffca8a555fc5bc4b051ec65d041bc944",
       "fileSize": 132344,
       "releaseDate": "2026-06-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "The PS4 version has been fixed (GoldenHEN compatability)",
