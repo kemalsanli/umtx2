@@ -22,7 +22,7 @@
       "fileSize": 132352,
       "releaseDate": "2026-08-04",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "IPv6 support",
