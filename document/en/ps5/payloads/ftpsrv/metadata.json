@@ -11,6 +11,18 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.21.1",
+      "fileName": "ftpsrv-ps5-install.elf",
+      "filePath": "payloads/ftpsrv/0.21.1/ftpsrv-ps5-install.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/ftpsrv/releases/download/v0.21.1/ftpsrv-ps5-install.elf",
+      "hash": "0ccfe0097081be0514aabef34390a0f6776226e8b3eefbb047964584e0cfe3a9",
+      "fileSize": 717272,
+      "releaseDate": "2026-08-20",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": []
+    },
+    {
       "version": "0.21",
       "fileName": "ftpsrv-ps5-install.elf",
       "filePath": "payloads/ftpsrv/0.21/ftpsrv-ps5-install.elf",
@@ -18,7 +30,7 @@
       "hash": "f86aed1194e92146135e1e8964993ae99663a38361b0825d2ca51d2e78a54da4",
       "fileSize": 717272,
       "releaseDate": "2026-08-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest sdk"
