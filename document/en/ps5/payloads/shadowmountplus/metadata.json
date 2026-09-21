@@ -23,6 +23,30 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta2/shadowmountplus.elf",
+      "hash": "3f716a7b2220c7e87e87452ae05cad689ef842d3beb4cdad6c526cb6dfc2b6b5",
+      "fileSize": 2437704,
+      "releaseDate": "2026-09-21",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "This release focuses on installed PKG backports, safer suspend handling, faster storage operations, and runtime stability.",
+        "Added external backport support for installed PS5 PKG games through native NSFS redirects.",
+        "Backports are applied from `/data/homebrew/backports/<TITLE_ID>` immediately before the game process starts.",
+        "Regular files use direct redirects, while missing directory trees use NSFS overlays.",
+        "Supports up to 256 redirects per package sandbox.",
+        "External and package-provided `fakelib`/`fakelib2` directories remain supported.",
+        "Added a storage destination picker for copy and move operations.",
+        "Read/write mounting is no longer offered for unsupported PFSC sources.",
+        "Plaintext PPR package games are now detected and stopped before entering Rest Mode.",
+        "The `/api/v1/storage` response now includes:"
+      ]
+    },
+    {
       "version": "1.7alpha8",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7alpha8/shadowmountplus.elf",
@@ -30,7 +54,7 @@
       "hash": "f15653fe90d81e5f82841ca693c0599d307c384d6454c1b0cc18190ae1ef4812",
       "fileSize": 1746608,
       "releaseDate": "2026-08-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
