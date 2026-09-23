@@ -15,6 +15,29 @@
   "supportedFirmwares": [],
   "versions": [
     {
+      "version": "1.3.2",
+      "fileName": "ps5debug-NG_v1.3.2.elf",
+      "filePath": "payloads/ps5debug-ng/1.3.2/ps5debug-NG_v1.3.2.elf",
+      "downloadUrl": "https://github.com/Pharaoh2k/ps5debug-NG/releases/download/1.3.2/ps5debug-NG_v1.3.2.elf",
+      "hash": "949b0e6e0fe3f24f4a820319fd76d9ccb92f9770cbb1a64b09a8eca5c1fc9ff3",
+      "fileSize": 4059688,
+      "releaseDate": "2026-09-23",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "v1.3.0 was the big feature release. **v1.3.2 is the correctness and reliability release** that follows it: writes now prove they landed, three separate session-killing bugs are fixed, a scan comparator that silently returned wrong results is repaired, and firmware support extends through **FW 13.60**.",
+        "There was no separate v1.3.1 download, so **this release also contains everything from v1.3.1** (Turbo Scan cancel).",
+        "---",
+        "Process writes used to report success as soon as the write was handed off. They are now **read back and compared before success is reported**, so a write that silently did nothing now correctly reports a failure.",
+        "**If you are a client developer:** a write that previously appeared to succeed may now return `CMD_ERROR`. That is the bug surfacing, not a new bug. Servers advertise **capability level `1.1`** so clients can detect the behaviour.",
+        "`CMD_PROC_WRITE` returns terminal `CMD_ERROR` on write or verification failure.",
+        "Write-multi returns **typed per-entry status codes** (invalid / DMAP / verify / mdbg) so you can tell exactly which entries failed and why, instead of losing the detail in one aggregate result.",
+        "A proven DMAP mismatch no longer quietly falls through to the mdbg path.",
+        "**Caveat:** a transfer whose start address ends in `0xFF` backs up one byte to keep the write aligned. That adjacent-byte read-modify-write is not atomic, so it needs a **stable or suspended target** to be safe.",
+        "---"
+      ]
+    },
+    {
       "version": "1.3.0",
       "fileName": "ps5debug-NG_v1.3.0.elf",
       "filePath": "payloads/ps5debug-ng/1.3.0/ps5debug-NG_v1.3.0.elf",
@@ -22,7 +45,7 @@
       "hash": "8f75fb90b45d7cc4d59147e3323577d7264cf572c78a27f76722202f492ad16a",
       "fileSize": 4043160,
       "releaseDate": "2026-06-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "v1.2.x was about getting FW 8.x-13.x **working**. **v1.3.0 is the big feature release**: dramatically faster memory scanning (Turbo Scan), new register access (FS/GS base + full AVX/YMM), faster bulk writes, and reliability fixes. Hardware-verified; firmware-agnostic by design.",
