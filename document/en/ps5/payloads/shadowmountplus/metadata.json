@@ -31,7 +31,7 @@
       "fileSize": 2437704,
       "releaseDate": "2026-09-21",
       "isDefault": true,
-      "isPreRelease": true,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "This release focuses on installed PKG backports, safer suspend handling, faster storage operations, and runtime stability.",
