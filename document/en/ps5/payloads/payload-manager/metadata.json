@@ -15,6 +15,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.5.2",
+      "fileName": "pldmgr_v0.5.2.elf",
+      "filePath": "payloads/payload-manager/0.5.2/pldmgr_v0.5.2.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.5.2/pldmgr_v0.5.2.elf",
+      "hash": "62b3ba2a4937c2afc502f9a4e7242cca538610ebb4ae2800c7c6f72e7f268e7c",
+      "fileSize": 2410776,
+      "releaseDate": "2026-09-29",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Rebuilt with latest SDK (FW 13.60 support)"
+      ]
+    },
+    {
       "version": "0.5.1",
       "fileName": "pldmgr_v0.5.1.elf",
       "filePath": "payloads/payload-manager/0.5.1/pldmgr_v0.5.1.elf",
@@ -22,7 +36,7 @@
       "hash": "05617c69ea145d1c11b8f7a6b7d3bd9e6df3831afd25d71a4ac85d63fb8e28aa",
       "fileSize": 2410768,
       "releaseDate": "2026-08-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Translations**: Updated localization files across supported languages.",
