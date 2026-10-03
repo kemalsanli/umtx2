@@ -23,6 +23,24 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta4",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta4/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta4/shadowmountplus.elf",
+      "hash": "fc4e5f715e76660ce34bde2adb10eaf1d069cb2cdf06f7a380896dfb62bd0c4a",
+      "fileSize": 2475496,
+      "releaseDate": "2026-10-03",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Automatic /data, and USB/extended drive mounting in sandbox.",
+        "Added installed PS4/PS5 PKGs to the API and web UI, with game information and uninstall actions.",
+        "Added per-game PS5 fakelib toggles and fakelib_exclude configuration entries.",
+        "Automatic removal of incompatible libraries from FPKG backport fakelib folders."
+      ]
+    },
+    {
       "version": "1.7beta3",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta3/shadowmountplus.elf",
@@ -30,8 +48,8 @@
       "hash": "2a7427e20ba7a70bd8cd01e47eb00ee7ca82db82dff3da7884f48f9c3fcbe95a",
       "fileSize": 2437848,
       "releaseDate": "2026-10-01",
-      "isDefault": true,
-      "isPreRelease": true,
+      "isDefault": false,
+      "isPreRelease": false,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
         "Fixed an issue with mounting backports from `/data/homebrew/backports` when using a custom `scan_path` list.",
