@@ -23,6 +23,52 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7-beta5fix1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7-beta5fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7-beta5fix1/shadowmountplus.elf",
+      "hash": "e85fd63b705498488f39c09c9aea6f9fa22e0df2e932865de49a8cedf25172d5",
+      "fileSize": 2498376,
+      "releaseDate": "2026-10-10",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Removed legacy kstuff auto-pause and delay autotuning.** Use the latest version of kstuff and do not use EtaHEN.",
+        "Added per-game and default fakelib modes: Full, Emulators only, and Disabled, configurable through the web UI.",
+        "Prevented libkernel.sprx from entering fakelib overlays, using filtered caches for images and installed PKGs.",
+        "Fixed backport mounting when cleanup files or the fakelib directory are missing; missing files are silently skipped.",
+        "Added read-only access to system fonts `/preinst/common/font` inside game sandboxes.",
+        "Fixed sandbox storage mounts on USB connection/disconnection and disc insertion/ejection. Only mounted `/mnt/usb*`, `/mnt/ext*`, and `/mnt/disc` volumes are exposed.",
+        "Improved game error reporting during the first 60 seconds after launch, including fatal-signal details and crash addresses when available.",
+        "Added automatic ShellCore hook recovery after resume and before game registration.",
+        "Added game versions to compact and full web cards; fixed icons for games on extended storage.",
+        "Improved missing-source handling, localized operation errors, and updated web UI translations."
+      ]
+    },
+    {
+      "version": "1.7beta5",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta5/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta5/shadowmountplus.elf",
+      "hash": "0d54a8467ec3544e1c7b365c9f100b2bf42bf4633cb768bde7c8f16b6cfb5375",
+      "fileSize": 2498376,
+      "releaseDate": "2026-10-10",
+      "isDefault": false,
+      "isPreRelease": false,
+      "changelog": [
+        "**Removed legacy kstuff auto-pause and delay autotuning.** Use the latest version of kstuff and do not use EtaHEN.",
+        "Added per-game and default fakelib modes: Full, Emulators only, and Disabled, configurable through the web UI.",
+        "Prevented libkernel.sprx from entering fakelib overlays, using filtered caches for images and installed PKGs.",
+        "Fixed backport mounting when cleanup files or the fakelib directory are missing; missing files are silently skipped.",
+        "Added read-only access to system fonts `/preinst/common/font` inside game sandboxes.",
+        "Fixed sandbox storage mounts on USB connection/disconnection and disc insertion/ejection. Only mounted `/mnt/usb*`, `/mnt/ext*`, and `/mnt/disc` volumes are exposed.",
+        "Improved game error reporting during the first 60 seconds after launch, including fatal-signal details and crash addresses when available.",
+        "Added automatic ShellCore hook recovery after resume and before game registration.",
+        "Added game versions to compact and full web cards; fixed icons for games on extended storage.",
+        "Improved missing-source handling, localized operation errors, and updated web UI translations."
+      ]
+    },
+    {
       "version": "1.7beta4",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta4/shadowmountplus.elf",
@@ -30,7 +76,7 @@
       "hash": "fc4e5f715e76660ce34bde2adb10eaf1d069cb2cdf06f7a380896dfb62bd0c4a",
       "fileSize": 2475496,
       "releaseDate": "2026-10-03",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
