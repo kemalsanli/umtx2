@@ -11,6 +11,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.35",
+      "fileName": "websrv-ps5.elf",
+      "filePath": "payloads/websrv/0.35/websrv-ps5.elf",
+      "downloadUrl": "https://github.com/ps5-payload-dev/websrv/releases/download/v0.35/websrv-ps5.elf",
+      "hash": "25501b41887a42789792d1367edd2fc892454bfe6b0b1519bc36456a581f264c",
+      "fileSize": 1599288,
+      "releaseDate": "2026-10-10",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution."
+      ]
+    },
+    {
       "version": "0.34",
       "fileName": "websrv-ps5.elf",
       "filePath": "payloads/websrv/0.34/websrv-ps5.elf",
@@ -18,7 +32,7 @@
       "hash": "54730c867c6e1148536fdcb370e63a7762d989ea87b62488ad4caff64d43f263",
       "fileSize": 1597864,
       "releaseDate": "2026-08-02",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "rebuild with latest sdk",
