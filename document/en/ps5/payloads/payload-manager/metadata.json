@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.6.0",
+      "fileName": "pldmgr_v0.6.0.elf",
+      "filePath": "payloads/payload-manager/0.6.0/pldmgr_v0.6.0.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.6.0/pldmgr_v0.6.0.elf",
+      "hash": "5b31079d81d6467f2754edd1d6dbe63b0306502e135c21a425ecb263e39e2059",
+      "fileSize": 3484120,
+      "releaseDate": "2026-10-13",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Repository Browser Overhaul**: Rebuilt **Get Payloads** into a full store experience with a card grid, search, source filtering, and live install status badges.",
+        "**Payload Details**: Added a dedicated details page showing payload README documentation and version info.",
+        "**Cross-Browser Favorites**: Dashboard favorites are now stored on the console, keeping your favorites and custom order synced across all browsers and devices.",
+        "**Controller & History Navigation**: Pressing Back / Circle on your PS5 controller or browser now closes modals, details, and edit modes instead of exiting the browser. Added URL links for direct navigation.",
+        "**UI Polish & Quality of Life**: Refreshed Autoload screen styling with improved auto-saving, redesigned payload launch overlay, support for custom repository payload icons and source badges, and cleaner notification toasts.",
+        "**New Language**:",
+        "**Dutch** (thanks to JensJ56)",
+        "**Translations**: Updated localization files across all 17 supported languages.",
+        "**Autoload Network Resilience**: Fixed repository network timeouts on boot delaying the autoload sequence ([#109](https://github.com/itsPLK/ps5-payload-manager/pull/109), thanks to [kianborg](https://github.com/kianborg)).",
+        "**Fresh PS5 Install Fix**: Fixed installer failing on brand new PS5 systems ([#108](https://github.com/itsPLK/ps5-payload-manager/issues/108))."
+      ]
+    },
+    {
       "version": "0.5.2",
       "fileName": "pldmgr_v0.5.2.elf",
       "filePath": "payloads/payload-manager/0.5.2/pldmgr_v0.5.2.elf",
@@ -22,7 +45,7 @@
       "hash": "62b3ba2a4937c2afc502f9a4e7242cca538610ebb4ae2800c7c6f72e7f268e7c",
       "fileSize": 2410776,
       "releaseDate": "2026-09-29",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Rebuilt with latest SDK (FW 13.60 support)"
