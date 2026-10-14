@@ -15,6 +15,21 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.6.1",
+      "fileName": "pldmgr_v0.6.1.elf",
+      "filePath": "payloads/payload-manager/0.6.1/pldmgr_v0.6.1.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.6.1/pldmgr_v0.6.1.elf",
+      "hash": "5165cbe4c13360828bd0f5d558cdbb9e2d55b0660b1dc7f7a58d3f4ee9e23285",
+      "fileSize": 3484120,
+      "releaseDate": "2026-10-14",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Restored automatic Disc Player termination on startup for BD-JB users, which was removed in v0.6.0.",
+        "This is still useful for users on older BD-JB autoloader builds (lower than v1.4.0)."
+      ]
+    },
+    {
       "version": "0.6.0",
       "fileName": "pldmgr_v0.6.0.elf",
       "filePath": "payloads/payload-manager/0.6.0/pldmgr_v0.6.0.elf",
@@ -22,7 +37,7 @@
       "hash": "5b31079d81d6467f2754edd1d6dbe63b0306502e135c21a425ecb263e39e2059",
       "fileSize": 3484120,
       "releaseDate": "2026-10-13",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Repository Browser Overhaul**: Rebuilt **Get Payloads** into a full store experience with a card grid, search, source filtering, and live install status badges.",
