@@ -26,7 +26,11 @@
       "isPreRelease": false,
       "changelog": [
         "Restored automatic Disc Player termination on startup for BD-JB users, which was removed in v0.6.0.",
-        "This is still useful for users on older BD-JB autoloader builds (lower than v1.4.0)."
+        "This is still useful for users on older BD-JB autoloader builds (lower than v1.4.0).",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file.",
+        "Simply install the update directly within the Payload Manager app (from the repository).",
+        "The updated version will automatically launch on every subsequent startup, regardless of whether you load the old or new `.elf` file initially."
       ]
     },
     {
