@@ -15,6 +15,29 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.6.2",
+      "fileName": "pldmgr_v0.6.2.elf",
+      "filePath": "payloads/payload-manager/0.6.2/pldmgr_v0.6.2.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.6.2/pldmgr_v0.6.2.elf",
+      "hash": "0cd5e0cc89ca4db6586dc1ff6f335caa4e33b50951c0ef86f5d1ea971f34e9c5",
+      "fileSize": 2795992,
+      "releaseDate": "2026-10-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "**Autoload Return to Dashboard**: Added an optional **Return After Autoload** setting, disabled by default, to return to the dashboard about 3 seconds after all payloads load successfully. Results stay visible if any payload fails or is skipped ([#123](https://github.com/itsPLK/ps5-payload-manager/issues/123)).",
+        "**Dashboard Icon Setting**: Added an option to hide payload icons on the dashboard, leaving more space for text while keeping card sizes unchanged. Icons remain visible in **Get Payloads** ([#131](https://github.com/itsPLK/ps5-payload-manager/issues/131)).",
+        "**Release Details**: Added a collapsible **Release details** section above the README on payload details pages. Release notes are fetched directly from GitHub for the release tag or version offered by the payload catalog ([#133](https://github.com/itsPLK/ps5-payload-manager/issues/133)).",
+        "**New Languages**:",
+        "**Traditional Chinese**",
+        "**Romanian**",
+        "**Smaller ELF**: Replaced bundled emoji artwork with Twemoji images loaded from a version-pinned public CDN, reducing the payload size. Downloaded emoji are cached for offline reuse ([#130](https://github.com/itsPLK/ps5-payload-manager/issues/130)).",
+        "**Mobile Upload Controls**: Fixed the upload button appearing outside the visible area in portrait mode. Repository controls now wrap to fit narrow screens, including when search is open ([#126](https://github.com/itsPLK/ps5-payload-manager/issues/126)).",
+        "**Payload Icon Caching**: Payload icons and catalog metadata now persist across browser sessions, so cached icons appear immediately when reopening the app instead of waiting for a catalog refresh.",
+        "---"
+      ]
+    },
+    {
       "version": "0.6.1",
       "fileName": "pldmgr_v0.6.1.elf",
       "filePath": "payloads/payload-manager/0.6.1/pldmgr_v0.6.1.elf",
@@ -22,7 +45,7 @@
       "hash": "5165cbe4c13360828bd0f5d558cdbb9e2d55b0660b1dc7f7a58d3f4ee9e23285",
       "fileSize": 3484120,
       "releaseDate": "2026-10-14",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Restored automatic Disc Player termination on startup for BD-JB users, which was removed in v0.6.0.",
