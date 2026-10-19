@@ -15,6 +15,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "0.6.3",
+      "fileName": "pldmgr_v0.6.3.elf",
+      "filePath": "payloads/payload-manager/0.6.3/pldmgr_v0.6.3.elf",
+      "downloadUrl": "https://github.com/itsPLK/ps5-payload-manager/releases/download/v0.6.3/pldmgr_v0.6.3.elf",
+      "hash": "2a42054fd9725e1d9595ff4add95abc30e5b49446fcdcb96c06775a376a841c4",
+      "fileSize": 2795992,
+      "releaseDate": "2026-10-19",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Hotfix for v0.6.2: fixed emojis not appearing on PS5."
+      ]
+    },
+    {
       "version": "0.6.2",
       "fileName": "pldmgr_v0.6.2.elf",
       "filePath": "payloads/payload-manager/0.6.2/pldmgr_v0.6.2.elf",
@@ -22,7 +36,7 @@
       "hash": "0cd5e0cc89ca4db6586dc1ff6f335caa4e33b50951c0ef86f5d1ea971f34e9c5",
       "fileSize": 2795992,
       "releaseDate": "2026-10-19",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Autoload Return to Dashboard**: Added an optional **Return After Autoload** setting, disabled by default, to return to the dashboard about 3 seconds after all payloads load successfully. Results stay visible if any payload fails or is skipped ([#123](https://github.com/itsPLK/ps5-payload-manager/issues/123)).",
