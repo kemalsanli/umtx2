@@ -25,7 +25,11 @@
       "isDefault": true,
       "isPreRelease": false,
       "changelog": [
-        "Hotfix for v0.6.2: fixed emojis not appearing on PS5."
+        "Hotfix for v0.6.2: fixed emojis not appearing on PS5.",
+        "---",
+        "You do **not** need to manually download or replace your original `pldmgr.elf` file.",
+        "Simply install the update directly within the Payload Manager app (from the repository).",
+        "The updated version will automatically launch on every subsequent startup, regardless of whether you load the old or new `.elf` file initially."
       ]
     },
     {

@@ -23,6 +23,75 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta6-fix2",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta6-fix2/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta6-fix2/shadowmountplus.elf",
+      "hash": "ec87ad20f78be2d7cb82e9d77e72352b079e049baac3c1a211960ccd6f252e62",
+      "fileSize": 2517224,
+      "releaseDate": "2026-10-21",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Improved ShellCore hook reliability and startup handling while waiting for kstuff.",
+        "Fixed sandbox cleanup and mount ownership across process handoffs and relaunches.",
+        "Fixed duplicate-image remount loops across scan roots.",
+        "Restored HTTP service recovery after rest mode and socket loss.",
+        "Enabled background work while FAKE/LAPY apps are running or games are unfocused, while protecting their sources and mounts.",
+        "Added support for backport folders with title ID suffixes and clearer notifications showing the original path.",
+        "Added a per-game Ignore global fakelib option in the web UI, applied on the next launch.",
+        "Updated web UI branding to Shadow Mount+ and added a favicon.",
+        "Fix1: Fix web UI compatibility with older WebKit",
+        "Fix2: Fix sandbox /data reuse and preserve game layers across suspend"
+      ]
+    },
+    {
+      "version": "1.7beta6-fix1",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta6-fix1/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta6-fix1/shadowmountplus.elf",
+      "hash": "7c00d7ca71f29c12a4201063cfe9c69f21570a91df7e58d67ff6e157c08456a2",
+      "fileSize": 2517224,
+      "releaseDate": "2026-10-21",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Improved ShellCore hook reliability and startup handling while waiting for kstuff.",
+        "Fixed sandbox cleanup and mount ownership across process handoffs and relaunches.",
+        "Fixed duplicate-image remount loops across scan roots.",
+        "Restored HTTP service recovery after rest mode and socket loss.",
+        "Enabled background work while FAKE/LAPY apps are running or games are unfocused, while protecting their sources and mounts.",
+        "Added support for backport folders with title ID suffixes and clearer notifications showing the original path.",
+        "Added a per-game Ignore global fakelib option in the web UI, applied on the next launch.",
+        "Updated web UI branding to Shadow Mount+ and added a favicon.",
+        "Fix - Fix web UI compatibility with older WebKit"
+      ]
+    },
+    {
+      "version": "1.7beta6",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta6/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta6/shadowmountplus.elf",
+      "hash": "c2fb6f6bf39a94572f2b34390d5fae7ccd257c734417709a248acb6cd6e18522",
+      "fileSize": 2517016,
+      "releaseDate": "2026-10-20",
+      "isDefault": false,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Improved ShellCore hook reliability and startup handling while waiting for kstuff.",
+        "Fixed sandbox cleanup and mount ownership across process handoffs and relaunches.",
+        "Fixed duplicate-image remount loops across scan roots.",
+        "Restored HTTP service recovery after rest mode and socket loss.",
+        "Enabled background work while FAKE/LAPY apps are running or games are unfocused, while protecting their sources and mounts.",
+        "Added support for backport folders with title ID suffixes and clearer notifications showing the original path.",
+        "Added a per-game Ignore global fakelib option in the web UI, applied on the next launch.",
+        "Updated web UI branding to Shadow Mount+ and added a favicon."
+      ]
+    },
+    {
       "version": "1.7-beta5fix1",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7-beta5fix1/shadowmountplus.elf",
@@ -30,7 +99,7 @@
       "hash": "e85fd63b705498488f39c09c9aea6f9fa22e0df2e932865de49a8cedf25172d5",
       "fileSize": 2498376,
       "releaseDate": "2026-10-10",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "**Removed legacy kstuff auto-pause and delay autotuning.** Use the latest version of kstuff and do not use EtaHEN.",
