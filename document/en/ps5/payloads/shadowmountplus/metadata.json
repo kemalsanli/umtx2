@@ -23,6 +23,20 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta7",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta7/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta7/shadowmountplus.elf",
+      "hash": "a8f9d7f76e8749912508ade0cd5c78076b5bbf1271813c78c80c3d3d9d4777ee",
+      "fileSize": 2517288,
+      "releaseDate": "2026-10-21",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Fix sandbox USB recovery after device removal"
+      ]
+    },
+    {
       "version": "1.7beta6-fix2",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta6-fix2/shadowmountplus.elf",
@@ -30,7 +44,7 @@
       "hash": "ec87ad20f78be2d7cb82e9d77e72352b079e049baac3c1a211960ccd6f252e62",
       "fileSize": 2517224,
       "releaseDate": "2026-10-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
