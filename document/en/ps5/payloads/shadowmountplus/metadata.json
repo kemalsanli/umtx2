@@ -23,6 +23,27 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta8",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta8/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta8/shadowmountplus.elf",
+      "hash": "7163472217a2390f5bcbe3b61a96963976f7b7bd84d960b8d926f35b9cbecf28",
+      "fileSize": 3264664,
+      "releaseDate": "2026-10-26",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Redesigned the web interface for TV screens and gamepad navigation.",
+        "Added PKG installation from console/external storage and streaming installation from a PC browser (thanks to https://github.com/itsPLK/ps5-pkg-manager/ for the ideas).",
+        "Added installed patch/DLC information and individual removal.",
+        "Added backport installation, replacement and deletion.",
+        "Added support for param.sfo, eboot2.bin and homebrew IDs beyond FAKE/LAPY.",
+        "Added the ability to install PS4 games from images and folders.",
+        "Enabled LAN access to the API by default."
+      ]
+    },
+    {
       "version": "1.7beta7",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta7/shadowmountplus.elf",
@@ -30,7 +51,7 @@
       "hash": "a8f9d7f76e8749912508ade0cd5c78076b5bbf1271813c78c80c3d3d9d4777ee",
       "fileSize": 2517288,
       "releaseDate": "2026-10-21",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Fix sandbox USB recovery after device removal"
