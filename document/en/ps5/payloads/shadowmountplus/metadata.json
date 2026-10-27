@@ -23,6 +23,27 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta9",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta9/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta9/shadowmountplus.elf",
+      "hash": "928a5a7e33d2801c1c14a5ed8ad83fcab07957ba3a5daccd382dba67d408b3e2",
+      "fileSize": 3542864,
+      "releaseDate": "2026-10-27",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Added SMB2/SMB3 support for network file transfers and installation.",
+        "Big thanks to @owendswang and @john-tornblom for the libraries.",
+        "Added installation of game folders and images into a selected local directory.",
+        "Improved PKG upload speed, SMB transfers and installation reliability.",
+        "Fixed intermittent Input/output error failures during installation.",
+        "Added file deletion and folder creation in the installation browser.",
+        "Added free-space information for local drives and SMB shares.",
+        "Improved mobile and gamepad navigation,"
+      ]
+    },
+    {
       "version": "1.7beta8",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta8/shadowmountplus.elf",
@@ -30,7 +51,7 @@
       "hash": "7163472217a2390f5bcbe3b61a96963976f7b7bd84d960b8d926f35b9cbecf28",
       "fileSize": 3264664,
       "releaseDate": "2026-10-26",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": true,
       "changelog": [
         "\u26a0 This is a pre-release version. Use with caution.",
