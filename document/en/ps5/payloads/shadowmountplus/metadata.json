@@ -23,6 +23,28 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta11",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta11/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta11/shadowmountplus.elf",
+      "hash": "08c843018750bef013fe3a4de5f80c5c9738c6c2dafa2406e6b6e68d7585f3da",
+      "fileSize": 3614944,
+      "releaseDate": "2026-10-29",
+      "isDefault": true,
+      "isPreRelease": false,
+      "changelog": [
+        "Unified PKG installation queue with cover cards for PC, local storage and SMB.",
+        "Select up to 32 PC files; additional selections append without duplicates.",
+        "Automatic game \u2192 update \u2192 DLC ordering for PC batches.",
+        "Failed or cancelled queues retain unfinished packages.",
+        "Improved PS4 DLC and PS5 media PKG detection.",
+        "Fixed premature DLC installation failures (0x80E90004).",
+        "Fixed json-c memory leaks during repeated scans.",
+        "Added estimated remaining installation time.",
+        "Improved read-only destination handling."
+      ]
+    },
+    {
       "version": "1.7beta10",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta10/shadowmountplus.elf",
@@ -30,7 +52,7 @@
       "hash": "8c6798232ae2a8fbcd209ab97fc4f8d4d47cf23b7eecfaa6349c0bfeb8e4a3d3",
       "fileSize": 3580320,
       "releaseDate": "2026-10-28",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Added safe USB drive ejection from the web interface.",
