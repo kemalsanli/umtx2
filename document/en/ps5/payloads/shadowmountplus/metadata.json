@@ -23,6 +23,25 @@
   "toPort": 9021,
   "versions": [
     {
+      "version": "1.7beta12",
+      "fileName": "shadowmountplus.elf",
+      "filePath": "payloads/shadowmountplus/1.7beta12/shadowmountplus.elf",
+      "downloadUrl": "https://github.com/drakmor/ShadowMountPlus/releases/download/1.7beta12/shadowmountplus.elf",
+      "hash": "8755172ec9bef1bff5453ea75606e0caf7c41b5963f94f5a1087e7e8c6d9b1bd",
+      "fileSize": 3626576,
+      "releaseDate": "2026-11-08",
+      "isDefault": true,
+      "isPreRelease": true,
+      "changelog": [
+        "\u26a0 This is a pre-release version. Use with caution.",
+        "Introduced configuration format v2, with separate config.ini and profiles.ini, automatic migration, and runtime reloads.",
+        "Improved mount and launch recovery, including safer cleanup of sandbox layers and handling for M.2 storage.",
+        "Made library scans more resilient to inaccessible folders and source changes.",
+        "Improved metadata and filename handling for PS4 trophies, sce_sys files, and dynamic libraries.",
+        "Added browser back navigation, an option to disable startup library notifications, and better support for long image mount paths."
+      ]
+    },
+    {
       "version": "1.7beta11",
       "fileName": "shadowmountplus.elf",
       "filePath": "payloads/shadowmountplus/1.7beta11/shadowmountplus.elf",
@@ -30,7 +49,7 @@
       "hash": "08c843018750bef013fe3a4de5f80c5c9738c6c2dafa2406e6b6e68d7585f3da",
       "fileSize": 3614944,
       "releaseDate": "2026-10-29",
-      "isDefault": true,
+      "isDefault": false,
       "isPreRelease": false,
       "changelog": [
         "Unified PKG installation queue with cover cards for PC, local storage and SMB.",
